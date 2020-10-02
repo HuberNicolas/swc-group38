@@ -1,5 +1,5 @@
-#PART 1:
-##Bulletpoint 1: Architecture
+#PART 1:#
+##Bulletpoint 1: Architecture##
 
 (See vis-ui.jpg)
 ![vis-ui](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part1/vis-ui.jpg)
@@ -19,13 +19,13 @@ The "layout" package has just 6 independent classes, of which two of them get im
 
 To keep it simple, we did not point out every connection to the (third-party) repo com.badlogic.gdx, because a major part of the classes in ui did import things of it. Instead, we just mentiond com.badlogic.gdx in general.
 
-##Bulletpoint 2: Callgraph
+##Bulletpoint 2: Callgraph##
 
 
 
 
 
-#PART 2:
+#PART 2:#
 
 We chose the following 6 functions:
 
@@ -33,7 +33,7 @@ We chose the following 6 functions:
 2. lexIdentifierContent in Lexer.java / 147
 3. lexStyleBlock in Lexer.java / 214
 4. parseAndLexInclude in Lexer.java / 250
-5. removeComments in Lexer.java / 98
-6. findBlockEnd in  Parser.java / 223
+5. removeComments in Lexer.java / 98 ![removeComments(String usl)](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/removeComments.jpg)
+6. findBlockEnd in  Parser.java / 223 ![findBlockEnd()](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/findBlockEnd.jpg)
 
 For each function, there is a flowchart (.jpg file) in the Part2 folder.
