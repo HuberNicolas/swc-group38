@@ -1,6 +1,9 @@
-PART 1: Explanation in natural Language
+#PART 1:
+##Bulletpoint 1: Architecture
 
-See vis-ui.jpg
+(See vis-ui.jpg)
+![vis-ui](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/vis-ui.jpg)
+Explanation in natural Language
 
 First things first: We focused on the "vis-ui\\ui" package, although there was also a "vis-ui\\usl" package. We did this to make things easier to understand and to reduce to the basics. The "ui"-package seems be more important ("usl" - package is described as the command line tool).
 
@@ -16,4 +19,21 @@ The "layout" package has just 6 independent classes, of which two of them get im
 
 To keep it simple, we did not point out every connection to the (third-party) repo com.badlogic.gdx, because a major part of the classes in ui did import things of it. Instead, we just mentiond com.badlogic.gdx in general.
 
-PART 2: Callgraph
+##Bulletpoint 2: Callgraph
+
+
+
+
+
+#PART 2:
+
+We chose the following 6 functions:
+
+1. lexIdentifier in Lexer.java / 127
+2. lexIdentifierContent in Lexer.java / 147
+3. lexStyleBlock in Lexer.java / 214
+4. parseAndLexInclude in Lexer.java / 250
+5. removeComments in Lexer.java / 98
+6. findBlockEnd in  Parser.java / 223
+
+For each function, there is a flowchart (.jpg file) in the Part2 folder.
