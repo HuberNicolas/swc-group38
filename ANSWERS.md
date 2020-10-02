@@ -1,8 +1,10 @@
-#PART 1:#
-##Bulletpoint 1: Architecture##
+PART 1:
+=======
+Bulletpoint 1: Architecture
+-------
 
 (See vis-ui.jpg)
-![vis-ui](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part1/vis-ui.jpg)
+![vis-ui](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part1/vis-ui.jpg "vis-ui Architecture")
 Explanation in natural Language
 
 First things first: We focused on the "vis-ui\\ui" package, although there was also a "vis-ui\\usl" package. We did this to make things easier to understand and to reduce to the basics. The "ui"-package seems be more important ("usl" - package is described as the command line tool).
@@ -33,7 +35,9 @@ We chose the following 6 functions:
 2. lexIdentifierContent in Lexer.java / 147
 3. lexStyleBlock in Lexer.java / 214
 4. parseAndLexInclude in Lexer.java / 250
-5. removeComments in Lexer.java / 98 ![removeComments(String usl)](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/removeComments.jpg)
-6. findBlockEnd in  Parser.java / 223 ![findBlockEnd()](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/findBlockEnd.jpg)
+5. removeComments in Lexer.java / 98 
+6. findBlockEnd in  Parser.java / 223
+![removeComments(String usl)](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/removeComments.jpg "removeComments flowchart")
+![findBlockEnd()](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/findBlockEnd.jpg)
 
 For each function, there is a flowchart (.jpg file) in the Part2 folder.
