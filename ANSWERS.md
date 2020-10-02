@@ -2,7 +2,7 @@
 ##Bulletpoint 1: Architecture
 
 (See vis-ui.jpg)
-![vis-ui](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/vis-ui.jpg)
+![vis-ui](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part1/vis-ui.jpg)
 Explanation in natural Language
 
 First things first: We focused on the "vis-ui\\ui" package, although there was also a "vis-ui\\usl" package. We did this to make things easier to understand and to reduce to the basics. The "ui"-package seems be more important ("usl" - package is described as the command line tool).
