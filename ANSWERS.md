@@ -1,4 +1,8 @@
-First things first: We focused on the "vis-ui\\ui" package, although there was also a "vis-ui\\usl" package. We did this to make things easier to understand and to reduce to the basics. The "ui"-package seems be more important ("usl" - package is described as the command line tool). 
+PART 1: Explanation in natural Language
+
+See vis-ui.jpg
+
+First things first: We focused on the "vis-ui\\ui" package, although there was also a "vis-ui\\usl" package. We did this to make things easier to understand and to reduce to the basics. The "ui"-package seems be more important ("usl" - package is described as the command line tool).
 
 In the root of the "vis-ui\\ui" package we find 5 packages and several classes. Theses top classes, especially "VisUI" are not very dependent (just "Locales take use the package "widget"). We state that "VisUI" is like the backbone of "vis-ui", hence you find information like the version number in it. We decided to go further and to represent 5 packages of "com.kotcrab.vis.ui" to grasp the nature of the program.
 
@@ -11,3 +15,5 @@ The package "i18n" is not connected to any other class.
 The "layout" package has just 6 independent classes, of which two of them get imported by the last package, "widget". "widget" hughe package, so that we renounce all the classes and packages. It is sufficient to know, that "widget" is used by "util" and "layout".
 
 To keep it simple, we did not point out every connection to the (third-party) repo com.badlogic.gdx, because a major part of the classes in ui did import things of it. Instead, we just mentiond com.badlogic.gdx in general.
+
+PART 2: Callgraph
