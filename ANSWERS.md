@@ -38,7 +38,8 @@ We chose the following 6 functions:
 5. removeComments in Lexer.java / 98
 6. findBlockEnd in  Parser.java / 223
 
-
+Flowcharts for functions 1 to 6
+-------
 ![removeComments(String usl)](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/removeComments.jpg "removeComments flowchart")
 ![findBlockEnd()](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/findBlockEnd.jpg)
 
