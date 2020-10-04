@@ -17,7 +17,7 @@ The next big package on the same level like "building" is "util". "util" has som
 
 The package "i18n" is not connected to any other class.
 
-The "layout" package has just 6 independent classes, of which two of them get imported by the last package, "widget". "widget" hughe package, so that we renounce all the classes and packages. It is sufficient to know, that "widget" is used by "util" and "layout".
+The "layout" package has just 6 independent classes, of which two of them get imported by the last package, "widget". "widget" is a huge package, so that we renounce all the classes and packages. It is sufficient to know, that "widget" is used by "util" and "layout".
 
 To keep it simple, we did not point out every connection to the (third-party) repo com.badlogic.gdx, because a major part of the classes in ui did import things of it. Instead, we just mentiond com.badlogic.gdx in general.
 
