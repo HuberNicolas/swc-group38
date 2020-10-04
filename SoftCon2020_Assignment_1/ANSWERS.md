@@ -67,6 +67,6 @@ Flowcharts for functions 1 to 6
 
 6. findBlockEnd in  Parser.java / 223
 ------
-![findBlockEnd()](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part2/findBlockEnd.jpg)
+![findBlockEnd()](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part2/findBlockEnd.png)
 
 For each function, there is a flowchart (.png file) in the Part2 folder.
