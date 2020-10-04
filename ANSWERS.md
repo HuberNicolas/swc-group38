@@ -40,7 +40,9 @@ We chose the following 6 functions:
 
 Flowcharts for functions 1 to 6
 -------
+![lexIdentifier](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/lexidentifier_final.png)
+![lexIdentifierContent](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/lexIdentifierContent_final.png)
 ![removeComments(String usl)](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/removeComments.jpg "removeComments flowchart")
 ![findBlockEnd()](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/findBlockEnd.jpg)
 
-For each function, there is a flowchart (.jpg file) in the Part2 folder.
+For each function, there is a flowchart (.jpg/.png file) in the Part2 folder.
