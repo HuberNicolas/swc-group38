@@ -54,10 +54,12 @@ Flowcharts for functions 1 to 6
 
 3. lexStyleBlock in Lexer.java / 214
 ------
+![lexStyleBlock](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part2/data_flow_lexStyleBlock.png)
 
 
 4. parseAndLexInclude in Lexer.java / 250
 ------
+![parseAndLexInclude](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part2/parseAndLexInclude.png)
 
 
 5. removeComments in Lexer.java / 98
