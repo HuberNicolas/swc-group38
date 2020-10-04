@@ -40,9 +40,23 @@ We chose the following 6 functions:
 
 Flowcharts for functions 1 to 6
 -------
+
+
+1. lexIdentifier in Lexer.java / 127
+------
 ![lexIdentifier](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/lexidentifier_final.png)
+2. lexIdentifierContent in Lexer.java / 147
+------
 ![lexIdentifierContent](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/lexIdentifierContent_final.png)
+3. lexStyleBlock in Lexer.java / 214
+------
+4. parseAndLexInclude in Lexer.java / 250
+------
+5. removeComments in Lexer.java / 98
+------
 ![removeComments(String usl)](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/removeComments.jpg "removeComments flowchart")
+6. findBlockEnd in  Parser.java / 223
+------
 ![findBlockEnd()](https://github.com/HuberNicolas/SoftCon2020_Assignment_1/blob/master/Part2/findBlockEnd.jpg)
 
-For each function, there is a flowchart (.jpg/.png file) in the Part2 folder.
+For each function, there is a flowchart (.png file) in the Part2 folder.
