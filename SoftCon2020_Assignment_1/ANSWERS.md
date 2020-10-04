@@ -23,7 +23,7 @@ To keep it simple, we did not point out every connection to the (third-party) re
 
 Bulletpoint 2: Callgraph
 -------
-
+![callgraph](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part1/Call_graph.png "Visualisation of a Callgraph")
 
 
 
