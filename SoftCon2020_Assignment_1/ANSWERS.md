@@ -7,7 +7,7 @@ Bulletpoint 1: Architecture
 ![vis-ui](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part1/vis-ui.jpg "vis-ui Architecture")
 Explanation in natural Language
 
-First things first: The goal of this program is to provide a skeleton to create an User Interface. Therefore, the program is divided into two parts: "vis-ui\\ui" and "vis-ui\\usl". The "ui"-package provides the actual assets to create the UI, whilest the usl is described as the command line tool. In this exercise, we focused on the "vis-ui\\ui" package, as the actual result output of the program heavily relies on that part. It's to make things easier to understand and to reduce to the basics. 
+First things first: The goal of this program is to provide a skeleton to create an User Interface. Therefore, the program is divided into two parts: "vis-ui\\ui" and "vis-ui\\usl". The "ui"-package provides the actual assets to create the UI, whilest the usl is described as the command line tool. In this bulletpoint, we focused on the "vis-ui\\ui" package, as the actual result output of the program heavily relies on that part. It's to make things easier to understand and to reduce to the essentials. 
 
 In the root of the "vis-ui\\ui" package we find 5 packages and several classes. We state that the classes, especially "VisUI", are like the backbone of "vis-ui", hence you find information like the version number in it. We decided to go further and to represent 5 packages of "com.kotcrab.vis.ui" to grasp the nature of the program.
 
