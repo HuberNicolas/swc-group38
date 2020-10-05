@@ -23,8 +23,10 @@ To keep it simple, we did not point out every connection to the (third-party) re
 
 Bulletpoint 2: Callgraph
 -------
-![callgraph](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part1/Call_graph.png "Visualisation of a Callgraph")
 
+The most prominent entry point seems to be the Main.java in the usl-package. From there, the first actual function call is the parse() function, which after that spreads rather wide. Therefore, to keep things somewhat clearly arranged, we concentrated on that part. In generall, it takes an input and breaks it up into parts that later are handled by the getJson() function, which is not further elaborated because of "simplicity" of the callgraph.
+
+![callgraph](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part1/Call_graph.png "Visualisation of a Callgraph")
 
 PART 2:
 ======
