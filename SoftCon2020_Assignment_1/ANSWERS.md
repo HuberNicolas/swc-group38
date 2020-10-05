@@ -4,27 +4,26 @@ Bulletpoint 1: Architecture
 -------
 
 (See vis-ui.png)
-![vis-ui](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part1/vis-ui.png "vis-ui Architecture")
+![vis-ui](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part1/vis-ui.jpg "vis-ui Architecture")
 Explanation in natural Language
 
-First things first: We focused on the "vis-ui\\ui" package, although there was also a "vis-ui\\usl" package. We did this to make things easier to understand and to reduce to the basics. The "ui"-package seems be more important ("usl" - package is described as the command line tool).
+First things first: The goal of this program is to provide a skeleton to create an User Interface. Therefore, the program is divided into two parts: "vis-ui\\ui" and "vis-ui\\usl". The "ui"-package provides the actual assets to create the UI, whilest the usl is described as the command line tool. In this exercise, we focused on the "vis-ui\\ui" package, as the actual result output of the program heavily relies on that part. It's to make things easier to understand and to reduce to the basics. 
 
-In the root of the "vis-ui\\ui" package we find 5 packages and several classes. Theses top classes, especially "VisUI" are not very dependent (just "Locales take use the package "widget"). We state that "VisUI" is like the backbone of "vis-ui", hence you find information like the version number in it. We decided to go further and to represent 5 packages of "com.kotcrab.vis.ui" to grasp the nature of the program.
+In the root of the "vis-ui\\ui" package we find 5 packages and several classes. We state that the classes, especially "VisUI", are like the backbone of "vis-ui", hence you find information like the version number in it. We decided to go further and to represent 5 packages of "com.kotcrab.vis.ui" to grasp the nature of the program.
 
-The package "building" has one abstract class "TableBuilder". Several classes (e.g. "CenteredTableBuilder", "GridTableBuilder", ...) inside of "building" extends this abstract class, and all of them import things of the "utilities" package. Since it is called "utilities", we did not go deeper (for the sake of simplicity). We say, "building" is the most important package, since the building process is crucial for a user interface like this package from kotcrab.
+The package "building" has one abstract class "TableBuilder". Several classes (e.g. "CenteredTableBuilder", "GridTableBuilder", ...) inside of "building" extends this abstract class, and all of them import things of the "utilities" package. Since it is called "utilities", we did not go deeper (for the sake of simplicity). We say, "building" creates the actual boxes inside the final window and is therefore crucial for an user interface like this program from kotcrab.
 
-The next big package on the same level like "building" is "util". "util" has some independent classes but also some that imports things from "widget". The name "util" suggests, that it provides utility functions and classes, therefore it is not that important.
+The next big package on the same level like "building" is "util". "util" has some independent classes but also some that import things from "widget". The name "util" suggests, that it provides utility functions and classes, that create the fundamental basics for the further assets.
+
+The "layout" package has just six independent classes. This package does provide the favourable layout of the final UI. Two of those six packages get imported by the last package, "widget". "Widget" is a huge package, with six subpackages and multiple classes. This package provides the actual widgets for the Interface like a colorpicker, menues, etc. As it goes into the very detail, it is sufficient to know, that "widget" is used by "util" and "layout".
 
 The package "i18n" is not connected to any other class.
-
-The "layout" package has just 6 independent classes, of which two of them get imported by the last package, "widget". "widget" is a huge package, so that we renounce all the classes and packages. It is sufficient to know, that "widget" is used by "util" and "layout".
 
 To keep it simple, we did not point out every connection to the (third-party) repo com.badlogic.gdx, because a major part of the classes in ui did import things of it. Instead, we just mentiond com.badlogic.gdx in general.
 
 Bulletpoint 2: Callgraph
 -------
 ![callgraph](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_1/Part1/Call_graph.png "Visualisation of a Callgraph")
-
 
 
 PART 2:
