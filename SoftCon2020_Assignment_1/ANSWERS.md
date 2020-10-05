@@ -28,7 +28,7 @@ Bulletpoint 2: Callgraph
 
 PART 2:
 ======
-We chose the following 6 functions:
+We chose the following 6 functions from the USL sourcecode:
 
 1. lexIdentifier in Lexer.java / 127
 2. lexIdentifierContent in Lexer.java / 147
