@@ -20,7 +20,7 @@ public class Main {
         System.out.print(Arrays.toString(test));
         // tests the coordinate, result eg. [A2, B2]
 
-        //System.out.print(Move.isFree(test));
+        Move.isFree(test);
         //isFree() check if field is already used
 
         GameBoard Board = new GameBoard();
