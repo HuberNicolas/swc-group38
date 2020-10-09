@@ -10,6 +10,19 @@ public class Main {
         System.out.print("Welcome to Battleship!!");
         System.lineSeparator();
 
+        // INPUT
+        // 1x Carrier (6)
+        Scanner myObj = new Scanner(System.in);
+        String cUInput;
+        System.out.print(" Please enter the position of your Carrier: ");
+        cUInput = myObj.nextLine();
+        Integer [] test = Utils.cUInputToGameCord(cUInput);
+        System.out.print(Arrays.toString(test));
+        // tests the coordinate, result eg. [A2, B2]
+
+        //System.out.print(Move.isFree(test));
+        //isFree() check if field is already used
+
         GameBoard Board = new GameBoard();
         Board.printBoard(Board); //Works
 

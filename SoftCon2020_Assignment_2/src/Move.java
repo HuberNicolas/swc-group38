@@ -1,7 +1,7 @@
 public class Move {
-    static String[] isFree(String [] Gamecord){
+    static void  isFree(Integer [] Gamecord){
        //if (GameBoard.grid[Gamecord[0]][Gamecord[1]]= " ")
-
-        return Gamecord;
+        System.out.print(Gamecord);
+        //return Gamecord;
     }
 }

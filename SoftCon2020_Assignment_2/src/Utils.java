@@ -1,5 +1,7 @@
+import java.util.Arrays;
+
 public class Utils {
-    static String[] cUInputToGameCord(String cUInput) {
+    static Integer[] cUInputToGameCord(String cUInput) {
         //calculate A1 to 11
         String cUInputonlyNumbers = "";
         for (int i = 0; i < cUInput.length(); i++) {
@@ -14,14 +16,15 @@ public class Utils {
             }
 
         }
-            //split the string into coordinates
-            String[] parts = cUInputonlyNumbers.split(" ");
-            String Gamecord1 = parts[0];
-            String Gamecord2 = parts[1];
+        //split the string into coordinates
+        String[] parts = cUInputonlyNumbers.split(" ");
+        String Gamecord1 = parts[0];
+        String Gamecord2 = parts[1];
 
 
-            //return as array, with both coordniates
-            String[] Gamecord = {Gamecord1, Gamecord2};
+        //return as array, with both coordniates
+
+        Integer[] Gamecord = {Integer.parseInt(Gamecord1), Integer.parseInt(Gamecord2)};
 
 
 
