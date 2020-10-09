@@ -1,5 +1,7 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 
 
@@ -23,10 +25,45 @@ public class Main {
         Move.isFree(test);
         //isFree() check if field is already used
 
+        // Init gameBoard Board
         GameBoard Board = new GameBoard();
         Board.printBoard(Board); //Works
 
-        Ship Carrier1 = new Ship("Carrier1",5,"C");
+        // Generating all Ships and store them in shipList
+        List<Ship> shipList = new ArrayList<Ship>(4);
+        for(int i = 0; i < 4; i++) {
+            switch (i) {
+                case 0:
+                    Ship Carrier = new Ship("Carrier",5,"C");
+                    shipList.add(Carrier);
+                    break;
+                case 1:
+                    for(int j = 0; j < 2; j++) {
+                        Ship Battleship = new Ship("Battleship",4,"B");
+                        shipList.add(Battleship);
+                    }
+                    break;
+                case 2:
+                    for(int j = 0; j < 3; j++) {
+                        Ship Submarine = new Ship("Submarine",3,"B");
+                        shipList.add(Submarine);
+                    }
+                    break;
+                case 3:
+                    for(int j = 0; j < 4; j++) {
+                        Ship PatrolBoat = new Ship("Patrol boat",2,"B");
+                        shipList.add(PatrolBoat);
+                    }
+                    break;
+            }
+        }
+
+        // Test to access all the attributes of the shipList // works
+
+        System.out.println("###########################################");
+        for(Ship ship : shipList) {
+            System.out.println(ship.getName() + " has length " + ship.length);
+        }
 
 
         /* To Test te Print function

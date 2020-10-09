@@ -10,6 +10,8 @@ public class Ship {
         shortName = sN;
     }
 
-
+    public String getName() {
+        return name;
+    }
 }
 
