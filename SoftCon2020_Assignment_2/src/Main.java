@@ -26,6 +26,8 @@ public class Main {
         GameBoard Board = new GameBoard();
         Board.printBoard(Board); //Works
 
+        Ship Carrier1 = new Ship("Carrier1",5,"C");
+
 
         /* To Test te Print function
             // INPUT

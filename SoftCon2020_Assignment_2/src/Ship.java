@@ -4,7 +4,7 @@ public class Ship {
     public String shortName; // eg. "C"
 
 
-    private Ship(String n, int l, String sN) {
+    Ship(String n, int l, String sN) {
         name = n;
         length = l;
         shortName = sN;
