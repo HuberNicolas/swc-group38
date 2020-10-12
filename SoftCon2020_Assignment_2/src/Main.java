@@ -49,6 +49,8 @@ public class Main {
             }
         }
         Move.makeMove(Board, "C");
+        Move.makeMove(Board, "B");
+
         GameBoard.printBoard(Board);
 
         System.lineSeparator();
