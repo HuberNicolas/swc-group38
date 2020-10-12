@@ -8,26 +8,13 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String [] args) {
 
-        // PRINT "Welcome to Battleship!!"
-        System.out.print("Welcome to Battleship!!");
-        System.lineSeparator();
-
-        // INPUT
-        // 1x Carrier (6)
-        Scanner myObj = new Scanner(System.in);
-        String cUInput;
-        System.out.print(" Please enter the position of your Carrier: ");
-        cUInput = myObj.nextLine();
-        Integer [] test = Utils.cUInputToGameCord(cUInput);
-        System.out.print(Arrays.toString(test));
-        // tests the coordinate, result eg. [A2, B2]
-
-        Move.isFree(test);
-        //isFree() check if field is already used
+        System.out.println("Welcome to Battleship!!");
 
         // Init gameBoard Board
         GameBoard Board = new GameBoard();
-        Board.printBoard(Board); //Works
+        //Board.printBoard(Board); //Works
+
+        GameBoard.printBoard(Board);
 
         // Generating all Ships and store them in shipList
         List<Ship> shipList = new ArrayList<Ship>(4);
@@ -36,11 +23,15 @@ public class Main {
                 case 0:
                     Ship Carrier = new Ship("Carrier",5,"C");
                     shipList.add(Carrier);
+                    System.out.print(" Please enter the position of your Carrier: ");
+                    //Move.readIn("C");
                     break;
                 case 1:
                     for(int j = 0; j < 2; j++) {
                         Ship Battleship = new Ship("Battleship",4,"B");
                         shipList.add(Battleship);
+                        System.out.print(" Please enter the position of your Battleship: ");
+                        //Move.readIn("B");
                     }
                     break;
                 case 2:
@@ -57,12 +48,26 @@ public class Main {
                     break;
             }
         }
+        Move.makeMove(Board, "C");
+        GameBoard.printBoard(Board);
+
+        System.lineSeparator();
+
+        // INPUT
+        // 1x Carrier (6)
+        //Move.readIn();
+        // tests the coordinate, result eg. [A2, B2]
+        //Move.isFree(test);
+        //isFree() check if field is already used
+
+
+
+
 
         // Test to access all the attributes of the shipList // works
-
-        System.out.println("###########################################");
+        //System.out.println("###########################################");
         for(Ship ship : shipList) {
-            System.out.println(ship.getName() + " has length " + ship.length);
+            //System.out.println(ship.getName() + " has length " + ship.length);
         }
 
 
