@@ -48,6 +48,7 @@ public class Main {
                     break;
             }
         }
+        //Test
         Move.makeMove(Board, "C");
         Move.makeMove(Board, "B");
 
