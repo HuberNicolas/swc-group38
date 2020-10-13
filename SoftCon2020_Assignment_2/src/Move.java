@@ -36,13 +36,17 @@ public class Move {
         // Letters are the same (vertical)
         if (coord[0] == coord[2]) {
             for(int i = Math.min(coord[1],coord[3]); i <= Math.max(coord[1],coord[3]); i++) {
-                GameBoard.grid[i][coord[0]] = sN;
+                // check if empty
+                if (GameBoard.grid[i][coord[0]] != " ") throw new IllegalArgumentException("There is already a ship placed");
+                else GameBoard.grid[i][coord[0]] = sN;
             }
         }
         // Numbers are the same (horizontal) (could NOT be removed) UPDATE: WE NEED THIS
         if (coord[1] == coord[3]) {
             for(int i = Math.min(coord[0],coord[2]); i <= Math.max(coord[0],coord[2]); i++) {
-                GameBoard.grid[coord[1]][i] = sN;
+                // check if empty
+                if (GameBoard.grid[coord[1]][i] != " ") throw new IllegalArgumentException("There is already a ship placed");
+                else GameBoard.grid[coord[1]][i] = sN;
             }
         }
     }
