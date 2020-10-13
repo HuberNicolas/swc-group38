@@ -21,7 +21,7 @@ public class Move {
 
     static Integer [] readIn(String sN){
         // BUG: e.g. "F10" will be interpreted as "F1"
-        // 1x Carrier (6)
+
         Scanner myObj = new Scanner(System.in);
         String cUInput;
         //System.out.print(" Please enter the position of your Carrier: ");
@@ -39,7 +39,7 @@ public class Move {
                 GameBoard.grid[i][coord[0]] = sN;
             }
         }
-        // Numbers are the same (horizontal) (could be removed)
+        // Numbers are the same (horizontal) (could NOT be removed) UPDATE: WE NEED THIS
         if (coord[1] == coord[3]) {
             for(int i = Math.min(coord[0],coord[2]); i <= Math.max(coord[0],coord[2]); i++) {
                 GameBoard.grid[coord[1]][i] = sN;
@@ -47,12 +47,12 @@ public class Move {
         }
     }
 
-    static void makeMove(GameBoard board, String sN) {
-        Integer [] coord = readIn(sN);
-        if (!Utils.validMove(coord, sN)) {
+    static void makeMove(GameBoard board, Ship s) {
+        Integer [] coord = readIn(s.shortName);
+        if (!Utils.validMove(coord, s.shortName)) {
             System.out.println("This was not a valid move, please try again");
         }
-        else writeMove(board, sN, coord);
+        else writeMove(board, s.shortName, coord);
 
     }
 

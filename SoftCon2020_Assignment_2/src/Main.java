@@ -14,39 +14,48 @@ public class Main {
 
         // Generating all Ships and store them in shipList
         List<Ship> shipList = new ArrayList<Ship>(4);
+        int shipListIterator = 0;
         for(int i = 0; i < 4; i++) {
             switch (i) {
                 case 0:
                     Ship Carrier = new Ship("Carrier",5,"C");
                     shipList.add(Carrier);
-                    //System.out.print(" Please enter the position of your Carrier: ");
-                    //Move.readIn("C");
+                    System.out.print(" Please enter the position of your Carrier: ");
+                    Move.makeMove(Board, shipList.get(shipListIterator));
+                    shipListIterator++;
                     break;
                 case 1:
                     for(int j = 0; j < 2; j++) {
                         Ship Battleship = new Ship("Battleship",4,"B");
                         shipList.add(Battleship);
-                        //System.out.print(" Please enter the position of your Battleship: ");
-                        //Move.readIn("B");
+                        System.out.print(" Please enter the position of your Battleship: ");
+                        Move.makeMove(Board, shipList.get(shipListIterator));
+                        shipListIterator++;
                     }
                     break;
                 case 2:
                     for(int j = 0; j < 3; j++) {
-                        Ship Submarine = new Ship("Submarine",3,"B");
+                        Ship Submarine = new Ship("Submarine",3,"S");
                         shipList.add(Submarine);
+                        System.out.print(" Please enter the position of your Submarine: ");
+                        Move.makeMove(Board, shipList.get(shipListIterator));
+                        shipListIterator++;
                     }
                     break;
                 case 3:
                     for(int j = 0; j < 4; j++) {
-                        Ship PatrolBoat = new Ship("Patrol boat",2,"B");
+                        Ship PatrolBoat = new Ship("Patrol boat",2,"P");
                         shipList.add(PatrolBoat);
+                        System.out.print(" Please enter the position of your Patrol boat: ");
+                        Move.makeMove(Board, shipList.get(shipListIterator));
+                        shipListIterator++;
                     }
                     break;
             }
         }
+
+        //Ship List C, B, B, S, S, S, B, B, B, B
         //Test
-        Move.makeMove(Board, "C");
-        Move.makeMove(Board, "B");
 
         GameBoard.printBoard(Board);
 
