@@ -20,6 +20,7 @@ public class Move {
     }
 
     static Integer [] readIn(String sN){
+        // BUG: e.g. "F10" will be interpreted as "F1"
         // 1x Carrier (6)
         Scanner myObj = new Scanner(System.in);
         String cUInput;
@@ -48,8 +49,11 @@ public class Move {
 
     static void makeMove(GameBoard board, String sN) {
         Integer [] coord = readIn(sN);
-        // check coord;
-        writeMove(board, sN, coord);
+        if (!Utils.validMove(coord, sN)) {
+            System.out.println("This was not a valid move, please try again");
+        }
+        else writeMove(board, sN, coord);
+
     }
 
 }

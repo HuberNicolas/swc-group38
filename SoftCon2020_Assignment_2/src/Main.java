@@ -3,8 +3,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
-
 public class Main {
     public static void main(String [] args) {
 
@@ -12,9 +10,7 @@ public class Main {
 
         // Init gameBoard Board
         GameBoard Board = new GameBoard();
-        //Board.printBoard(Board); //Works
-
-        GameBoard.printBoard(Board);
+        GameBoard.printBoard(Board); // Working
 
         // Generating all Ships and store them in shipList
         List<Ship> shipList = new ArrayList<Ship>(4);
@@ -23,14 +19,14 @@ public class Main {
                 case 0:
                     Ship Carrier = new Ship("Carrier",5,"C");
                     shipList.add(Carrier);
-                    System.out.print(" Please enter the position of your Carrier: ");
+                    //System.out.print(" Please enter the position of your Carrier: ");
                     //Move.readIn("C");
                     break;
                 case 1:
                     for(int j = 0; j < 2; j++) {
                         Ship Battleship = new Ship("Battleship",4,"B");
                         shipList.add(Battleship);
-                        System.out.print(" Please enter the position of your Battleship: ");
+                        //System.out.print(" Please enter the position of your Battleship: ");
                         //Move.readIn("B");
                     }
                     break;
@@ -55,16 +51,6 @@ public class Main {
         GameBoard.printBoard(Board);
 
         System.lineSeparator();
-
-        // INPUT
-        // 1x Carrier (6)
-        //Move.readIn();
-        // tests the coordinate, result eg. [A2, B2]
-        //Move.isFree(test);
-        //isFree() check if field is already used
-
-
-
 
 
         // Test to access all the attributes of the shipList // works
@@ -94,7 +80,7 @@ public class Main {
         // OUTPUT
 
         // PRINT "Your board is:"
-        // printBoard(gameBoard Board)
+        GameBoard.printBoard(Board);
 
 
     }
