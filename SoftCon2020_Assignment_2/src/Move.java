@@ -24,7 +24,7 @@ public class Move {
         //System.out.print(" Please enter the position of your Carrier: ");
         cUInput = myObj.nextLine();
         Integer [] coord = Utils.cUInputToGameCord(cUInput);
-        printCood(coord); // for debugging
+        //printCood(coord); // for debugging
         return coord;
     }
 
