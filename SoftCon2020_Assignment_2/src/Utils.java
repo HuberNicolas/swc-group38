@@ -12,18 +12,20 @@ public class Utils {
 
         return Gamecord;
     }
-    static boolean validMove(Integer [] Gamecoord, String sN) {
+    static boolean validMove(Integer [] Gamecoord, String sN, Integer len) {
         //function is not tested
         //check if horizontal or vertical -> no diagonal possible
     if (Gamecoord[0]!=Gamecoord[2] && Gamecoord[1] != Gamecoord[3]) {
         throw new IllegalArgumentException("No diagonal ships allowed");
          }
-        //checks, if out of field
+        //check if out of field
     if (Gamecoord[0]<0 || Gamecoord[1]<0 ||Gamecoord[2]<0 ||Gamecoord[3]<0 ||Gamecoord[0]>10 ||Gamecoord[1]>10 ||Gamecoord[2]>10 ||Gamecoord[3]>10 ){
         throw new IllegalArgumentException("Out of Gameboard");}
-    //To do: decide if the difference between coordinated = size of ship
-
-        else return true;
+        //check if length of ship is valid
+    if (Math.abs(Gamecoord[0]-Gamecoord[2]) != len && Math.abs(Gamecoord[1]-Gamecoord[3]) != len) {
+        throw new IllegalArgumentException("Invalid length of Ship");
+    }
+    else return true;
     }
 
 

@@ -49,7 +49,7 @@ public class Move {
 
     static void makeMove(GameBoard board, Ship s) {
         Integer [] coord = readIn(s.shortName);
-        if (!Utils.validMove(coord, s.shortName)) {
+        if (!Utils.validMove(coord, s.shortName, s.length)) {
             System.out.println("This was not a valid move, please try again");
         }
         else writeMove(board, s.shortName, coord);
