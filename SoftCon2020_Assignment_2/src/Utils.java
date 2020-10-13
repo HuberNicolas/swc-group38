@@ -21,11 +21,11 @@ public class Utils {
         throw new IllegalArgumentException("Out of Gameboard");}
         //check if length of ship is valid
 
-    /*  DEBUG
-    if (Math.abs(Gamecoord[0]-Gamecoord[2]) != len && Math.abs(Gamecoord[1]-Gamecoord[3]) != len) {
+
+    if (Math.abs(Gamecoord[0]-Gamecoord[2]) != (len-1) && Math.abs(Gamecoord[1]-Gamecoord[3]) != (len-1)) {
         throw new IllegalArgumentException("Invalid length of Ship");
     }
-    */
+
     else return true;
     }
 

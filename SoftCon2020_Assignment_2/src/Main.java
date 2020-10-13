@@ -1,6 +1,4 @@
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
@@ -18,7 +16,7 @@ public class Main {
         for(int i = 0; i < 4; i++) {
             switch (i) {
                 case 0:
-                    Ship Carrier = new Ship("Carrier",5,"C");
+                    Ship Carrier = new Ship("Carrier",6,"C");
                     shipList.add(Carrier);
                     System.out.print(" Please enter the position of your Carrier: ");
                     Move.makeMove(Board, shipList.get(shipListIterator));
