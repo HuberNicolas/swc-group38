@@ -54,13 +54,7 @@ public class Main {
             }
         }
 
-        //Ship List C, B, B, S, S, S, B, B, B, B
-        //Test
-
-        GameBoard.printBoard(Board);
-
-        System.lineSeparator();
-
+        System.lineSeparator(); // ???
 
         // Test to access all the attributes of the shipList // works
         //System.out.println("###########################################");
@@ -68,27 +62,7 @@ public class Main {
             //System.out.println(ship.getName() + " has length " + ship.length);
         }
 
-
-        /* To Test te Print function
-            // INPUT
-            // 1x Carrier (6)
-            Scanner myObj = new Scanner(System.in);
-            String cUInput;
-            System.out.print(" Please enter the position of your Carrier: ");
-            cUInput = myObj.nextLine();
-            String [] test = Utils.cUInputToGameCord(cUInput);
-            System.out.print(Arrays.toString(test));
-            // tests the coordinate, result eg. [A2, B2]
-        */
-
-        // 2x Battleship (4)
-        // 3x Submarine (3)
-        // 4x Patrol Boat (2)
-
-
-        // OUTPUT
-
-        // PRINT "Your board is:"
+        System.out.println("Your board is: ");
         GameBoard.printBoard(Board);
 
 
