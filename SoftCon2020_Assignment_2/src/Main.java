@@ -52,7 +52,7 @@ public class Main {
             }
         }
 
-        System.lineSeparator(); // ???
+        //System.lineSeparator(); // ???
 
         // Test to access all the attributes of the shipList // works
         //System.out.println("###########################################");

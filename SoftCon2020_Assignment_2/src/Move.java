@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-
-
 public class Move {
     static void  isFreeL(Integer [] Gamecord){
        if (GameBoard.grid[0][0]== "S")
@@ -32,7 +29,6 @@ public class Move {
     }
 
     static void writeMove(GameBoard board, String sN, Integer [] coord) {
-
         // Letters are the same (vertical)
         if (coord[0] == coord[2]) {
             for(int i = Math.min(coord[1],coord[3]); i <= Math.max(coord[1],coord[3]); i++) {

@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Utils {
     static Integer[] cUInputToGameCord(String cUInput) {
         //tansform Input "A1 B1" to [0, 1, 1, 1]
@@ -20,13 +18,9 @@ public class Utils {
     if (Gamecoord[0]<0 || Gamecoord[1]<0 ||Gamecoord[2]<0 ||Gamecoord[3]<0 ||Gamecoord[0]>10 ||Gamecoord[1]>10 ||Gamecoord[2]>10 ||Gamecoord[3]>10 ){
         throw new IllegalArgumentException("Out of Gameboard");}
         //check if length of ship is valid
-
     if (Math.abs(Gamecoord[0]-Gamecoord[2]) != (len-1) && Math.abs(Gamecoord[1]-Gamecoord[3]) != (len-1)) {
         throw new IllegalArgumentException("Invalid length of Ship");
     }
-
     else return true;
     }
-
-
 }
