@@ -25,28 +25,28 @@ public class Main {
                     shipListIterator++;
                     break;
                 case 1:
-                    for(int j = 0; j < 2; j++) {
+                    for(int j = 1; j < 3; j++) {
                         Ship Battleship = new Ship("Battleship",4,"B");
                         shipList.add(Battleship);
-                        System.out.print(" Please enter the position of your Battleship "+ i+1 +": ");
+                        System.out.print(" Please enter the position of your Battleship "+ j +": ");
                         Move.makeMove(Board, shipList.get(shipListIterator));
                         shipListIterator++;
                     }
                     break;
                 case 2:
-                    for(int j = 0; j < 3; j++) {
+                    for(int j = 1; j < 4; j++) {
                         Ship Submarine = new Ship("Submarine",3,"S");
                         shipList.add(Submarine);
-                        System.out.print(" Please enter the position of your Submarine "+ i+1 +": ");
+                        System.out.print(" Please enter the position of your Submarine "+ j +": ");
                         Move.makeMove(Board, shipList.get(shipListIterator));
                         shipListIterator++;
                     }
                     break;
                 case 3:
-                    for(int j = 0; j < 4; j++) {
+                    for(int j = 1; j < 5; j++) {
                         Ship PatrolBoat = new Ship("Patrol boat",2,"P");
                         shipList.add(PatrolBoat);
-                        System.out.print(" Please enter the position of your Patrol boat "+ i+1 +": ");
+                        System.out.print(" Please enter the position of your Patrol boat "+ j +": ");
                         Move.makeMove(Board, shipList.get(shipListIterator));
                         shipListIterator++;
                     }
