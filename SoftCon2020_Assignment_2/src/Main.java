@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 
+// This is the version without exceptions
 public class Main {
     public static void main(String [] args) {
 
