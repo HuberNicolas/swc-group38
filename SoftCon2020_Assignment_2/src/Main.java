@@ -1,6 +1,7 @@
 /**
  * Description:             A 2dim Version of the BATTLESHIP GAME
  * @Authors:                Robin Wassink, Louis Huber and Nicolas Huber
+ *
  */
 
 import java.util.List;
