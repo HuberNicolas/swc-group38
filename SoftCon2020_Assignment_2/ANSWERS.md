@@ -29,7 +29,6 @@ isFree() checks the gameboard, using the gamecoordinates, if the fields are free
 -------
 
 # PART 2: UML-Diagram
-=======
 The following UML class diagram visualizes the classes in ui/util/adapter from the kotcrab project. 
 The Visualizationscheme has been adapted as learned in the lecture. As for inner classes no special definition was given, we chose to use the default arrow for inner classes. 
 ![UML](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_2/UML/UML_2.png)
