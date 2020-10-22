@@ -1,5 +1,5 @@
 # PART 1: Battleship:
-First, we did a diagram, to illustrate the overall structure of our program. 
+First, we made a diagram, to illustrate the overall structure of our program. 
 ![Class Diagram Battleship](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_2/ClassdiagramBattleship.png "Class Diagram Battleship")
 Then, we have implemented the different classes and fuctions, which we will describe now. We've commented our code, so we want explain every line.
 
@@ -26,12 +26,10 @@ The gameboard grid is a static variable. With this, it is very easy the write so
 isFree() checks the gameboard, using the gamecoordinates, if the fields are free. We have made it like that, so we could use this in future: When the game is actually played, you can check if person landed a hit at a ship. printCood() just prints the coordinates. readIn() takes the users input and converts them with cUInputToGameCord(). writeMove() uses to calculate the moves on the board, while makeMove() actually writes them into the board.
 
 
-
-=======
-Bulletpoint 1:
 -------
 
-#PART 2:UML-Diagram
-=======
-Bulletpoint 2:
--------
+# PART 2: UML-Diagram
+The following UML class diagram visualizes the classes in ui/util/adapter from the kotcrab project. 
+The Visualizationscheme as learned in the lecture has been applied. As no special definition was given for nested classes, we chose to use the default arrow for inner classes. 
+![UML](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_2/UML/UML_2.png)
+
