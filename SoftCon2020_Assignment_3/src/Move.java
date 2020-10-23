@@ -84,6 +84,10 @@ public class Move {
             System.out.println("This was not a valid move, please try again");
         }
         // we have a valid move; write it to the gameBoard
-        else writeMove(board, s.shortName, coord);
+        else {
+            writeMove(board, s.shortName, coord);
+            //update ship coordinates
+            //coord.s.ship=Utils.GameCordtowriteArray(Gamecoord);
+        }
     }
 }

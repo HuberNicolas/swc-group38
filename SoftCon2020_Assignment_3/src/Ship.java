@@ -9,10 +9,16 @@ public class Ship extends ShipI{
     public String shortName; // eg. "C"
 
     // Constructor
-    Ship(String n, int l, String sN) {
+    Ship(String n, int l, String sN, int id, String [] coord,String owner, int LP, boolean alive) {
         name = n;
         length = l;
         shortName = sN;
+        id=id;
+        coord = coord;
+        owner= owner;
+        LP= l;
+        alive = true;
+
     }
 
     // Getter
