@@ -1,8 +1,43 @@
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * CLASS Utils
  * Class for utility functions
  */
 public class Utils {
+    //takes the length as integer, return array like [A1,A3] can be converted with  GameCordtowriteArray()
+    static String[] ComputerRand(int  length) {
+        length=length-1;
+        //transform Input [0, 1, 1, 1] to [A1,B1]
+        String[] ComputerRand = new String[2];
+        int column = ThreadLocalRandom.current().nextInt(0, 10);
+        int row = ThreadLocalRandom.current().nextInt(0, 10);
+        ComputerRand[0] = String.valueOf((char)(column+65))+row;
+        //orientation defines, if the ship is horizontally or vertically placed
+        int orientation = ThreadLocalRandom.current().nextInt(1, 3);
+        //vertically placed
+        if (orientation==1){
+            //check if there is enough space. if not, the ship is placed backwards
+            if(length+column<10){
+                ComputerRand[1]=String.valueOf((char)(column+length+65))+row;
+            }
+        else{
+                ComputerRand[1]=String.valueOf((char)(column-length+65))+row;
+            }
+        }
+        else{
+            //horizontal placed
+            //check if there is enough space. if not, the ship is placed backwards
+            if(length+row<10){
+                ComputerRand[1]=String.valueOf((char)(column+65))+(row+length);
+            }
+            else{
+                ComputerRand[1]=String.valueOf((char)(column+65))+(row-length);
+            }
+        }
+
+        return ComputerRand;
+    }
     /**
      *
      * @param cUInput:                      string userinput, may needs to be rejected
@@ -11,7 +46,7 @@ public class Utils {
      *                                      converts it into the format [x_1,y_1,x_2,y_2]
      */
     static Integer[] cUInputToGameCord(String cUInput) {
-        //tansform Input "A1 B1" to [0, 1, 1, 1]
+        //transform Input "A1 B1" to [0, 1, 1, 1]
         Integer[] Gamecord = new Integer[4];
         //Check if length is correct
         if (cUInput.length()!= 5){
