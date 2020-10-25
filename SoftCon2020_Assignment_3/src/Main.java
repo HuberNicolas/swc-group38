@@ -12,7 +12,7 @@ public class Main {
     public static void main(String [] args) {
 
         System.out.println("Welcome to Battleship!!");
-        // Init gameBoard Board
+        // Init gameBoard Board, Singleton
         GameBoard Board = new GameBoard();
         int ID_counter=1;
         //GameBoard.printBoard(Board); // DEBUG
