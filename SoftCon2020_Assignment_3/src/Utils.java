@@ -58,9 +58,9 @@ public class Utils {
         Gamecord[3] = cUInput.charAt(4) - 48;
         return Gamecord;
     }
-    static String[] GameCordtowriteArray(int [] Gamecord) {
+    static String[] GameCordtowriteArray(Integer [] Gamecord) {
         //tansform Input [0, 1, 1, 1] to [A1,B1]
-        String[] GamecordArray = new String[100];
+        String[] GamecordArray = new String[10];
         int difference = 0;
         int j = 0;
         if (Gamecord[0]!= Gamecord[2]){
