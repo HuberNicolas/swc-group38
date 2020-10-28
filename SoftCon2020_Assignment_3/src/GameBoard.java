@@ -3,20 +3,18 @@
  * Implements the actual datastructure (2dim Array [][]) for the board.
  */
 public class GameBoard {
-    private  static GameBoard uniqueInstance = new GameBoard();
-    //define Singleton like in Solution 2
     static String [][] grid = {
-                               // A   B   C   D   E   F   G   H   I   J
-                                {" "," "," "," "," "," "," "," "," "," "}, //Row 0
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "},
-                                {" "," "," "," "," "," "," "," "," "," "}}; //Row 9
+            // A   B   C   D   E   F   G   H   I   J
+            {" "," "," "," "," "," "," "," "," "," "}, //Row 0
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "},
+            {" "," "," "," "," "," "," "," "," "," "}}; //Row 9
 
     /**
      *
@@ -24,11 +22,6 @@ public class GameBoard {
      * INPUT:                           GameBoard "board"
      * OUT  :                           prints GameBoard "board"
      */
-
-    //define Singleton
-    public static GameBoard getInstance(){
-        return uniqueInstance;
-    }
     static void printBoard(GameBoard board) {
         //System.out.println("\n");
         System.out.println("\nYour board is:\n");
@@ -43,5 +36,4 @@ public class GameBoard {
             System.out.println();
         }
     }
-
 }
