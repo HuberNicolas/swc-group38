@@ -66,7 +66,7 @@ public class Utils {
     }
     static String[] GameCordtowriteArray(Integer [] Gamecord) {
         //tansform Input [0, 1, 1, 1] to [A1,B1]
-        String[] GamecordArray = new String[100];
+        String[] GamecordArray = new String[10];
         int difference = 0;
         int j = 0;
         if (Gamecord[0]!= Gamecord[2]){
