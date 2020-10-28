@@ -4,100 +4,57 @@
  *
  */
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
+import java.lang.*;
 
 public class Main {
 
     public static void main(String [] args) {
 
         System.out.println("Welcome to Battleship!!");
-        // Init gameBoard Board, Singleton
-        GameBoard Board = new GameBoard();
-        int ID_counter=1;
-        //GameBoard.printBoard(Board); // DEBUG
+        Human Human = new Human(new GameBoard(), new ShootBoard());
+        Computer Computer = new Computer(new GameBoard(), new ShootBoard());
 
-        // Generating all Ships and store them in shipList
-        List<Ship> shipList = new ArrayList<Ship>(4);
-        int shipListIterator = 0; // number of all ships, regardless of type
-        // Fill shipList / board with 4 types of different ships
-        for(int i = 0; i < 4; i++) {
-            switch (i) {
-                case 0: // CARRIER
-                    Ship Carrier = new Ship("Carrier",6,"C",ID_counter,new String[]{"example"},"Player",6,true);
-                    shipList.add(Carrier);
-                    while (true) {
-                        try { // try to place a ship
-                            System.out.print(" Please enter the position of your Carrier: ");
-                            Move.makeMove(Board, shipList.get(shipListIterator));
-                            shipListIterator++;
-                            ID_counter=ID_counter+1;
-                            break;
-                        } catch (Exception e) {
-                            System.err.println("You cannot place your ship here! " + e.getMessage());
-                        }
-                    }
-                    break;
-                case 1: // BATTLESHIP
-                    for(int j = 1; j < 3; j++) {
-                        Ship Battleship = new Ship("Battleship",4,"B",ID_counter,new String[]{"example"},"Player",6,true);
-                        shipList.add(Battleship);
-                        while (true) {
-                            try { // try to place a ship
-                                System.out.print(" Please enter the position of your Battleship " + j + ": ");
-                                Move.makeMove(Board, shipList.get(shipListIterator));
-                                shipListIterator++;
-                                ID_counter=ID_counter+1;
-                                break;
-                            } catch (Exception e) {
-                                System.err.println("You cannot place your ship here! " + e.getMessage());
-                            }
-                        }
-                    }
-                    break;
-                case 2: // SUBMARINE
-                    for(int j = 1; j < 4; j++) {
-                        Ship Submarine = new Ship("Submarine",3,"S",ID_counter,new String[]{"example"},"Player",6,true);
-                        shipList.add(Submarine);
-                        while (true) {
-                            try { // try to place a ship
-                                System.out.print(" Please enter the position of your Submarine "+ j +": ");
-                                Move.makeMove(Board, shipList.get(shipListIterator));
-                                shipListIterator++;
-                                ID_counter=ID_counter+1;
-                                break;
-                            } catch (Exception e) {
-                                System.err.println("You cannot place your ship here! " + e.getMessage());
-                            }
-                        }
-                    }
-                    break;
-                case 3: // PATROL BOAT
-                    for(int j = 1; j < 5; j++) {
-                        Ship PatrolBoat = new Ship("Patrol boat",2,"P",ID_counter,new String[]{"example"},"Player",6,true);
-                        shipList.add(PatrolBoat);
-                        while(true) {
-                            try { // try to place a ship
-                                System.out.print(" Please enter the position of your Patrol boat "+ j +": ");
-                                Move.makeMove(Board, shipList.get(shipListIterator));
-                                shipListIterator++;
-                                ID_counter=ID_counter+1;
-                                break;
-                            } catch (Exception e) {
-                                System.err.println("You cannot place your ship here! " + e.getMessage());
-                            }
-                        }
-                    }
-                    break;
-            }
-        }
+        // Init gameBoard Board, Singleton
+        //Move.placingShips(Human);
+        //GameBoard.printBoard(Human.Board);
+        Move.placingShips(Computer);
+        GameBoard.printBoard(Computer.Board);
+
+
+        //Integer[] Gamescoord = Utils.cUInputToGameCord((ComputerRand[0]+" "+ComputerRand[1]));
+        //System.out.println(Gamescoord);
+        //String[] Output= Utils.GameCordtowriteArray(Gamescoord);
+        //System.out.println(Arrays.toString(Output));
+
+
         /*DEBUG
         // Test to access all the attributes of the shipList // works
         for(Ship ship : shipList) {
         * //System.out.println(ship.getName() + " has length " + ship.length);
         }*/
 
-        GameBoard.printBoard(Board);
+
+
+
+
+        // Computer is generating his gameboard
+
+
+
+        // Gameloop player is shooting, Computer is shooting and repeat
+
+        // Iterator
+
+        //while(true) {
+            // Player 1 is shooting (check is_shot?)
+            // Check Conditions
+            // Computer is shooting
+            // Check Conditions
+        //}
     }
 
 }

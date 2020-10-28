@@ -5,6 +5,13 @@ import java.util.concurrent.ThreadLocalRandom;
  * Class for utility functions
  */
 public class Utils {
+
+    private static Utils uniqueInstance = new Utils();
+    private Utils() {}
+    public static Utils getInstance() {
+        return uniqueInstance;
+    }
+
     //takes the length as integer, return array like [A1,A3] can be converted with  GameCordtowriteArray()
     static String[] ComputerRand(int  length) {
         length=length-1;
@@ -35,7 +42,6 @@ public class Utils {
                 ComputerRand[1]=String.valueOf((char)(column+65))+(row-length);
             }
         }
-
         return ComputerRand;
     }
     /**
@@ -58,7 +64,7 @@ public class Utils {
         Gamecord[3] = cUInput.charAt(4) - 48;
         return Gamecord;
     }
-    static String[] GameCordtowriteArray(int [] Gamecord) {
+    static String[] GameCordtowriteArray(Integer [] Gamecord) {
         //tansform Input [0, 1, 1, 1] to [A1,B1]
         String[] GamecordArray = new String[100];
         int difference = 0;

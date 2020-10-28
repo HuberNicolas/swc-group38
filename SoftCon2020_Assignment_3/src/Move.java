@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 /**
  * CLASS MOVE
@@ -76,18 +79,110 @@ public class Move {
      *                                      - method checks, if this is a valid user input
      *                                      - if so; write it to "board"
      */
-    static void makeMove(GameBoard board, Ship s) {
-        // users needs to enter coordinates
-        Integer [] coord = readIn(s.shortName);
-        // as long as we do not have a valid move; throw Exception and repeat!
-        if (!Utils.validMove(coord, s.shortName, s.length)) {
-            System.out.println("This was not a valid move, please try again");
+    static void makeMove(GameBoard board, Ship s, Player p) {
+        if (p instanceof Human) {
+            Integer [] coord = readIn(s.shortName);
+            // as long as we do not have a valid move; throw Exception and repeat!
+            if (!Utils.validMove(coord, s.shortName, s.length)) {
+                System.out.println("This was not a valid move, please try again");
+            }
+            // we have a valid move; write it to the gameBoard
+            else writeMove(board, s.shortName, coord);
+
         }
-        // we have a valid move; write it to the gameBoard
         else {
+            String[] ComputerRand = Utils.ComputerRand(s.length);
+            String randomInput = ComputerRand.toString();
+            String scoord = ""; // stands for string coordinates "G0 G4"
+            scoord += Arrays.toString(ComputerRand).charAt(1);
+            scoord += Arrays.toString(ComputerRand).charAt(2);
+            scoord += Arrays.toString(ComputerRand).charAt(4);
+            scoord += Arrays.toString(ComputerRand).charAt(5);
+            scoord += Arrays.toString(ComputerRand).charAt(6);
+            Integer [] coord = Utils.cUInputToGameCord(scoord);
             writeMove(board, s.shortName, coord);
-            //update ship coordinates
-            //coord.s.ship=Utils.GameCordtowriteArray(Gamecoord);
+        }
+    }
+
+    static void placingShips(Player p) {
+        int ID_counter=1;
+        //GameBoard.printBoard(Board); // DEBUG
+
+        // Generating all Ships and store them in shipList
+        List<Ship> shipList = new ArrayList<Ship>(4);
+        int shipListIterator = 0; // number of all ships, regardless of type
+        // Fill shipList / board with 4 types of different ships
+
+        //Move.placingShips();
+        for(int i = 0; i < 4; i++) {
+            switch (i) {
+                case 0: // CARRIER
+                    Ship Carrier = new Ship("Carrier",6,"C",ID_counter,new String[]{"example"},"Player",6,true);
+                    shipList.add(Carrier);
+                    while (true) {
+                        try { // try to place a ship
+                            System.out.print(" Please enter the position of your Carrier: ");
+                            Move.makeMove(p.Board, shipList.get(shipListIterator), p);
+                            shipListIterator++;
+                            ID_counter=ID_counter+1;
+                            break;
+                        } catch (Exception e) {
+                            System.err.println("You cannot place your ship here! " + e.getMessage());
+                        }
+                    }
+                    break;
+                case 1: // BATTLESHIP
+                    for(int j = 1; j < 2; j++) {
+                        Ship Battleship = new Ship("Battleship",4,"B",ID_counter,new String[]{"example"},"Player",6,true);
+                        shipList.add(Battleship);
+                        while (true) {
+                            try { // try to place a ship
+                                System.out.print(" Please enter the position of your Battleship " + j + ": ");
+                                Move.makeMove(p.Board, shipList.get(shipListIterator), p);
+                                shipListIterator++;
+                                ID_counter=ID_counter+1;
+                                break;
+                            } catch (Exception e) {
+                                System.err.println("You cannot place your ship here! " + e.getMessage());
+                            }
+                        }
+                    }
+                    break;
+                case 2: // SUBMARINE
+                    for(int j = 1; j < 2; j++) {
+                        Ship Submarine = new Ship("Submarine",3,"S",ID_counter,new String[]{"example"},"Player",6,true);
+                        shipList.add(Submarine);
+                        while (true) {
+                            try { // try to place a ship
+                                System.out.print(" Please enter the position of your Submarine "+ j +": ");
+                                Move.makeMove(p.Board, shipList.get(shipListIterator), p);
+                                shipListIterator++;
+                                ID_counter=ID_counter+1;
+                                break;
+                            } catch (Exception e) {
+                                System.err.println("You cannot place your ship here! " + e.getMessage());
+                            }
+                        }
+                    }
+                    break;
+                case 3: // PATROL BOAT
+                    for(int j = 1; j < 2; j++) {
+                        Ship PatrolBoat = new Ship("Patrol boat",2,"P",ID_counter,new String[]{"example"},"Player",6,true);
+                        shipList.add(PatrolBoat);
+                        while(true) {
+                            try { // try to place a ship
+                                System.out.print(" Please enter the position of your Patrol boat "+ j +": ");
+                                Move.makeMove(p.Board, shipList.get(shipListIterator), p);
+                                shipListIterator++;
+                                ID_counter=ID_counter+1;
+                                break;
+                            } catch (Exception e) {
+                                System.err.println("You cannot place your ship here! " + e.getMessage());
+                            }
+                        }
+                    }
+                    break;
+            }
         }
     }
 }
