@@ -121,63 +121,78 @@ public class Move {
                     shipList.add(Carrier);
                     while (true) {
                         try { // try to place a ship
-                            System.out.print(" Please enter the position of your Carrier: ");
+                            if (p instanceof Human) {
+                                System.out.print(" Please enter the position of your Carrier: ");
+                            }
                             Move.makeMove(p.Board, shipList.get(shipListIterator), p);
                             shipListIterator++;
                             ID_counter=ID_counter+1;
                             break;
                         } catch (Exception e) {
-                            System.err.println("You cannot place your ship here! " + e.getMessage());
+                            if (p instanceof Human) {
+                                System.err.println("You cannot place your ship here! " + e.getMessage());
+                            }
                         }
                     }
                     break;
                 case 1: // BATTLESHIP
-                    for(int j = 1; j < 2; j++) {
-                        Ship Battleship = new Ship("Battleship",4,"B",ID_counter,new String[]{"example"},"Player",6,true);
+                    for(int j = 1; j < 3; j++) {
+                        Ship Battleship = new Ship("Battleship",4,"B",ID_counter,new String[]{"example"},"Player",4,true);
                         shipList.add(Battleship);
                         while (true) {
                             try { // try to place a ship
-                                System.out.print(" Please enter the position of your Battleship " + j + ": ");
+                                if (p instanceof Human) {
+                                    System.out.print(" Please enter the position of your Battleship " + j + ": ");
+                                }
                                 Move.makeMove(p.Board, shipList.get(shipListIterator), p);
                                 shipListIterator++;
                                 ID_counter=ID_counter+1;
                                 break;
                             } catch (Exception e) {
-                                System.err.println("You cannot place your ship here! " + e.getMessage());
+                                if (p instanceof Human) {
+                                    System.err.println("You cannot place your ship here! " + e.getMessage());
+                                }
                             }
                         }
                     }
                     break;
                 case 2: // SUBMARINE
-                    for(int j = 1; j < 2; j++) {
-                        Ship Submarine = new Ship("Submarine",3,"S",ID_counter,new String[]{"example"},"Player",6,true);
+                    for(int j = 1; j < 4; j++) {
+                        Ship Submarine = new Ship("Submarine",3,"S",ID_counter,new String[]{"example"},"Player",3,true);
                         shipList.add(Submarine);
                         while (true) {
                             try { // try to place a ship
-                                System.out.print(" Please enter the position of your Submarine "+ j +": ");
+                                if (p instanceof Human) {
+                                    System.out.print(" Please enter the position of your Submarine " + j + ": ");
+                                }
                                 Move.makeMove(p.Board, shipList.get(shipListIterator), p);
                                 shipListIterator++;
                                 ID_counter=ID_counter+1;
                                 break;
                             } catch (Exception e) {
-                                System.err.println("You cannot place your ship here! " + e.getMessage());
+                                if (p instanceof Human) {
+                                    System.err.println("You cannot place your ship here! " + e.getMessage());
+                                }
                             }
                         }
                     }
                     break;
                 case 3: // PATROL BOAT
-                    for(int j = 1; j < 2; j++) {
-                        Ship PatrolBoat = new Ship("Patrol boat",2,"P",ID_counter,new String[]{"example"},"Player",6,true);
+                    for(int j = 1; j < 5; j++) {
+                        Ship PatrolBoat = new Ship("Patrol boat",2,"P",ID_counter,new String[]{"example"},"Player",2,true);
                         shipList.add(PatrolBoat);
                         while(true) {
                             try { // try to place a ship
-                                System.out.print(" Please enter the position of your Patrol boat "+ j +": ");
-                                Move.makeMove(p.Board, shipList.get(shipListIterator), p);
+                                if (p instanceof Human) {
+                                    System.out.print(" Please enter the position of your Patrol boat " + j + ": ");
+                                }Move.makeMove(p.Board, shipList.get(shipListIterator), p);
                                 shipListIterator++;
                                 ID_counter=ID_counter+1;
                                 break;
                             } catch (Exception e) {
-                                System.err.println("You cannot place your ship here! " + e.getMessage());
+                                if (p instanceof Human) {
+                                    System.err.println("You cannot place your ship here! " + e.getMessage());
+                                }
                             }
                         }
                     }
