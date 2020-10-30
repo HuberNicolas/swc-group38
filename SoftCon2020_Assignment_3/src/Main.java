@@ -19,19 +19,14 @@ public class Main {
         GameBoard computerGameBoard = new GameBoard();
         Human Human = new Human(humanGameBoard, new ShootBoard());
         Computer Computer = new Computer(computerGameBoard, new ShootBoard());
-        Human.Board.grid[1][1] = "X";
-        System.out.println(Human.Board.grid[1][1]);
-
 
         // Init gameBoard Board, Singleton
-        /*
+
         Move.placingShips(Human);
         GameBoard.printBoard(Human.Board);
         System.out.println("§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§");
         Move.placingShips(Computer);
         GameBoard.printBoard(Computer.Board);
-        */
-
 
         //Integer[] Gamescoord = Utils.cUInputToGameCord((ComputerRand[0]+" "+ComputerRand[1]));
         //System.out.println(Gamescoord);
