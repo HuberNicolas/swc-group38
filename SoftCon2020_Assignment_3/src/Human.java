@@ -1,6 +1,5 @@
 public class Human extends Player {
 
-
     public GameBoard Board;
     public ShootBoard SBoard;
     Integer ShipsAlive;
@@ -10,5 +9,7 @@ public class Human extends Player {
         SBoard = sBoard;
         ShipsAlive = 9;
     }
+
+
 
 }

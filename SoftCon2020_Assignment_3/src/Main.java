@@ -19,11 +19,10 @@ public class Main {
         Computer Computer = new Computer(new GameBoard(), new ShootBoard());
 
         // Init gameBoard Board, Singleton
-        //Move.placingShips(Human);
-        //GameBoard.printBoard(Human.Board);
-
+        Move.placingShips(Human);
+        GameBoard.printBoard(Human.Board);
+        System.out.println("§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§");
         Move.placingShips(Computer);
-        System.out.println("______________");
         GameBoard.printBoard(Computer.Board);
 
 

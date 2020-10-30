@@ -87,7 +87,7 @@ public class Move {
                 System.out.println("This was not a valid move, please try again");
             }
             // we have a valid move; write it to the gameBoard
-            else writeMove(board, s.shortName, coord);
+            else writeMove(p.Board, s.shortName, coord);
             // INSERT****
         }
         else {
@@ -106,7 +106,7 @@ public class Move {
             }
             else {
                 try {
-                    writeMove(board, s.shortName, coord);
+                    writeMove(p.Board, s.shortName, coord);
                 } catch (Exception e) {
 
                 }
@@ -147,7 +147,7 @@ public class Move {
                     }
                     break;
                 case 1: // BATTLESHIP
-                    for(int j = 1; j < 3; j++) {
+                    for(int j = 1; j < 2; j++) {
                         Ship Battleship = new Ship("Battleship",4,"B",ID_counter,new String[]{"example"},"Player",4,true);
                         p.shipList.add(Battleship);
                         while (true) {
@@ -168,7 +168,7 @@ public class Move {
                     }
                     break;
                 case 2: // SUBMARINE
-                    for(int j = 1; j < 4; j++) {
+                    for(int j = 1; j < 2; j++) {
                         Ship Submarine = new Ship("Submarine",3,"S",ID_counter,new String[]{"example"},"Player",3,true);
                         p.shipList.add(Submarine);
                         while (true) {
@@ -189,7 +189,7 @@ public class Move {
                     }
                     break;
                 case 3: // PATROL BOAT
-                    for(int j = 1; j < 5; j++) {
+                    for(int j = 1; j < 2; j++) {
                         Ship PatrolBoat = new Ship("Patrol boat",2,"P",ID_counter,new String[]{"example"},"Player",2,true);
                         p.shipList.add(PatrolBoat);
                         while(true) {

@@ -3,7 +3,7 @@
  * Implements the actual datastructure (2dim Array [][]) for the board.
  */
 public class GameBoard {
-    static String [][] grid = {
+    static  String [][] grid = {
             // A   B   C   D   E   F   G   H   I   J
             {" "," "," "," "," "," "," "," "," "," "}, //Row 0
             {" "," "," "," "," "," "," "," "," "," "},
