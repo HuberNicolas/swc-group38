@@ -15,38 +15,42 @@ public class Main {
     public static void main(String [] args) {
 
         System.out.println("Welcome to Battleship!!");
+        // Init gameBoard Board
         GameBoard humanGameBoard = new GameBoard();
         GameBoard computerGameBoard = new GameBoard();
-        Human Human = new Human(humanGameBoard, new ShootBoard());
-        Computer Computer = new Computer(computerGameBoard, new ShootBoard());
-
-        // Init gameBoard Board, Singleton
-
-        Move.placingShips(Human);
-        GameBoard.printBoard(Human.Board);
+        GameBoard humanShootBoard = new GameBoard();
+        GameBoard computerShootBoard = new GameBoard();
+        Human Human = new Human(humanGameBoard, new GameBoard());
+        Computer Computer = new Computer(computerGameBoard, new GameBoard());
+        //Move.placingShips(Human);
+        //GameBoard.printBoard(Human.Board);
         Move.placingShips(Computer);
         GameBoard.printBoard(Computer.Board);
+        Integer arr[] = {1,2};
+        System.out.println(Move.isFree(Computer.Board, arr));
+        Move.shoot(Human, Computer, arr);
+
+
+        Iterator <Ship> iterator = Computer.shipList.listIterator();
+        while(iterator.hasNext()) {
+          Ship s = (Ship)iterator.next();
+          System.out.println(s.name);
+          System.out.println(Arrays.toString(s.coordArray));
+          System.out.println(s.lifepoints);
+        }
+
+
 
         //Integer[] Gamescoord = Utils.cUInputToGameCord((ComputerRand[0]+" "+ComputerRand[1]));
         //System.out.println(Gamescoord);
         //String[] Output= Utils.GameCordtowriteArray(Gamescoord);
         //System.out.println(Arrays.toString(Output));
 
-
-
         // Test to access all the attributes of the shipList // works
         /* for(Ship ship : Computer.shipList) {
          System.out.println(ship.getName() + " has length " + ship.length);
         }
        */
-
-
-
-
-
-        // Computer is generating his gameboard
-
-
 
         // Gameloop player is shooting, Computer is shooting and repeat
 

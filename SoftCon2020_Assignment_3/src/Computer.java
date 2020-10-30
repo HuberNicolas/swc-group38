@@ -1,11 +1,10 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Computer extends Player {
-
-    Computer(GameBoard board, ShootBoard sBoard) {
+    Computer(GameBoard board, GameBoard sBoard) {
         Board = board;
         SBoard = sBoard;
-        ShipsAlive = 10;
+        ShipsAlive = 9;
+        ArrayList<Ship> shipList = new ArrayList<Ship>();
     }
 }

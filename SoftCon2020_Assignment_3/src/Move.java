@@ -13,13 +13,19 @@ public class Move {
      * @return                              true, if GameBoard "board" at the coord. "GameCoord" has no entity := " "
      */
     // for later tasks; Not fully tested
-    /* EDIT LATER
-    static boolean  isFree(Integer [] GameCoord){
-        if (GameBoard.grid[GameCoord[0]][GameCoord[1]] == " ") return true;
+
+    static boolean  isFree(GameBoard board, Integer [] GameCoord){
+        if (board.grid[GameCoord[0]][GameCoord[1]] == " ") return true;
         else return false;
     }
-    */
 
+    static void shoot(Player attack, Player defense,  Integer [] GameCoord) {
+        if(isFree(defense.Board, GameCoord)) {
+            attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "o";
+        }
+        else attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "x";
+        GameBoard.printBoard(attack.SBoard);
+    }
 
     /**
      * @param CList Int Array[]:            4 entries [x_1,y_1,x_2,y_2]
@@ -87,7 +93,11 @@ public class Move {
                 System.out.println("This was not a valid move, please try again");
             }
             // we have a valid move; write it to the gameBoard
-            else writeMove(p.Board, s.shortName, coord);
+            else {
+                s.coordArray = Utils.GameCordtowriteArray(coord);
+                writeMove(p.Board, s.shortName, coord);
+            }
+
             // INSERT****
         }
         else {
@@ -106,6 +116,7 @@ public class Move {
             }
             else {
                 try {
+                    s.coordArray = Utils.GameCordtowriteArray(coord);
                     writeMove(p.Board, s.shortName, coord);
                 } catch (Exception e) {
 

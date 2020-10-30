@@ -7,17 +7,22 @@ public class Ship extends ShipI{
     public String name; // eg. "Carrier"
     public int length; // eg. "6"
     public String shortName; // eg. "C"
+    public int identity;
+    public String[] coordArray;
+    public String owner;
+    public int lifepoints;
+    public boolean isAlive;
 
     // Constructor
-    Ship(String n, int l, String sN, int id, String [] coord,String owner, int LP, boolean alive) {
+    Ship(String n, int l, String sN, int id, String [] coord,String own, int HP, boolean alive) {
         name = n;
         length = l;
         shortName = sN;
-        id=id;
-        coord = coord;
-        owner= owner;
-        LP= l;
-        alive = true;
+        identity=id;
+        coordArray = coord;
+        owner= own;
+        lifepoints= l;
+        isAlive = true;
 
     }
 
