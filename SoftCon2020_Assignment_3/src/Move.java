@@ -140,14 +140,17 @@ public class Move {
                             ID_counter=ID_counter+1;
                             break;
                         } catch (Exception e) {
-                            if (p instanceof Human || p instanceof Computer) {
+                            if (p instanceof Human) {
                                 System.err.println("You cannot place your ship here! " + e.getMessage());
+                            }
+                            if (p instanceof Computer) {
+                                continue;
                             }
                         }
                     }
                     break;
                 case 1: // BATTLESHIP
-                    for(int j = 1; j < 2; j++) {
+                    for(int j = 1; j < 3; j++) {
                         Ship Battleship = new Ship("Battleship",4,"B",ID_counter,new String[]{"example"},"Player",4,true);
                         p.shipList.add(Battleship);
                         while (true) {
@@ -160,15 +163,18 @@ public class Move {
                                 ID_counter=ID_counter+1;
                                 break;
                             } catch (Exception e) {
-                                if (p instanceof Human || p instanceof Computer) {
+                                if (p instanceof Human) {
                                     System.err.println("You cannot place your ship here! " + e.getMessage());
+                                }
+                                if (p instanceof Computer) {
+                                    continue;
                                 }
                             }
                         }
                     }
                     break;
                 case 2: // SUBMARINE
-                    for(int j = 1; j < 2; j++) {
+                    for(int j = 1; j < 4; j++) {
                         Ship Submarine = new Ship("Submarine",3,"S",ID_counter,new String[]{"example"},"Player",3,true);
                         p.shipList.add(Submarine);
                         while (true) {
@@ -181,15 +187,18 @@ public class Move {
                                 ID_counter=ID_counter+1;
                                 break;
                             } catch (Exception e) {
-                                if (p instanceof Human || p instanceof Computer) {
+                                if (p instanceof Human) {
                                     System.err.println("You cannot place your ship here! " + e.getMessage());
+                                }
+                                if (p instanceof Computer) {
+                                    continue;
                                 }
                             }
                         }
                     }
                     break;
                 case 3: // PATROL BOAT
-                    for(int j = 1; j < 2; j++) {
+                    for(int j = 1; j < 5; j++) {
                         Ship PatrolBoat = new Ship("Patrol boat",2,"P",ID_counter,new String[]{"example"},"Player",2,true);
                         p.shipList.add(PatrolBoat);
                         while(true) {
@@ -202,8 +211,11 @@ public class Move {
                                 ID_counter=ID_counter+1;
                                 break;
                             } catch (Exception e) {
-                                if (p instanceof Human || p instanceof Computer) {
+                                if (p instanceof Human) {
                                     System.err.println("You cannot place your ship here! " + e.getMessage());
+                                }
+                                if (p instanceof Computer) {
+                                    continue;
                                 }
                             }
                         }

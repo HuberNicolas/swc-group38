@@ -24,7 +24,6 @@ public class Main {
 
         Move.placingShips(Human);
         GameBoard.printBoard(Human.Board);
-        System.out.println("§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§");
         Move.placingShips(Computer);
         GameBoard.printBoard(Computer.Board);
 
