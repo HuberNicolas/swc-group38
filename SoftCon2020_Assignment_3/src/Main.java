@@ -21,7 +21,9 @@ public class Main {
         // Init gameBoard Board, Singleton
         //Move.placingShips(Human);
         //GameBoard.printBoard(Human.Board);
+
         Move.placingShips(Computer);
+        System.out.println("______________");
         GameBoard.printBoard(Computer.Board);
 
 
