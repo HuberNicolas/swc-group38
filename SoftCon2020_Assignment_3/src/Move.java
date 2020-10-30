@@ -109,7 +109,7 @@ public class Move {
         //GameBoard.printBoard(Board); // DEBUG
 
         // Generating all Ships and store them in shipList
-        List<Ship> shipList = new ArrayList<Ship>(4);
+        List<Ship> shipList = new ArrayList<Ship>(10);
         int shipListIterator = 0; // number of all ships, regardless of type
         // Fill shipList / board with 4 types of different ships
 
@@ -185,7 +185,8 @@ public class Move {
                             try { // try to place a ship
                                 if (p instanceof Human) {
                                     System.out.print(" Please enter the position of your Patrol boat " + j + ": ");
-                                }Move.makeMove(p.Board, shipList.get(shipListIterator), p);
+                                }
+                                Move.makeMove(p.Board, shipList.get(shipListIterator), p);
                                 shipListIterator++;
                                 ID_counter=ID_counter+1;
                                 break;

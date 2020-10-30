@@ -31,11 +31,11 @@ public class Main {
         //System.out.println(Arrays.toString(Output));
 
 
-        /*DEBUG
+
         // Test to access all the attributes of the shipList // works
-        for(Ship ship : shipList) {
-        * //System.out.println(ship.getName() + " has length " + ship.length);
-        }*/
+        for(Ship ship : Computer.shipList) {
+         System.out.println(ship.getName() + " has length " + ship.length);
+        }
 
 
 
