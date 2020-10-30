@@ -3,18 +3,23 @@
  * Implements the actual datastructure (2dim Array [][]) for the board.
  */
 public class GameBoard {
-    static  String [][] grid = {
-            // A   B   C   D   E   F   G   H   I   J
-            {" "," "," "," "," "," "," "," "," "," "}, //Row 0
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "},
-            {" "," "," "," "," "," "," "," "," "," "}}; //Row 9
+    String [][] grid;
+    public GameBoard() {
+        this.grid = new String[][]{
+                // A   B   C   D   E   F   G   H   I   J
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "}, //Row 0
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
+                {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "}}; //Row 9
+    }
+
+
 
     /**
      *
@@ -27,11 +32,11 @@ public class GameBoard {
         System.out.println("\nYour board is:\n");
         System.out.println("   |[A][B][C][D][E][F][G][H][I][J]");
         System.out.println("---|------------------------------");
-        for (int row = 0; row < grid.length; row++) {
+        for (int row = 0; row < board.grid.length; row++) {
             // header with number
             System.out.print("[" + row + "]" + "|");
-            for (int col = 0; col < grid[row].length; col++) {
-                System.out.print("[" + grid[row][col] + "]");
+            for (int col = 0; col < board.grid[row].length; col++) {
+                System.out.print("[" + board.grid[row][col] + "]");
             }
             System.out.println();
         }

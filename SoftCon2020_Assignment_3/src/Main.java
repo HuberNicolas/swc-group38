@@ -15,15 +15,22 @@ public class Main {
     public static void main(String [] args) {
 
         System.out.println("Welcome to Battleship!!");
-        Human Human = new Human(new GameBoard(), new ShootBoard());
-        Computer Computer = new Computer(new GameBoard(), new ShootBoard());
+        GameBoard humanGameBoard = new GameBoard();
+        GameBoard computerGameBoard = new GameBoard();
+        Human Human = new Human(humanGameBoard, new ShootBoard());
+        Computer Computer = new Computer(computerGameBoard, new ShootBoard());
+        Human.Board.grid[1][1] = "X";
+        System.out.println(Human.Board.grid[1][1]);
+
 
         // Init gameBoard Board, Singleton
+        /*
         Move.placingShips(Human);
         GameBoard.printBoard(Human.Board);
         System.out.println("§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§");
         Move.placingShips(Computer);
         GameBoard.printBoard(Computer.Board);
+        */
 
 
         //Integer[] Gamescoord = Utils.cUInputToGameCord((ComputerRand[0]+" "+ComputerRand[1]));
@@ -34,9 +41,10 @@ public class Main {
 
 
         // Test to access all the attributes of the shipList // works
-        for(Ship ship : Computer.shipList) {
+        /* for(Ship ship : Computer.shipList) {
          System.out.println(ship.getName() + " has length " + ship.length);
         }
+       */
 
 
 

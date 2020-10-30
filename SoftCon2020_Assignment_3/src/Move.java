@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 /**
  * CLASS MOVE
@@ -14,10 +13,13 @@ public class Move {
      * @return                              true, if GameBoard "board" at the coord. "GameCoord" has no entity := " "
      */
     // for later tasks; Not fully tested
+    /* EDIT LATER
     static boolean  isFree(Integer [] GameCoord){
         if (GameBoard.grid[GameCoord[0]][GameCoord[1]] == " ") return true;
         else return false;
     }
+    */
+
 
     /**
      * @param CList Int Array[]:            4 entries [x_1,y_1,x_2,y_2]
@@ -56,30 +58,28 @@ public class Move {
         if (coord[0] == coord[2]) {
             for(int i = Math.min(coord[1],coord[3]); i <= Math.max(coord[1],coord[3]); i++) {
                 // check if empty
-                if (GameBoard.grid[i][coord[0]] != " ") throw new IllegalArgumentException("There is already a ship placed");
-                else GameBoard.grid[i][coord[0]] = sN; // write
+                if (board.grid[i][coord[0]] != " ") throw new IllegalArgumentException("There is already a ship placed");
+                else board.grid[i][coord[0]] = sN; // write
             }
         }
         // Numbers are the same (horizontal) (could NOT be removed) UPDATE: WE NEED THIS
         if (coord[1] == coord[3]) {
             for(int i = Math.min(coord[0],coord[2]); i <= Math.max(coord[0],coord[2]); i++) {
                 // check if empty
-                if (GameBoard.grid[coord[1]][i] != " ") throw new IllegalArgumentException("There is already a ship placed");
-                else GameBoard.grid[coord[1]][i] = sN; // write
+                if (board.grid[coord[1]][i] != " ") throw new IllegalArgumentException("There is already a ship placed");
+                else board.grid[coord[1]][i] = sN; // write
             }
         }
     }
 
     /**
      *
-     * @param board GameBoard "board":      actual gameboard
      * @param s Ship "s":                   an object of class "Ship" out of the "shipList"
      * Discription:                         This method checks initiates the actual ship-placing-process (move):
      *                                      - user enters coords for the ship "s" in "shipList"
      *                                      - method checks, if this is a valid user input
-     *                                      - if so; write it to "board"
      */
-    static void makeMove(GameBoard board, Ship s, Player p) {
+    static void makeMove(Ship s, Player p) {
         if (p instanceof Human) {
             Integer [] coord = readIn(s.shortName);
             // as long as we do not have a valid move; throw Exception and repeat!
@@ -135,7 +135,7 @@ public class Move {
                             if (p instanceof Human) {
                                 System.out.print(" Please enter the position of your Carrier: ");
                             }
-                            Move.makeMove(p.Board, p.shipList.get(shipListIterator), p);
+                            Move.makeMove(p.shipList.get(shipListIterator), p);
                             shipListIterator++;
                             ID_counter=ID_counter+1;
                             break;
@@ -155,7 +155,7 @@ public class Move {
                                 if (p instanceof Human) {
                                     System.out.print(" Please enter the position of your Battleship " + j + ": ");
                                 }
-                                Move.makeMove(p.Board, p.shipList.get(shipListIterator), p);
+                                Move.makeMove(p.shipList.get(shipListIterator), p);
                                 shipListIterator++;
                                 ID_counter=ID_counter+1;
                                 break;
@@ -176,7 +176,7 @@ public class Move {
                                 if (p instanceof Human) {
                                     System.out.print(" Please enter the position of your Submarine " + j + ": ");
                                 }
-                                Move.makeMove(p.Board, p.shipList.get(shipListIterator), p);
+                                Move.makeMove(p.shipList.get(shipListIterator), p);
                                 shipListIterator++;
                                 ID_counter=ID_counter+1;
                                 break;
@@ -197,7 +197,7 @@ public class Move {
                                 if (p instanceof Human) {
                                     System.out.print(" Please enter the position of your Patrol boat " + j + ": ");
                                 }
-                                Move.makeMove(p.Board, p.shipList.get(shipListIterator), p);
+                                Move.makeMove(p.shipList.get(shipListIterator), p);
                                 shipListIterator++;
                                 ID_counter=ID_counter+1;
                                 break;

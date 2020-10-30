@@ -121,7 +121,7 @@ public class Utils {
         if (Gamecoord[0] == Gamecoord[2]) {
             for (int i = Math.min(Gamecoord[1], Gamecoord[3]); i <= Math.max(Gamecoord[1], Gamecoord[3]); i++) {
                 // check if empty
-                if (GameBoard.grid[i][Gamecoord[0]] != " ") {
+                if (p.Board.grid[i][Gamecoord[0]] != " ") {
                     throw new IllegalArgumentException("There is already a ship placed");
                 }
             }
@@ -130,7 +130,7 @@ public class Utils {
         if (Gamecoord[1] == Gamecoord[3]) {
             for (int i = Math.min(Gamecoord[0], Gamecoord[2]); i <= Math.max(Gamecoord[0], Gamecoord[2]); i++) {
                 // check if empty
-                if (GameBoard.grid[Gamecoord[1]][i] != " ") {
+                if (p.Board.grid[Gamecoord[1]][i] != " ") {
                     throw new IllegalArgumentException("There is already a ship placed");
                 }
             }
