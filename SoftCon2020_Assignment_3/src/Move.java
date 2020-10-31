@@ -95,6 +95,7 @@ public class Move {
                     // TO DO
                     //s.coordArray -> Integer Arr
                     Integer [] arr = Utils.writeShotShips(s.coordArray);
+                    System.out.println(Arrays.toString(arr));
                     writeMove(attack.SBoard, s.shortName, arr);
                     defense.ShipsAlive--;
                 }
@@ -149,7 +150,7 @@ public class Move {
         if (coord[0] == coord[2]) {
             for(int i = Math.min(coord[1],coord[3]); i <= Math.max(coord[1],coord[3]); i++) {
                 // check if empty
-                if (board.grid[i][coord[0]] != " ") throw new IllegalArgumentException("There is already a ship placed");
+                if ((board.grid[i][coord[0]] != " ") && (board.grid[i][coord[0]] != "x")) throw new IllegalArgumentException("There is already a ship placed");
                 else board.grid[i][coord[0]] = sN; // write
             }
         }
@@ -157,7 +158,7 @@ public class Move {
         if (coord[1] == coord[3]) {
             for(int i = Math.min(coord[0],coord[2]); i <= Math.max(coord[0],coord[2]); i++) {
                 // check if empty
-                if (board.grid[coord[1]][i] != " ") throw new IllegalArgumentException("There is already a ship placed");
+                if ((board.grid[coord[1]][i] != " ")&&(board.grid[coord[1]][i] != "x")) throw new IllegalArgumentException("There is already a ship placed");
                 else board.grid[coord[1]][i] = sN; // write
             }
         }
