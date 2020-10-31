@@ -70,13 +70,15 @@ public class Move {
         else {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "x";
             Iterator<Ship> iterator = defense.shipList.listIterator();
+            System.out.println("ENTERING DECREASE HP");
+            Utils.decreseHP(defense, GameCoord);
+            System.out.println("LEAVING DECREASE HP");
             while(iterator.hasNext()) {
                 Ship s = (Ship)iterator.next();
                 //System.out.println("Before " + s.lifepoints);
                 //System.out.println(""+Arrays.toString(GameCoord));
                 //String [] str = Utils.GameCordtowriteArray(GameCoord);
                 //System.out.println(str);
-                Utils.decreseHP(defense, GameCoord);
                 /*
                 if(Arrays.asList(s.coordArray).contains(GameCoord)) { // WRONG
                     s.lifepoints--;
@@ -89,14 +91,12 @@ public class Move {
                     System.out.println("Ship is sunk");
                     // mark with x
                     System.out.println(Arrays.toString(s.coordArray));
-                    //writeMove(attack.SBoard, s.shortName, Arrays.toString(s.coordArray));
+                    //writeMove(attack.SBoard, s.shortName, Arrays.toString(s.coordArray)); BUG
                     defense.ShipsAlive--;
                 }
-
             }
         }
-
-        Utils.decreseHP(defense,GameCoord);
+        //Utils.decreseHP(defense,GameCoord);
         ShootBoard.printShootBoard(attack);
     }
 
