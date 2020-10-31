@@ -90,10 +90,11 @@ public class Move {
                 if(s.lifepoints == 0) {
                     System.out.println("Ship is sunk");
                     // mark with x
+                    System.out.println("s.coordArray:");
                     System.out.println(Arrays.toString(s.coordArray));
                     // TO DO
                     //s.coordArray -> Integer Arr
-                    Integer [] arr = {1,1,1,4};
+                    Integer [] arr = Utils.writeShotShips(s.coordArray);
                     writeMove(attack.SBoard, s.shortName, arr);
                     defense.ShipsAlive--;
                 }
