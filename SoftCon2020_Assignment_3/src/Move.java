@@ -91,7 +91,10 @@ public class Move {
                     System.out.println("Ship is sunk");
                     // mark with x
                     System.out.println(Arrays.toString(s.coordArray));
-                    //writeMove(attack.SBoard, s.shortName, Arrays.toString(s.coordArray)); BUG
+                    // TO DO
+                    //s.coordArray -> Integer Arr
+                    Integer [] arr = {1,1,1,4};
+                    writeMove(attack.SBoard, s.shortName, arr);
                     defense.ShipsAlive--;
                 }
             }

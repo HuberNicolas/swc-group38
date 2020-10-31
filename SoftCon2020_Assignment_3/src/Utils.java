@@ -26,16 +26,15 @@ public class Utils {
             System.out.println(Arrays.toString(Utils.ShootCoordtoArray(GameCoord)));
             for(int i = 0; i < s.coordArray.length; i++) {
                 String str1 = Arrays.toString(Utils.ShootCoordtoArray(GameCoord));
-                String str2 = str1.replace("[","");
-                String str  = str2.replace("]","");
+                String str2 = str1.replace("[", "");
+                String str = str2.replace("]", "");
                 if (s.coordArray[i] != null) {
-                    if(s.coordArray[i].equals(str)) {
+                    if (s.coordArray[i].equals(str)) {
                         s.lifepoints--; // works
                         System.out.println("HIT");
                     }
                 }
             }
-            System.out.println(s.lifepoints);
         }
 
     }
