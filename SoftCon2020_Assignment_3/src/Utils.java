@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
+import java.lang.*;
 
 /**
  * CLASS Utils
@@ -202,6 +203,32 @@ public class Utils {
         }
         else return true;
     }
+//Takes String [] and return Gamecoord for example: ["E8", "F8","G8", null, null, null,null,null] returns [4, 8, 6, 8]
+    static Integer[] writeShotShips(String [] coordArray) {
+        Integer[] writeShotShipsArray = new Integer[4];
+        int i;
+        int x=0;
+        //delete null entries
+        for (i = 0; i < coordArray.length; i++) {
+            if (coordArray[i]== null){
+                x=i-1;
+                break;
+            }
+        }
+        //System.out.println(x);
+        //create new array without null and correct size
+        String[] coordArraywithoutnull = new String[x+1];
+        System.arraycopy(coordArray, 0, coordArraywithoutnull, 0,x+1);
+        //System.out.println(Arrays.toString(coordArraywithoutnull));
+        String FirstCoord = coordArraywithoutnull[0];
+        String LastCoord = coordArraywithoutnull[x];
 
+        writeShotShipsArray[0] = FirstCoord.charAt(0) - (int) 'A';
+        writeShotShipsArray[1] = FirstCoord.charAt(1) - 48;
+        writeShotShipsArray[2] = LastCoord.charAt(0) - (int) 'A';
+        writeShotShipsArray[3] = LastCoord.charAt(1) - 48;
+
+        return writeShotShipsArray;
+    }
 }
 
