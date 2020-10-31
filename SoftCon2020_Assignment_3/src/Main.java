@@ -81,20 +81,18 @@ public class Main {
         ShootBoard.printShootBoard(Human);
         ShootBoard.printShootBoard(Computer);
 
-        Integer arr1[] = {1,2};
-        Integer arr2[] = {1,3};
-        Integer arr3[] = {1,4};
-        Integer arr4[] = {1,5};
 
-        Move.shooting(Human, Computer);
-        Move.shooting(Human, Computer);
-        Move.shooting(Human, Computer);
-        Move.shooting(Human, Computer);
-        Move.shooting(Human, Computer);
-        //Move.shooting(Computer, Human);
+        ScoreboardChecker ScoreboardChecker = new ScoreboardChecker();
+        ScoreboardObserver observer1 = new ScoreboardObserver(ScoreboardChecker);
 
-        //Move.makeShot(Computer,Human);
-
+        //Gameloop:
+        while(true) {
+            Move.shooting(Human, Computer);
+            ScoreboardChecker.checkStatus(Human, Computer);
+            Move.shooting(Computer, Human);
+            ScoreboardChecker.checkStatus(Human, Computer);
+            ScoreboardChecker.printScoreboard();
+        }
 
         //System.out.println(Move.isFree(Computer.Board, arr1)); works, DEBUG
         //Move.shoot(Human, Computer, arr1); works, DEBBUG
@@ -109,13 +107,6 @@ public class Main {
         //System.out.println(st1);
 
 
-
-        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr1)));
-        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr2)));
-        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr3)));
-        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr4)));
-
-
         //Integer[] Gamescoord = Utils.cUInputToGameCord((ComputerRand[0]+" "+ComputerRand[1]));
         //System.out.println(Gamescoord);
         //String[] Output= Utils.GameCordtowriteArray(Gamescoord);
@@ -128,16 +119,6 @@ public class Main {
         }
         */
 
-        // INSERT OBSERVER HERE TO CHECK ALL LIFEPOINTS
-        // Gameloop player is shooting, Computer is shooting and repeat
-
-        // Iterator
-        //while(true) {
-            // Player 1 is shooting (check is_shot?)
-            // Check Conditions
-            // Computer is shooting
-            // Check Conditions
-        //}
     }
 
 }

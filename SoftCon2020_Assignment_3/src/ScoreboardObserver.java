@@ -18,15 +18,14 @@ public class ScoreboardObserver implements Observer{
         checkStatus();
     }
 
-    public int checkStatus(){
+    public void checkStatus(){
         if (ShipsAlive == 0){
-            System.out.println(" Sorry, you lost!");
-            return 0;
+            System.out.println("Sorry, you lost!");
+            System.exit(0);
         }
         if (ShipsDestroyed == 0){
             System.out.println("Congratulations, you won!");
-            return 0;
+            System.exit(0);
         }
-        return 1;
     }
 }

@@ -29,34 +29,30 @@ public class ScoreboardChecker implements Subject {
         }
     }
 
-    public void checkShipsAlive(Player p) {
+    public void checkStatus(Player human, Player computer) {
         this.ShipsAlive = 0;
-        Iterator<Ship> iterator = p.shipList.listIterator();
-        while (iterator.hasNext()) {
-            Ship s = iterator.next();
+        Iterator<Ship> iterator_1 = human.shipList.listIterator();
+        while (iterator_1.hasNext()) {
+            Ship s = iterator_1.next();
             if (s.lifepoints > 0) {
                 ShipsAlive++;
             }
         }
-        notifyObserver();
-    }
-
-    public void checkShipsDestroyed(Player p) {
         this.ShipsDestroyed = 0;
-        Iterator<Ship> iterator = p.shipList.listIterator();
-        while (iterator.hasNext()) {
-            Ship s = iterator.next();
+        Iterator<Ship> iterator_2 = computer.shipList.listIterator();
+        while (iterator_2.hasNext()) {
+            Ship s = iterator_2.next();
             if (s.lifepoints > 0) {
                 ShipsDestroyed++;
             }
         }
         notifyObserver();
-
     }
 
+
     public void printScoreboard(){
-        System.out.println("Your scoreboard:"  + "\n");
+        System.out.println("Your scoreboard:");
         System.out.println("\t - Player remaining boats: " + ShipsAlive);
-        System.out.println("\t - Enemy boats destroyed: " + ShipsDestroyed);
+        System.out.println("\t - Enemy boats destroyed: " + (10-ShipsDestroyed));
     }
 }
