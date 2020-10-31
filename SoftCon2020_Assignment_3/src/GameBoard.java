@@ -23,20 +23,20 @@ public class GameBoard {
 
     /**
      *
-     * @param board GameBoard "board":  2dim Array [][] structure; representing the Battleship matchfield
+     *  board GameBoard "board":  2dim Array [][] structure; representing the Battleship matchfield
      * INPUT:                           GameBoard "board"
      * OUT  :                           prints GameBoard "board"
      */
-    static void printBoard(GameBoard board) {
+    static void printGameBoard(Player p) {
         //System.out.println("\n");
-        System.out.println("\nYour board is:\n");
+        System.out.println("\n"+p.Name+"'s Gameboard is:\n");
         System.out.println("   |[A][B][C][D][E][F][G][H][I][J]");
         System.out.println("---|------------------------------");
-        for (int row = 0; row < board.grid.length; row++) {
+        for (int row = 0; row < p.Board.grid.length; row++) {
             // header with number
             System.out.print("[" + row + "]" + "|");
-            for (int col = 0; col < board.grid[row].length; col++) {
-                System.out.print("[" + board.grid[row][col] + "]");
+            for (int col = 0; col < p.Board.grid[row].length; col++) {
+                System.out.print("[" + p.Board.grid[row][col] + "]");
             }
             System.out.println();
         }

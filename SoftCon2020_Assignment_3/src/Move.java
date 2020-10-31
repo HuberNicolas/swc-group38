@@ -22,9 +22,12 @@ public class Move {
 
     static void shooting(Player attack, Player defense) {
         while (true) {
-            try { // try to place a ship
+            try { //
                 if (attack instanceof Human) {
                     System.out.print(" Please enter the position of your Shooting target: ");
+                }
+                else {
+
                 }
                 Move.makeShot(attack, defense);
                 break;
@@ -47,6 +50,14 @@ public class Move {
             // as long as we do not have a valid move; throw Exception and repeat!
             if (!Utils.validShot(attack, defense, coord)) {
                 System.out.println("This was not a valid move, please try again");
+            }
+            else shoot(attack, defense, coord);
+        }
+        else {
+            String shotGen = Arrays.toString(Utils.ComputerRand(1)).substring(1,3); // e.g. J5
+            Integer [] coord = Utils.cUInputToShotCord(shotGen);
+            if (!Utils.validShot(attack, defense, coord)) {
+                //System.out.println("This was not a valid move, please try again");
             }
             else shoot(attack, defense, coord);
         }
@@ -74,7 +85,7 @@ public class Move {
         }
 
         Utils.decreseHP(defense,GameCoord);
-        GameBoard.printBoard(attack.SBoard);
+        ShootBoard.printShootBoard(attack);
     }
 
     /**
