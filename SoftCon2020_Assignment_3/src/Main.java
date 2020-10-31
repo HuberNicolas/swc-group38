@@ -26,9 +26,13 @@ public class Main {
         //GameBoard.printBoard(Human.Board);
         Move.placingShips(Computer);
         GameBoard.printBoard(Computer.Board);
-        Integer arr[] = {1,2};
-        System.out.println(Move.isFree(Computer.Board, arr));
-        Move.shoot(Human, Computer, arr);
+        Integer arr1[] = {1,2};
+        Integer arr2[] = {0,9};
+        Integer arr3[] = {9,0};
+        Integer arr4[] = {9,9};
+
+        System.out.println(Move.isFree(Computer.Board, arr1));
+        Move.shoot(Human, Computer, arr1);
 
 
         Iterator <Ship> iterator = Computer.shipList.listIterator();
@@ -36,9 +40,27 @@ public class Main {
           Ship s = (Ship)iterator.next();
           System.out.println(s.name);
           System.out.println(Arrays.toString(s.coordArray));
+          System.out.println(s.coordArray[1]);
+          System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr1)));
+          for(int i = 0; i < s.coordArray.length; i++) {
+              if (s.coordArray[i] != null) {
+                  String str1 = Arrays.toString(Utils.ShootCoordtoArray(arr1));
+                  String str2 = str1.replace("[","");
+                  String str  = str2.replace("]","");
+                  System.out.println(str);
+                  if(s.coordArray[i].equals(str)) {
+                      System.out.println("FOUND");
+                  }
+
+              }
+          }
           System.out.println(s.lifepoints);
         }
 
+        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr1)));
+        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr2)));
+        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr3)));
+        System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr4)));
 
 
         //Integer[] Gamescoord = Utils.cUInputToGameCord((ComputerRand[0]+" "+ComputerRand[1]));
@@ -47,10 +69,12 @@ public class Main {
         //System.out.println(Arrays.toString(Output));
 
         // Test to access all the attributes of the shipList // works
-        /* for(Ship ship : Computer.shipList) {
+        /*
+        for(Ship ship : Computer.shipList) {
          System.out.println(ship.getName() + " has length " + ship.length);
         }
-       */
+        */
+
 
         // Gameloop player is shooting, Computer is shooting and repeat
 

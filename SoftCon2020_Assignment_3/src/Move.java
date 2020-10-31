@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 /**
  * CLASS MOVE
@@ -23,7 +24,22 @@ public class Move {
         if(isFree(defense.Board, GameCoord)) {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "o";
         }
-        else attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "x";
+        else {
+            attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "x";
+            Iterator<Ship> iterator = defense.shipList.listIterator();
+            while(iterator.hasNext()) {
+                Ship s = (Ship)iterator.next();
+                System.out.println("Before " + s.lifepoints);
+                System.out.println(""+Arrays.toString(GameCoord));
+                //String [] str = Utils.GameCordtowriteArray(GameCoord);
+
+                if(Arrays.asList(s.coordArray).contains(GameCoord)) {
+                    s.lifepoints--;
+                }
+                //System.out.println(Arrays.toString(s.coordArray));
+                System.out.println("After " +s.lifepoints);
+            }
+        }
         GameBoard.printBoard(attack.SBoard);
     }
 

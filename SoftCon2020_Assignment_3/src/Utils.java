@@ -65,16 +65,27 @@ public class Utils {
         return Gamecord;
     }
 
+    // transform Input {1,2} to [C1]
+    static String[] ShootCoordtoArray(Integer[] ShootCoord) {
+        String[] ShootArray = new String[1];
+        int letter = ShootCoord[1];
+        //System.out.println(letter);
+        //System.out.println((char) (letter+65));
+        ShootArray[0] = String.valueOf((char) (letter + 65)) + (ShootCoord[0]);
+        return ShootArray;
+    }
+
     static String[] GameCordtowriteArray(Integer[] Gamecord) {
         //tansform Input [0, 1, 1, 1] to [A1,B1]
         String[] GamecordArray = new String[6];
         int difference = 0;
         int j = 0;
+        // [x1,y1,x2,y2] -> vertical
         if (Gamecord[0] != Gamecord[2]) {
             difference = Math.abs(Gamecord[2] - Gamecord[0]);
             for (int i = 0; i < difference + 1; i++) {
 
-                int value = Gamecord[0] + i;
+                int value = Math.min(Gamecord[0], Gamecord[2]) + i;
                 GamecordArray[i] = String.valueOf((char) (value + 65)) + Gamecord[1];
                 //GamecordArray[i]=((char)(Gamecord[0]+Integer.toString(i)))+Gamecord[1];
                 System.out.print(GamecordArray[i]);
@@ -82,10 +93,11 @@ public class Utils {
 
 
         } else {
+            // horizontal
             //for example: [1, 0, 1, 1] to [B0,B1]
             difference = Math.abs(Gamecord[3] - Gamecord[1]);
             for (int i = 0; i < difference + 1; i++) {
-                int value = Gamecord[1] + i;
+                int value = Math.min(Gamecord[1], Gamecord[3]) + i;
                 GamecordArray[i] = String.valueOf((char) (Gamecord[0] + 65)) + value;
                 System.out.print(GamecordArray[i]);
             }
