@@ -60,7 +60,6 @@ public class Main {
         Human.shipList.get(8).coordArray= new String[]{"I0 I1"};
         Human.shipList.get(9).coordArray= new String[]{"J0 J1"};
 
-
         Human.Board.grid = new String[][]{
                 // A   B   C   D   E   F   G   H   I   J
                 {"C", "B", "B", "S", "S", "S", "P", "P", "P", "P"}, //Row 0
@@ -81,15 +80,20 @@ public class Main {
         GameBoard.printGameBoard(Computer);
         ShootBoard.printShootBoard(Human);
         ShootBoard.printShootBoard(Computer);
+
         Integer arr1[] = {1,2};
         Integer arr2[] = {1,3};
         Integer arr3[] = {1,4};
         Integer arr4[] = {1,5};
 
         Move.shooting(Human, Computer);
+        Move.shooting(Human, Computer);
+        Move.shooting(Human, Computer);
+        Move.shooting(Human, Computer);
+        Move.shooting(Human, Computer);
         //Move.shooting(Computer, Human);
 
-        Move.makeShot(Computer,Human);
+        //Move.makeShot(Computer,Human);
 
 
         //System.out.println(Move.isFree(Computer.Board, arr1)); works, DEBUG

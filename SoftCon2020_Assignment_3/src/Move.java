@@ -43,7 +43,6 @@ public class Move {
 
     }
 
-
     static void makeShot(Player attack, Player defense) {
         if (attack instanceof Human) {
             Integer[] coord = readInShot();
@@ -67,20 +66,33 @@ public class Move {
         if(isFree(defense.Board, GameCoord)) {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "o";
         }
+
         else {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "x";
             Iterator<Ship> iterator = defense.shipList.listIterator();
             while(iterator.hasNext()) {
                 Ship s = (Ship)iterator.next();
-                System.out.println("Before " + s.lifepoints);
-                System.out.println(""+Arrays.toString(GameCoord));
+                //System.out.println("Before " + s.lifepoints);
+                //System.out.println(""+Arrays.toString(GameCoord));
                 //String [] str = Utils.GameCordtowriteArray(GameCoord);
-
-                if(Arrays.asList(s.coordArray).contains(GameCoord)) {
+                //System.out.println(str);
+                Utils.decreseHP(defense, GameCoord);
+                /*
+                if(Arrays.asList(s.coordArray).contains(GameCoord)) { // WRONG
                     s.lifepoints--;
+                    System.out.println("HIT");
+                } */
+
+                //System.out.println("After " +s.lifepoints);
+
+                if(s.lifepoints == 0) {
+                    System.out.println("Ship is sunk");
+                    // mark with x
+                    System.out.println(Arrays.toString(s.coordArray));
+                    //writeMove(attack.SBoard, s.shortName, Arrays.toString(s.coordArray));
+                    defense.ShipsAlive--;
                 }
-                //System.out.println(Arrays.toString(s.coordArray));
-                System.out.println("After " +s.lifepoints);
+
             }
         }
 

@@ -21,20 +21,21 @@ public class Utils {
         Iterator<Ship> iterator = defense.shipList.listIterator();
         while(iterator.hasNext()) {
             Ship s = iterator.next();
-            //System.out.println(s.name); DEBUG
-            //System.out.println(Arrays.toString(s.coordArray)); DEBUG
-            //System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr1))); DEBUG
+            System.out.println(s.name);
+            System.out.println(Arrays.toString(s.coordArray));
+            System.out.println(Arrays.toString(Utils.ShootCoordtoArray(GameCoord)));
             for(int i = 0; i < s.coordArray.length; i++) {
+                String str1 = Arrays.toString(Utils.ShootCoordtoArray(GameCoord));
+                String str2 = str1.replace("[","");
+                String str  = str2.replace("]","");
                 if (s.coordArray[i] != null) {
-                    String str1 = Arrays.toString(Utils.ShootCoordtoArray(GameCoord));
-                    String str2 = str1.replace("[","");
-                    String str  = str2.replace("]","");
                     if(s.coordArray[i].equals(str)) {
                         s.lifepoints--; // works
+                        System.out.println("HIT");
                     }
                 }
             }
-            // System.out.println(s.lifepoints); DEBUG
+            System.out.println(s.lifepoints);
         }
 
     }
