@@ -20,6 +20,38 @@ public class Move {
         else return false;
     }
 
+    static void shooting(Player attack, Player defense) {
+        while (true) {
+            try { // try to place a ship
+                if (attack instanceof Human) {
+                    System.out.print(" Please enter the position of your Shooting target: ");
+                }
+                Move.makeShot(attack, defense);
+                break;
+            } catch (Exception e) {
+                if (attack instanceof Human) {
+                    System.err.println("You cannot shoot! " + e.getMessage());
+                }
+                if (attack instanceof Computer) {
+                    continue;
+                }
+            }
+        }
+
+    }
+
+
+    static void makeShot(Player attack, Player defense) {
+        if (attack instanceof Human) {
+            Integer[] coord = readInShot();
+            // as long as we do not have a valid move; throw Exception and repeat!
+            if (!Utils.validShot(attack, defense, coord)) {
+                System.out.println("This was not a valid move, please try again");
+            }
+            else shoot(attack, defense, coord);
+        }
+    }
+
     static void shoot(Player attack, Player defense,  Integer [] GameCoord) {
         if(isFree(defense.Board, GameCoord)) {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "o";
@@ -40,6 +72,8 @@ public class Move {
                 System.out.println("After " +s.lifepoints);
             }
         }
+
+        Utils.decreseHP(defense,GameCoord);
         GameBoard.printBoard(attack.SBoard);
     }
 
@@ -53,14 +87,22 @@ public class Move {
 
     /**
      *
-     * @param sN String "sN":               attribute "ShortName" for an Obj. of the "Ship" class
      * @return Int Array[] "coord":         4 entries [x_1,y_1,x_2,y_2], which are the coordinates for the new Ship
      */
-    static Integer [] readIn(String sN){
+    static Integer [] readIn(){
         Scanner myObj = new Scanner(System.in);
         String cUInput;
         cUInput = myObj.nextLine();
         Integer [] coord = Utils.cUInputToGameCord(cUInput);
+        //printCood(coord); // DEBUG
+        return coord;
+    }
+
+    static Integer [] readInShot() {
+        Scanner myObj = new Scanner(System.in);
+        String cUInput;
+        cUInput = myObj.nextLine();
+        Integer [] coord = Utils.cUInputToShotCord(cUInput);
         //printCood(coord); // DEBUG
         return coord;
     }
@@ -103,7 +145,7 @@ public class Move {
      */
     static void makeMove(Ship s, Player p) {
         if (p instanceof Human) {
-            Integer [] coord = readIn(s.shortName);
+            Integer [] coord = readIn();
             // as long as we do not have a valid move; throw Exception and repeat!
             if (!Utils.validMove(coord, s.shortName, s.length, p)) {
                 System.out.println("This was not a valid move, please try again");

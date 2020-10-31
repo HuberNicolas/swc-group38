@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -14,6 +16,31 @@ public class Utils {
     public static Utils getInstance() {
         return uniqueInstance;
     }
+
+    static void decreseHP(Player defense, Integer [] GameCoord) {
+        Iterator<Ship> iterator = defense.shipList.listIterator();
+        while(iterator.hasNext()) {
+            Ship s = iterator.next();
+            //System.out.println(s.name); DEBUG
+            //System.out.println(Arrays.toString(s.coordArray)); DEBUG
+            //System.out.println(Arrays.toString(Utils.ShootCoordtoArray(arr1))); DEBUG
+            for(int i = 0; i < s.coordArray.length; i++) {
+                if (s.coordArray[i] != null) {
+                    String str1 = Arrays.toString(Utils.ShootCoordtoArray(GameCoord));
+                    String str2 = str1.replace("[","");
+                    String str  = str2.replace("]","");
+                    if(s.coordArray[i].equals(str)) {
+                        s.lifepoints--; // works
+                    }
+                }
+            }
+            // System.out.println(s.lifepoints); DEBUG
+        }
+
+    }
+
+
+
 
     //takes the length as integer, return array like [A1,A3] can be converted with  GameCordtowriteArray()
     static String[] ComputerRand(int length) {
@@ -62,6 +89,20 @@ public class Utils {
         Gamecord[1] = cUInput.charAt(1) - 48;
         Gamecord[2] = cUInput.charAt(3) - (int) 'A';
         Gamecord[3] = cUInput.charAt(4) - 48;
+        return Gamecord;
+    }
+
+
+    static Integer[] cUInputToShotCord(String cUInput) {
+        //transform Input "A1" to [0, 1]
+        Integer[] Gamecord = new Integer[2];
+        //Check if length is correct
+        if (cUInput.length() != 2) {
+            throw new IllegalArgumentException("Input has not correct length! Example: 'A1 B2'");
+        }
+        Gamecord[0] = cUInput.charAt(1) - 48;
+        Gamecord[1] = cUInput.charAt(0) - (int) 'A';
+        System.out.println(Arrays.toString(Gamecord));
         return Gamecord;
     }
 
@@ -151,5 +192,16 @@ public class Utils {
 
         else return true;
     }
+    static boolean validShot(Player attack, Player defense,  Integer [] Gamecoord) {
+        //check if out of field
+        if (Gamecoord[0] < 0 || Gamecoord[1] < 0  || Gamecoord[0] > 10 || Gamecoord[1] > 10) {
+            throw new IllegalArgumentException("Out of Gameboard");
+        }
+        if(attack.SBoard.grid[Gamecoord[0]][Gamecoord[1]] != " ") {
+            throw new IllegalArgumentException("Already Shot!");
+        }
+        else return true;
+    }
+
 }
 
