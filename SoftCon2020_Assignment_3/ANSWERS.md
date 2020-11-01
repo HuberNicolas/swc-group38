@@ -1,37 +1,18 @@
-# PART 1: Battleship:
-First, we did a diagram, to illustrate the overall structure of our program. 
-![Class Diagram Battleship](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_2/ClassdiagramBattleship.png "Class Diagram Battleship")
-Then, we have implemented the different classes and fuctions, which we will describe now. We've commented our code, so we want explain every line.
+# Battleship:
+We made our new Battleship game according to this diagram: 
+![Class Diagram Battleship](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_3/ClassdiagramBattleship.png "Class Diagram Battleship")
+We've commented our code, so we want explain every line. We also implemented the following desing patterns which we will describe know how and why they got implemented.
 
-## Main Class:
-This is the class, which is excecuted and it uses the other classes to work like the battleship porgram should. 
-After greeting the user, it starts to create a new Gameboard (Gameboard()) and it asks to user to fill in the coordniates for each ship.
-In the end, it prints out the Gameboard (GameBoard.printBoard(Board)).
+## Singleton
+Singleton is implemented in the class Utils excactly like we learned it in the lesson. So we used "uniqueinstance". We implemented it like that because we could not find a better place in the game and it is actually not necessary to run the game. So we learned that not every pattern is allways useful.
 
-## Utils Class:
-This class provides the functions cUInputToGameCord() which converts the inserted user input into our gamecoordinates (arrays) and the function validMove() which checks if:
--the ships are diagonal
--out of gameboard
--the length is invalid (for example just two filds for a carrier)
-This ensures that the exceptions we had to test are detected.
+##Observer
+Observer is implemented in  the classes ScoreboardObserver and ScoreboardChecker. 
+The Checker looks how many Ship Objects are sunk or alive and the Observer is getting this information. 
+This pattern is very imporatant as we had to use it to easily check if the player or the computer won after a turn. By using this, we saw the advantages of using design patterns, as this is an elegant solution to our problem.
+With this pattern, it is very easy to update the new state of the game (number of sunken ships).
 
-## ShipI Class:
-This idea to solve the program like this is inspired by the lecture. We used this abstract class to ensure that every Ship has a length/name/shortname (C for Carrier). This makes it impossible, that there is a ship without a length for example.
-## Ship Class:
-The ship class now implements this attributes.
-##Gameboard Class:
-The gameboard grid is a static variable. With this, it is very easy the write something in the grid or read it. printBoard() prints out the whole grid.
-
-## Move Class:
-isFree() checks the gameboard, using the gamecoordinates, if the fields are free. We have made it like that, so we could use this in future: When the game is actually played, you can check if person landed a hit at a ship. printCood() just prints the coordinates. readIn() takes the users input and converts them with cUInputToGameCord(). writeMove() uses to calculate the moves on the board, while makeMove() actually writes them into the board.
-
-
-
-=======
-Bulletpoint 1:
--------
-
-#PART 2:UML-Diagram
-=======
-Bulletpoint 2:
--------
+##Iterator
+Iterator is implemented in the class utils. Is it used to iterate over the ships of the defending person when a shot hit a about. It is implemented very similar like we learned it in the class. So ther is "iterator" and "hasNext" and "Next" to correctly iteratore over the objects.
+We used it because it is very handy in this situation because without it we would have needed for example and addtional list or array to store the objects and it would have been more complicated.
+So in the end, this iterator is a very helpful tool in this situation.
