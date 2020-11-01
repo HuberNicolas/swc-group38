@@ -193,7 +193,7 @@ public class Utils {
         if (Gamecoord[0] < 0 || Gamecoord[1] < 0  || Gamecoord[0] > 10 || Gamecoord[1] > 10) {
             throw new IllegalArgumentException("Out of Gameboard");
         }
-        if(attack.SBoard.grid[Gamecoord[0]][Gamecoord[1]] == "x") {
+        if(attack.SBoard.grid[Gamecoord[0]][Gamecoord[1]] == "x" || attack.SBoard.grid[Gamecoord[0]][Gamecoord[1]] == "o") {
             throw new IllegalArgumentException("Already Shot!");
         }
         if (attack instanceof Human){
