@@ -29,7 +29,7 @@ public class GameBoard {
      */
     static void printGameBoard(Player p) {
         //System.out.println("\n");
-        System.out.println("\n"+p.Name+"'s Gameboard is:\n");
+        System.out.println("\nYour board is:\n");
         System.out.println("   |[A][B][C][D][E][F][G][H][I][J]");
         System.out.println("---|------------------------------");
         for (int row = 0; row < p.Board.grid.length; row++) {

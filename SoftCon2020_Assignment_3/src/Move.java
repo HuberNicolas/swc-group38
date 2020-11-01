@@ -24,7 +24,7 @@ public class Move {
         while (true) {
             try { //
                 if (attack instanceof Human) {
-                    System.out.print(" Please enter the position of your Shooting target: ");
+                    System.out.print("Please enter the position of your Shooting target: ");
                 }
                 else {
 
@@ -54,6 +54,7 @@ public class Move {
         }
         else {
             String shotGen = Arrays.toString(Utils.ComputerRand(1)).substring(1,3); // e.g. J5
+            System.out.println("The computer attacks position " + shotGen);
             Integer [] coord = Utils.cUInputToShotCord(shotGen);
             if (!Utils.validShot(attack, defense, coord)) {
                 //System.out.println("This was not a valid move, please try again");
@@ -66,51 +67,47 @@ public class Move {
         Ship ship = null;
         if(isFree(defense.Board, GameCoord)) {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "o";
+            if (attack instanceof Human){
+                System.out.println("Miss");
+            }
+            else System.out.println("The computer missed\n");
         }
 
         else {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "x";
             Iterator<Ship> iterator = defense.shipList.listIterator();
-            System.out.println("ENTERING DECREASE HP");
             Utils.decreseHP(defense, GameCoord);
-            System.out.println("LEAVING DECREASE HP");
             while(iterator.hasNext()) {
                 Ship s = (Ship)iterator.next();
-                //System.out.println("Before " + s.lifepoints);
-                //System.out.println(""+Arrays.toString(GameCoord));
-                //String [] str = Utils.GameCordtowriteArray(GameCoord);
-                //System.out.println(str);
-                /*
-                if(Arrays.asList(s.coordArray).contains(GameCoord)) { // WRONG
-                    s.lifepoints--;
-                    System.out.println("HIT");
-                } */
-
-                //System.out.println("After " +s.lifepoints);
 
                 if(s.lifepoints == 0) {
-                    System.out.println("Ship is sunk");
-                    // mark with x
-                    System.out.println("s.coordArray:");
-                    System.out.println(Arrays.toString(s.coordArray));
-                    // TO DO
-                    //s.coordArray -> Integer Arr
                     Integer [] arr = Utils.writeShotShips(s.coordArray);
-                    System.out.println(Arrays.toString(arr));
                     if (defense instanceof Computer){
                         writeMove(attack.SBoard, s.shortName, arr);
                     }
                     defense.ShipsAlive--;
                     ship = s;
                 }
+
             }
             if (ship != null){
+                if (attack instanceof Human){
+                    System.out.println("You destroyed a " + ship.name + ".");
+                }
+                else System.out.println("Your "+ ship.name + " was destroyed.\n");
                 defense.shipList.remove(ship);
+            }
+            else{
+                if (attack instanceof Human){
+                    System.out.println("You hit a boat");
+                }
+                else System.out.println("Your boat was hit!\n");
+                //normal hit message
             }
 
         }
-        //Utils.decreseHP(defense,GameCoord);
-        ShootBoard.printShootBoard(attack);
+
+        // ShootBoard.printShootBoard(attack);
     }
 
     /**
@@ -157,17 +154,13 @@ public class Move {
         // Letters are the same (vertical)
         if (coord[0] == coord[2]) {
             for(int i = Math.min(coord[1],coord[3]); i <= Math.max(coord[1],coord[3]); i++) {
-                // check if empty
-                if ((board.grid[i][coord[0]] != " ") && (board.grid[i][coord[0]] != "x")) throw new IllegalArgumentException("There is already a ship placed");
-                else board.grid[i][coord[0]] = sN; // write
+                board.grid[i][coord[0]] = sN; // write
             }
         }
         // Numbers are the same (horizontal) (could NOT be removed) UPDATE: WE NEED THIS
         if (coord[1] == coord[3]) {
             for(int i = Math.min(coord[0],coord[2]); i <= Math.max(coord[0],coord[2]); i++) {
-                // check if empty
-                if ((board.grid[coord[1]][i] != " ")&&(board.grid[coord[1]][i] != "x")) throw new IllegalArgumentException("There is already a ship placed");
-                else board.grid[coord[1]][i] = sN; // write
+                board.grid[coord[1]][i] = sN; // write
             }
         }
     }
@@ -255,7 +248,7 @@ public class Move {
                     }
                     break;
                 case 1: // BATTLESHIP
-                    for(int j = 1; j < 3; j++) {
+                    for(int j = 1; j < 2; j++) {
                         Ship Battleship = new Ship("Battleship",4,"B",ID_counter,new String[]{"example"},"Player",4,true);
                         p.shipList.add(Battleship);
                         while (true) {
@@ -279,7 +272,7 @@ public class Move {
                     }
                     break;
                 case 2: // SUBMARINE
-                    for(int j = 1; j < 4; j++) {
+                    for(int j = 1; j < 2; j++) {
                         Ship Submarine = new Ship("Submarine",3,"S",ID_counter,new String[]{"example"},"Player",3,true);
                         p.shipList.add(Submarine);
                         while (true) {
@@ -303,7 +296,7 @@ public class Move {
                     }
                     break;
                 case 3: // PATROL BOAT
-                    for(int j = 1; j < 5; j++) {
+                    for(int j = 1; j < 2; j++) {
                         Ship PatrolBoat = new Ship("Patrol boat",2,"P",ID_counter,new String[]{"example"},"Player",2,true);
                         p.shipList.add(PatrolBoat);
                         while(true) {

@@ -20,10 +20,17 @@ public class Main {
         GameBoard computerGameBoard = new GameBoard();
         Human Human = new Human(humanGameBoard, new GameBoard());
         Computer Computer = new Computer(computerGameBoard, humanGameBoard);
+        ScoreboardChecker ScoreboardChecker = new ScoreboardChecker();
+        ScoreboardObserver observer1 = new ScoreboardObserver(ScoreboardChecker);
+
         Move.placingShips(Human);
-        //GameBoard.printBoard(Human.Board);
         Move.placingShips(Computer);
-        //Move.placingShips(Human);
+        GameBoard.printGameBoard(Human);
+        ShootBoard.printShootBoard(Human);
+        ScoreboardChecker.checkStatus(Human, Computer);
+        ScoreboardChecker.printScoreboard();
+
+        GameBoard.printGameBoard(Computer);
         /*
         // JUST FOR SIMPLICITY REASONS, INSTEAD OF Move.placingShips(Human);
         int ID_counter = 1;
@@ -74,17 +81,16 @@ public class Main {
 
 
         */
-        GameBoard.printGameBoard(Human);
-        GameBoard.printGameBoard(Computer);
 
-        ScoreboardChecker ScoreboardChecker = new ScoreboardChecker();
-        ScoreboardObserver observer1 = new ScoreboardObserver(ScoreboardChecker);
+
 
         //Gameloop:
         while(true) {
             Move.shooting(Human, Computer);
             ScoreboardChecker.checkStatus(Human, Computer);
             Move.shooting(Computer, Human);
+            GameBoard.printGameBoard(Human);
+            ShootBoard.printShootBoard(Human);
             ScoreboardChecker.checkStatus(Human, Computer);
             ScoreboardChecker.printScoreboard();
         }

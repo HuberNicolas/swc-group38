@@ -51,8 +51,8 @@ public class ScoreboardChecker implements Subject {
 
 
     public void printScoreboard(){
-        System.out.println("Your scoreboard:");
+        System.out.println("\nYour scoreboard:");
         System.out.println("\t - Player remaining boats: " + ShipsAlive);
-        System.out.println("\t - Enemy boats destroyed: " + (10-ShipsDestroyed));
+        System.out.println("\t - Enemy boats destroyed: " + (10-ShipsDestroyed) + "\n");
     }
 }

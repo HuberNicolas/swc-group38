@@ -22,9 +22,6 @@ public class Utils {
         Iterator<Ship> iterator = defense.shipList.listIterator();
         while(iterator.hasNext()) {
             Ship s = iterator.next();
-            System.out.println(s.name);
-            System.out.println(Arrays.toString(s.coordArray));
-            System.out.println(Arrays.toString(Utils.ShootCoordtoArray(GameCoord)));
             for(int i = 0; i < s.coordArray.length; i++) {
                 String str1 = Arrays.toString(Utils.ShootCoordtoArray(GameCoord));
                 String str2 = str1.replace("[", "");
@@ -32,7 +29,6 @@ public class Utils {
                 if (s.coordArray[i] != null) {
                     if (s.coordArray[i].equals(str)) {
                         s.lifepoints--; // works
-                        System.out.println("HIT");
                     }
                 }
             }
@@ -103,7 +99,6 @@ public class Utils {
         }
         Gamecord[0] = cUInput.charAt(1) - 48;
         Gamecord[1] = cUInput.charAt(0) - (int) 'A';
-        System.out.println(Arrays.toString(Gamecord));
         return Gamecord;
     }
 
@@ -130,7 +125,7 @@ public class Utils {
                 int value = Math.min(Gamecord[0], Gamecord[2]) + i;
                 GamecordArray[i] = String.valueOf((char) (value + 65)) + Gamecord[1];
                 //GamecordArray[i]=((char)(Gamecord[0]+Integer.toString(i)))+Gamecord[1];
-                System.out.print(GamecordArray[i]);
+                //System.out.print(GamecordArray[i]);
             }
 
 
@@ -141,7 +136,7 @@ public class Utils {
             for (int i = 0; i < difference + 1; i++) {
                 int value = Math.min(Gamecord[1], Gamecord[3]) + i;
                 GamecordArray[i] = String.valueOf((char) (Gamecord[0] + 65)) + value;
-                System.out.print(GamecordArray[i]);
+                //System.out.print(GamecordArray[i]);
             }
 
         }
