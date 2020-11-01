@@ -26,7 +26,7 @@ public class ShootBoard {
 
     static void printShootBoard(Player p) {
         //System.out.println("\n");
-        System.out.println("\n"+p.Name+"'s Shootboard is:\n");
+        System.out.println("\nThe opponent's board is:\n");
         System.out.println("   |[A][B][C][D][E][F][G][H][I][J]");
         System.out.println("---|------------------------------");
         for (int row = 0; row < p.SBoard.grid.length; row++) {
