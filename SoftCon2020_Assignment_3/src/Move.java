@@ -63,6 +63,7 @@ public class Move {
     }
 
     static void shoot(Player attack, Player defense,  Integer [] GameCoord) {
+        Ship ship = null;
         if(isFree(defense.Board, GameCoord)) {
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "o";
         }
@@ -96,10 +97,17 @@ public class Move {
                     //s.coordArray -> Integer Arr
                     Integer [] arr = Utils.writeShotShips(s.coordArray);
                     System.out.println(Arrays.toString(arr));
-                    writeMove(attack.SBoard, s.shortName, arr);
+                    if (defense instanceof Computer){
+                        writeMove(attack.SBoard, s.shortName, arr);
+                    }
                     defense.ShipsAlive--;
+                    ship = s;
                 }
             }
+            if (ship != null){
+                defense.shipList.remove(ship);
+            }
+
         }
         //Utils.decreseHP(defense,GameCoord);
         ShootBoard.printShootBoard(attack);

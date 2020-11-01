@@ -198,9 +198,16 @@ public class Utils {
         if (Gamecoord[0] < 0 || Gamecoord[1] < 0  || Gamecoord[0] > 10 || Gamecoord[1] > 10) {
             throw new IllegalArgumentException("Out of Gameboard");
         }
-        if(attack.SBoard.grid[Gamecoord[0]][Gamecoord[1]] != " ") {
+        if(attack.SBoard.grid[Gamecoord[0]][Gamecoord[1]] == "x") {
             throw new IllegalArgumentException("Already Shot!");
         }
+        if (attack instanceof Human){
+            if(attack.SBoard.grid[Gamecoord[0]][Gamecoord[1]] != " ") {
+                throw new IllegalArgumentException("Already Shot!");
+            }
+            return true;
+        }
+
         else return true;
     }
 //Takes String [] and return Gamecoord for example: ["E8", "F8","G8", null, null, null,null,null] returns [4, 8, 6, 8]

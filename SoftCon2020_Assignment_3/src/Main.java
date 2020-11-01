@@ -18,15 +18,13 @@ public class Main {
         // Init gameBoard Board
         GameBoard humanGameBoard = new GameBoard();
         GameBoard computerGameBoard = new GameBoard();
-        GameBoard humanShootBoard = new GameBoard();
-        GameBoard computerShootBoard = new GameBoard();
         Human Human = new Human(humanGameBoard, new GameBoard());
-        Computer Computer = new Computer(computerGameBoard, new GameBoard());
-        //Move.placingShips(Human);
+        Computer Computer = new Computer(computerGameBoard, humanGameBoard);
+        Move.placingShips(Human);
         //GameBoard.printBoard(Human.Board);
         Move.placingShips(Computer);
         //Move.placingShips(Human);
-
+        /*
         // JUST FOR SIMPLICITY REASONS, INSTEAD OF Move.placingShips(Human);
         int ID_counter = 1;
         Human.shipList = new ArrayList<Ship>(10);
@@ -75,12 +73,9 @@ public class Main {
 
 
 
-
+        */
         GameBoard.printGameBoard(Human);
         GameBoard.printGameBoard(Computer);
-        ShootBoard.printShootBoard(Human);
-        ShootBoard.printShootBoard(Computer);
-
 
         ScoreboardChecker ScoreboardChecker = new ScoreboardChecker();
         ScoreboardObserver observer1 = new ScoreboardObserver(ScoreboardChecker);
