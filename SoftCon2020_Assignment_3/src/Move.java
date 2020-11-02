@@ -65,12 +65,14 @@ public class Move {
         }
         else {
             String shotGen = Arrays.toString(Utils.ComputerRand(1)).substring(1,3); // e.g. J5
-            System.out.println("The computer attacks position " + shotGen);
             Integer [] coord = Utils.cUInputToShotCord(shotGen);
             if (!Utils.validShot(attack, defense, coord)) {
                 //System.out.println("This was not a valid move, please try again");
             }
-            else shoot(attack, defense, coord);
+            else {
+                System.out.println("The computer attacks position " + shotGen);
+                shoot(attack, defense, coord);
+            }
         }
     }
 
@@ -105,8 +107,8 @@ public class Move {
                 Ship s = (Ship)iterator.next();
                 // is ship sunk?
                 if(s.lifepoints == 0) {
-                    Integer [] arr = Utils.writeShotShips(s.coordArray);
                     if (defense instanceof Computer){
+                        Integer [] arr = Utils.writeShotShips(s.coordArray);
                         writeMove(attack.SBoard, s.shortName, arr); // only write for humans eyes
                     }
                     defense.ShipsAlive--;

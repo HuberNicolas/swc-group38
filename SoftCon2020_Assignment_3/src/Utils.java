@@ -257,7 +257,7 @@ public class Utils {
     static Integer[] writeShotShips(String [] coordArray) {
         Integer[] writeShotShipsArray = new Integer[4];
         int i;
-        int x=0;
+        int x=5;
         //delete null entries
         for (i = 0; i < coordArray.length; i++) {
             if (coordArray[i]== null){
