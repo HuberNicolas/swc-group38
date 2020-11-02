@@ -17,18 +17,24 @@ public class Utils {
     }
 
     /**
+     * @param defense Player            player whose ships get shot
+     * @param GameCoord Int Array       coordinates of a valid shot
      *
-     * @param defense Player
-     * @param GameCoord
+     * Description:                     decrease Hitpoints of a ship after it got hit:
+     *                                  - convert coordinates of shot
+     *                                  - check for all ships in shipList the attribute coordArray
+     *                                  - decrement hp by 1 of the found ship
      */
     static void decreseHP(Player defense, Integer [] GameCoord) {
         Iterator<Ship> iterator = defense.shipList.listIterator();
         while(iterator.hasNext()) {
             Ship s = iterator.next();
             for(int i = 0; i < s.coordArray.length; i++) {
+                // convert coordinates from [A1] to A1
                 String str1 = Arrays.toString(Utils.ShootCoordtoArray(GameCoord));
                 String str2 = str1.replace("[", "");
                 String str = str2.replace("]", "");
+                // find
                 if (s.coordArray[i] != null) {
                     if (s.coordArray[i].equals(str)) {
                         s.lifepoints--; // works
@@ -38,7 +44,15 @@ public class Utils {
         }
     }
 
-    //takes the length as integer, return array like [A1,A3] can be converted with  GameCordtowriteArray()
+    /**
+     *
+     * @param length int                length of a ship that needs to be places
+     * @return                          array like [A1,A3], (random position of a ship)
+     *
+     * Description:                     Random Ship-Placing
+     *                                  - takes the length as integer
+     *                                  - can be converted with  GameCordtowriteArray()
+     */
     static String[] ComputerRand(int length) {
         length = length - 1;
         //transform Input [0, 1, 1, 1] to [A1,B1]
@@ -69,10 +83,11 @@ public class Utils {
     }
 
     /**
-     * @param cUInput: string userinput, may needs to be rejected
-     * @return Int Array[] with 4 coordinates/entries: [x_1,y_1,x_2,y_2]
-     * Discription:                         This method translates the checks the userinput and
-     * converts it into the format [x_1,y_1,x_2,y_2]
+     * @param cUInput: string               userinput for a ship, may needs to be rejected
+     * @return Int Array[]                  with 4 coordinates/entries: [x_1,y_1,x_2,y_2]
+     *
+     * Description:                         This method translates the checks the userinput for a ship and
+     *                                      converts it into the format [x_1,y_1,x_2,y_2]
      */
     static Integer[] cUInputToGameCord(String cUInput) {
         //transform Input "A1 B1" to [0, 1, 1, 1]
@@ -88,20 +103,34 @@ public class Utils {
         return Gamecord;
     }
 
+    /**
+     * @param cUInput: string               userinput for a shot, may needs to be rejected
+     * @return Int Array[]                  with 2 coordinates/entries: [x_1,y_1]
+     *
+     * Description:                         This method translates the checks the userinput for a shot and
+     *                                      converts it into the format [x_1,y_1]
+     */
     static Integer[] cUInputToShotCord(String cUInput) {
         //transform Input "A1" to [0, 1]
         Integer[] Gamecord = new Integer[2];
         //Check if length is correct
         if (cUInput.length() != 2) {
-            throw new IllegalArgumentException("Input has not correct length! Example: 'A1 B2'");
+            throw new IllegalArgumentException("Input has not correct length! Example: 'A1'");
         }
         Gamecord[0] = cUInput.charAt(1) - 48;
         Gamecord[1] = cUInput.charAt(0) - (int) 'A';
         return Gamecord;
     }
 
-    // transform Input {1,2} to [C1]
+    /**
+     * @param ShootCoord Int[]              Integer Array for a shot eg. [1,2]
+     * @return String Array[]               with 2 coordinates/entries: [x_1,y_1]
+     *
+     * Description:                         This method converts the userinput for a shot from
+     *                                      [1,2] to C1.
+     */
     static String[] ShootCoordtoArray(Integer[] ShootCoord) {
+        // transform Input {1,2} to [C1]
         String[] ShootArray = new String[1];
         int letter = ShootCoord[1];
         //System.out.println(letter);
@@ -110,6 +139,13 @@ public class Utils {
         return ShootArray;
     }
 
+    /**
+     * @param Gamecord int Arr[]                   the entered coordinates of a ship, that need to be checked.
+     *                                              (4 entries : [x_1,y_1,x_2,y_2])
+     *
+     * @return                                      string array for the coordinates of a ship
+     * Description:                                 transform Input [0, 1, 1, 1] to [A1,B1]
+     */
     static String[] GameCordtowriteArray(Integer[] Gamecord) {
         //tansform Input [0, 1, 1, 1] to [A1,B1]
         String[] GamecordArray = new String[6];
@@ -138,14 +174,15 @@ public class Utils {
     }
 
     /**
-     * @param Gamecoord int Arr[]           the entered coordinates, that need to be checked.
-     *                  (4 entries : [x_1,y_1,x_2,y_2])
-     * @param sN        String "sN":               length of the to be placed ship
-     * @param len       int "len":                shortname for the to be placed ship
-     * @return Discription:                         This method checks, if the user made a valid move:
-     * - ship is not diagonal
-     * - ship is not out of field
-     * - ship has the correct length
+     * @param Gamecoord int Arr[]                   the entered coordinates of a ship, that need to be checked.
+     *                                              (4 entries : [x_1,y_1,x_2,y_2])
+     * @param sN String                             length of the to be placed ship
+     * @param len int                               shortname for the to be placed ship
+     *
+     * @return Description:                         This method checks, if the user made a valid move:
+     *                                              - ship is not diagonal
+     *                                              - ship is not out of field
+     *                                              - ship has the correct length
      */
     static boolean validMove(Integer[] Gamecoord, String sN, Integer len, Player p) {
         //check if horizontal or vertical -> no diagonal possible
@@ -181,7 +218,16 @@ public class Utils {
         else return true;
     }
 
-
+    /**
+     * @param attack Player:                        player who shoots
+     * @param defense Player                        player whose ships get shot
+     * @param Gamecoord int Arr[]                   the entered coordinates of a shot, that need to be checked.
+     *                                              (2 entries : [x_1,y_1])
+     *
+     * @return Description:                         This method checks, if the user made a valid shot:
+     *                                              - shot is not out of field
+     *                                              - not already shot
+     */
     static boolean validShot(Player attack, Player defense,  Integer [] Gamecoord) {
         //check if out of field
         if (Gamecoord[0] < 0 || Gamecoord[1] < 0  || Gamecoord[0] > 10 || Gamecoord[1] > 10) {
@@ -199,7 +245,15 @@ public class Utils {
         else return true;
     }
 
-//Takes String [] and return Gamecoord for example: ["E8", "F8","G8", null, null, null,null,null] returns [4, 8, 6, 8]
+    /**
+     *
+     * @param coordArray String []          CoordArray of a ship type String [A1, A2, A3, A4, A5, A6]
+     * @return Integer []                   CoordArray of a ship type Int [] [x1,y1,x2,y2]
+     *
+     * Description:                         Takes String [] and return Gamecoord for example:
+     *                                      ["E8", "F8","G8", null, null, null,null,null]
+     *                                      returns [4, 8, 6, 8]
+     */
     static Integer[] writeShotShips(String [] coordArray) {
         Integer[] writeShotShipsArray = new Integer[4];
         int i;
@@ -225,4 +279,3 @@ public class Utils {
         return writeShotShipsArray;
     }
 }
-

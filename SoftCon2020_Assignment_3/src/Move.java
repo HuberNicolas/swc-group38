@@ -22,7 +22,8 @@ public class Move {
     /**
      * @param attack Player:                player who shoots
      * @param defense Player:               player whose ships get shot
-     * @return                              game state after the shot was made
+     *
+     * Description:                         Helper function to invoke the makeShot function
      */
     static void shooting(Player attack, Player defense) {
         while (true) {
@@ -46,9 +47,10 @@ public class Move {
     /**
      * @param attack Player:                player who shoots
      * @param defense Player:               player whose ships get shot
-     * @return                              helper function
      *
-     * Description:                         Reads the coordinates for a shot in (eg. A4),
+     *
+     * Description:                         Helper function:
+     *                                      Reads the coordinates for a shot in (eg. A4),
      *                                      Checks them with valid(shot)
      *                                      Invokes the actual shoot method
      */
@@ -76,9 +78,9 @@ public class Move {
      * @param attack Player:                player who shoots
      * @param defense Player:               player whose ships get shot
      * @param GameCoord Int Array           generated shoot coordinates eg. [0,1]
-     * @return                              helper function
      *
-     * Description:                         Checks them with valid(shot)
+     * Description:                         Helper function
+     *                                      Checks them with valid(shot)
      *                                      Invokes the actual shoot method
      */
     static void shoot(Player attack, Player defense,  Integer [] GameCoord) {
@@ -167,7 +169,7 @@ public class Move {
      * @param sN String "sN":               shortname for the to be placed ship
      * @param coord Int Array[]:            the entered coordinates
      *
-     * Discription:                         This method checks (is there no other entity), if a ship of type "sN"
+     * Description:                         This method checks (is there no other entity), if a ship of type "sN"
      *                                      can be placed at the coord "coord" on the GameBoard "board".
      *                                      If yes, it actually places ("writes") the ship there.
      */
@@ -189,7 +191,7 @@ public class Move {
     /**
      *
      * @param s Ship:                       an object of class "Ship" out of the "shipList"
-     * Discription:                         This method checks initiates the actual ship-placing-process (move):
+     * Description:                         This method checks initiates the actual ship-placing-process (move):
      *                                      - user enters coords for the ship "s" in "shipList"
      *                                      - method checks, if this is a valid user input
      */
@@ -218,17 +220,14 @@ public class Move {
             //System.out.println(scoord);
             Integer [] coord = Utils.cUInputToGameCord(scoord);
             if (!Utils.validMove(coord, s.shortName, s.length, p)) {
-
             }
             else {
                 try {
                     s.coordArray = Utils.GameCordtowriteArray(coord);
                     writeMove(p.Board, s.shortName, coord);
                 } catch (Exception e) {
-
                 }
                 //GameBoard.printBoard(p.Board);
-
             }
         }
     }
