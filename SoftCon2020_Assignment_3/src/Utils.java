@@ -8,16 +8,19 @@ import java.lang.*;
  * Class for utility functions
  */
 public class Utils {
-
+    // Singleton
     private static Utils uniqueInstance = new Utils();
-
     private Utils() {
     }
-
     public static Utils getInstance() {
         return uniqueInstance;
     }
 
+    /**
+     *
+     * @param defense Player
+     * @param GameCoord
+     */
     static void decreseHP(Player defense, Integer [] GameCoord) {
         Iterator<Ship> iterator = defense.shipList.listIterator();
         while(iterator.hasNext()) {
@@ -33,11 +36,7 @@ public class Utils {
                 }
             }
         }
-
     }
-
-
-
 
     //takes the length as integer, return array like [A1,A3] can be converted with  GameCordtowriteArray()
     static String[] ComputerRand(int length) {
@@ -89,7 +88,6 @@ public class Utils {
         return Gamecord;
     }
 
-
     static Integer[] cUInputToShotCord(String cUInput) {
         //transform Input "A1" to [0, 1]
         Integer[] Gamecord = new Integer[2];
@@ -121,14 +119,11 @@ public class Utils {
         if (Gamecord[0] != Gamecord[2]) {
             difference = Math.abs(Gamecord[2] - Gamecord[0]);
             for (int i = 0; i < difference + 1; i++) {
-
                 int value = Math.min(Gamecord[0], Gamecord[2]) + i;
                 GamecordArray[i] = String.valueOf((char) (value + 65)) + Gamecord[1];
                 //GamecordArray[i]=((char)(Gamecord[0]+Integer.toString(i)))+Gamecord[1];
                 //System.out.print(GamecordArray[i]);
             }
-
-
         } else {
             // horizontal
             //for example: [1, 0, 1, 1] to [B0,B1]
@@ -138,9 +133,7 @@ public class Utils {
                 GamecordArray[i] = String.valueOf((char) (Gamecord[0] + 65)) + value;
                 //System.out.print(GamecordArray[i]);
             }
-
         }
-
         return GamecordArray;
     }
 
@@ -185,9 +178,10 @@ public class Utils {
             }
             return true;
         }
-
         else return true;
     }
+
+
     static boolean validShot(Player attack, Player defense,  Integer [] Gamecoord) {
         //check if out of field
         if (Gamecoord[0] < 0 || Gamecoord[1] < 0  || Gamecoord[0] > 10 || Gamecoord[1] > 10) {
@@ -202,9 +196,9 @@ public class Utils {
             }
             return true;
         }
-
         else return true;
     }
+
 //Takes String [] and return Gamecoord for example: ["E8", "F8","G8", null, null, null,null,null] returns [4, 8, 6, 8]
     static Integer[] writeShotShips(String [] coordArray) {
         Integer[] writeShotShipsArray = new Integer[4];
@@ -221,15 +215,13 @@ public class Utils {
         //create new array without null and correct size
         String[] coordArraywithoutnull = new String[x+1];
         System.arraycopy(coordArray, 0, coordArraywithoutnull, 0,x+1);
-        //System.out.println(Arrays.toString(coordArraywithoutnull));
+        //System.out.println(Arrays.toString(coordArraywithoutnull)); DEBUG
         String FirstCoord = coordArraywithoutnull[0];
         String LastCoord = coordArraywithoutnull[x];
-
         writeShotShipsArray[0] = FirstCoord.charAt(0) - (int) 'A';
         writeShotShipsArray[1] = FirstCoord.charAt(1) - 48;
         writeShotShipsArray[2] = LastCoord.charAt(0) - (int) 'A';
         writeShotShipsArray[3] = LastCoord.charAt(1) - 48;
-
         return writeShotShipsArray;
     }
 }

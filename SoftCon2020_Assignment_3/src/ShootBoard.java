@@ -1,8 +1,7 @@
 /**
-        * CLASS ShootBoard
-        * Implements the actual datastructure (2dim Array [][]) for the board.
-        *Very similar to GameBoard but not Singleton -> we need two Shootbards
-        */
+ * CLASS ShootBoard
+ * Implements the actual datastructure (2dim Array [][]) for the board which stores all shooting entries.
+ */
 public class ShootBoard {
     static String [][] grid = {
             // A   B   C   D   E   F   G   H   I   J
@@ -18,12 +17,10 @@ public class ShootBoard {
             {" "," "," "," "," "," "," "," "," "," "}}; //Row 9
 
     /**
+     * @param p Player:                player
      *
-     *  board ShootBoard "board":  2dim Array [][] structure; representing the Battleship matchfield
-     * INPUT:                           GameBoard "board"
-     * OUT  :                           prints GameBoard "board"
+     * Description:                    prints player p board with the shooting entries (p.SBoard)
      */
-
     static void printShootBoard(Player p) {
         //System.out.println("\n");
         System.out.println("\nThe opponent's board is:\n");
@@ -38,5 +35,4 @@ public class ShootBoard {
             System.out.println();
         }
     }
-
 }

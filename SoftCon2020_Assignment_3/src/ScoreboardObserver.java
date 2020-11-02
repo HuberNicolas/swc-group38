@@ -1,3 +1,8 @@
+/**
+ * CLASS ScoreboardObserver
+ * Class for implementing the observer ScoreboardObserver
+ * Observes the game ending status (all ships destroyed)
+ */
 public class ScoreboardObserver implements Observer{
     private int ShipsAlive;
     private int ShipsDestroyed;

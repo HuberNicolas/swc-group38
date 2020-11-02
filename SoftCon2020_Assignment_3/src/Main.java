@@ -13,26 +13,28 @@ import java.lang.*;
 public class Main {
 
     public static void main(String [] args) {
-
+        // INITIALISATION:
         System.out.println("Welcome to Battleship!!");
         // Init gameBoard Board
         GameBoard humanGameBoard = new GameBoard();
         GameBoard computerGameBoard = new GameBoard();
         Human Human = new Human(humanGameBoard, new GameBoard());
         Computer Computer = new Computer(computerGameBoard, humanGameBoard);
+        // Init Checker for the game status with the observer
         ScoreboardChecker ScoreboardChecker = new ScoreboardChecker();
         ScoreboardObserver observer1 = new ScoreboardObserver(ScoreboardChecker);
-
+        // Placing Ships
         Move.placingShips(Human);
         Move.placingShips(Computer);
+        // Print both Human boards
         GameBoard.printGameBoard(Human);
         ShootBoard.printShootBoard(Human);
         ScoreboardChecker.checkStatus(Human, Computer);
         ScoreboardChecker.printScoreboard();
+        //GameBoard.printGameBoard(Computer); DEBUG
 
-        GameBoard.printGameBoard(Computer);
-        /*
-        // JUST FOR SIMPLICITY REASONS, INSTEAD OF Move.placingShips(Human);
+        /* DEBUG: manual initialisation of HUMAN
+        // Move.placingShips(Human);
         int ID_counter = 1;
         Human.shipList = new ArrayList<Ship>(10);
         Ship Carrier = new Ship("Carrier",6,"C",ID_counter,new String[]{"example"},"Player",6,true);
@@ -77,24 +79,26 @@ public class Main {
                 {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "},
                 {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "}};
-
-
-
         */
-
 
 
         //Gameloop:
         while(true) {
-            Move.shooting(Human, Computer);
-            ScoreboardChecker.checkStatus(Human, Computer);
-            Move.shooting(Computer, Human);
+            Move.shooting(Human, Computer); // Human shoots
+            ScoreboardChecker.checkStatus(Human, Computer); // did Human win?
+            Move.shooting(Computer, Human); // Computer shoots
+            // Printing game state
             GameBoard.printGameBoard(Human);
             ShootBoard.printShootBoard(Human);
+            // check and print score
             ScoreboardChecker.checkStatus(Human, Computer);
             ScoreboardChecker.printScoreboard();
         }
 
+
+        // MORE DEBUG
+
+        // TEST SHOOT
         //System.out.println(Move.isFree(Computer.Board, arr1)); works, DEBUG
         //Move.shoot(Human, Computer, arr1); works, DEBBUG
         //Move.makeShot(Human, Computer); works, DEBUG
@@ -104,10 +108,9 @@ public class Main {
         Move.shoot(Human, Computer, arr4);
          */
 
-        //String st1 = Arrays.toString(Utils.ComputerRand(1)).substring(1,3);
-        //System.out.println(st1);
-
-
+        // TEST SHOOT (Random generated coordinates)
+        //String st1 = Arrays.toString(Utils.ComputerRand(1)).substring(1,3); works, DEBUG
+        //System.out.println(st1); works, DEBUG
         //Integer[] Gamescoord = Utils.cUInputToGameCord((ComputerRand[0]+" "+ComputerRand[1]));
         //System.out.println(Gamescoord);
         //String[] Output= Utils.GameCordtowriteArray(Gamescoord);
@@ -119,7 +122,5 @@ public class Main {
          System.out.println(ship.getName() + " has length " + ship.length);
         }
         */
-
     }
-
 }

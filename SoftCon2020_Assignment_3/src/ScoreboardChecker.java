@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+/**
+ * CLASS ScoreboardChecker
+ * Class for using the implemented observer ScoreboardObserver
+ * Observes the game ending status (all ships destroyed)
+ */
 
 public class ScoreboardChecker implements Subject {
     private ArrayList<Observer> observers;
@@ -48,7 +53,6 @@ public class ScoreboardChecker implements Subject {
         }
         notifyObserver();
     }
-
 
     public void printScoreboard(){
         System.out.println("\nYour scoreboard:");

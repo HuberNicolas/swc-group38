@@ -10,24 +10,25 @@ import java.util.Scanner;
  */
 public class Move {
     /**
+     * @param board GameBoard:              board of player
      * @param GameCoord Int Array[]:        2 entries [x,y]
      * @return                              true, if GameBoard "board" at the coord. "GameCoord" has no entity := " "
      */
-    // for later tasks; Not fully tested
-
     static boolean  isFree(GameBoard board, Integer [] GameCoord){
         if (board.grid[GameCoord[0]][GameCoord[1]] == " ") return true;
         else return false;
     }
 
+    /**
+     * @param attack Player:                player who shoots
+     * @param defense Player:               player whose ships get shot
+     * @return                              game state after the shot was made
+     */
     static void shooting(Player attack, Player defense) {
         while (true) {
-            try { //
+            try { // check whether the coordinates are valid
                 if (attack instanceof Human) {
-                    System.out.print("Please enter the position of your Shooting target: ");
-                }
-                else {
-
+                    System.out.print("Enter the position you want to attack: ");
                 }
                 Move.makeShot(attack, defense);
                 break;
@@ -40,9 +41,17 @@ public class Move {
                 }
             }
         }
-
     }
 
+    /**
+     * @param attack Player:                player who shoots
+     * @param defense Player:               player whose ships get shot
+     * @return                              helper function
+     *
+     * Description:                         Reads the coordinates for a shot in (eg. A4),
+     *                                      Checks them with valid(shot)
+     *                                      Invokes the actual shoot method
+     */
     static void makeShot(Player attack, Player defense) {
         if (attack instanceof Human) {
             Integer[] coord = readInShot();
@@ -63,9 +72,20 @@ public class Move {
         }
     }
 
+    /**
+     * @param attack Player:                player who shoots
+     * @param defense Player:               player whose ships get shot
+     * @param GameCoord Int Array           generated shoot coordinates eg. [0,1]
+     * @return                              helper function
+     *
+     * Description:                         Checks them with valid(shot)
+     *                                      Invokes the actual shoot method
+     */
     static void shoot(Player attack, Player defense,  Integer [] GameCoord) {
         Ship ship = null;
+        // check if is a ship
         if(isFree(defense.Board, GameCoord)) {
+            // hit nothing
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "o";
             if (attack instanceof Human){
                 System.out.println("Miss");
@@ -74,40 +94,39 @@ public class Move {
         }
 
         else {
+            // hit something
             attack.SBoard.grid[GameCoord[0]][GameCoord[1]] = "x";
-            Iterator<Ship> iterator = defense.shipList.listIterator();
-            Utils.decreseHP(defense, GameCoord);
+            Iterator<Ship> iterator = defense.shipList.listIterator(); // find ship which was hit on the defense board
+            Utils.decreseHP(defense, GameCoord); // decrease hp of ship
+            // find ship via iterator
             while(iterator.hasNext()) {
                 Ship s = (Ship)iterator.next();
-
+                // is ship sunk?
                 if(s.lifepoints == 0) {
                     Integer [] arr = Utils.writeShotShips(s.coordArray);
                     if (defense instanceof Computer){
-                        writeMove(attack.SBoard, s.shortName, arr);
+                        writeMove(attack.SBoard, s.shortName, arr); // only write for humans eyes
                     }
                     defense.ShipsAlive--;
                     ship = s;
                 }
-
             }
             if (ship != null){
                 if (attack instanceof Human){
                     System.out.println("You destroyed a " + ship.name + ".");
                 }
-                else System.out.println("Your "+ ship.name + " was destroyed.\n");
+                else System.out.println("Your "+ ship.name + " was destroyed\n");
                 defense.shipList.remove(ship);
             }
             else{
                 if (attack instanceof Human){
-                    System.out.println("You hit a boat");
+                    System.out.println("You hit a boat!");
                 }
                 else System.out.println("Your boat was hit!\n");
                 //normal hit message
             }
-
         }
-
-        // ShootBoard.printShootBoard(attack);
+        // ShootBoard.printShootBoard(attack); DEBUG
     }
 
     /**
@@ -119,7 +138,6 @@ public class Move {
     }
 
     /**
-     *
      * @return Int Array[] "coord":         4 entries [x_1,y_1,x_2,y_2], which are the coordinates for the new Ship
      */
     static Integer [] readIn(){
@@ -131,6 +149,9 @@ public class Move {
         return coord;
     }
 
+    /**
+     * @return Int Array[] "coord":         2 entries [x_1,y_1], which are the coordinates for the new shot
+     */
     static Integer [] readInShot() {
         Scanner myObj = new Scanner(System.in);
         String cUInput;
@@ -167,7 +188,7 @@ public class Move {
 
     /**
      *
-     * @param s Ship "s":                   an object of class "Ship" out of the "shipList"
+     * @param s Ship:                       an object of class "Ship" out of the "shipList"
      * Discription:                         This method checks initiates the actual ship-placing-process (move):
      *                                      - user enters coords for the ship "s" in "shipList"
      *                                      - method checks, if this is a valid user input
@@ -184,8 +205,6 @@ public class Move {
                 s.coordArray = Utils.GameCordtowriteArray(coord);
                 writeMove(p.Board, s.shortName, coord);
             }
-
-            // INSERT****
         }
         else {
             String[] ComputerRand = Utils.ComputerRand(s.length);
@@ -214,6 +233,12 @@ public class Move {
         }
     }
 
+    /**
+     *
+     * @param p Player:                player who places the ships
+     *
+     * Description:                     initialises game with placing all ships on p.Board
+     */
     static void placingShips(Player p) {
         //GameBoard.printBoard(Board); // DEBUG
         // Generating all Ships and store them in shipList

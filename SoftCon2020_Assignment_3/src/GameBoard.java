@@ -1,6 +1,6 @@
 /**
  * CLASS GameBoard
- * Implements the actual datastructure (2dim Array [][]) for the board.
+ * Implements the actual datastructure (2dim Array [][]) for the board which stores the ships.
  */
 public class GameBoard {
     String [][] grid;
@@ -19,13 +19,10 @@ public class GameBoard {
                 {" ", " ", " ", " ", " ", " ", " ", " ", " ", " "}}; //Row 9
     }
 
-
-
     /**
+     * @param p Player:                player
      *
-     *  board GameBoard "board":  2dim Array [][] structure; representing the Battleship matchfield
-     * INPUT:                           GameBoard "board"
-     * OUT  :                           prints GameBoard "board"
+     * Description:                    prints player p board with the ships (p.Board)
      */
     static void printGameBoard(Player p) {
         //System.out.println("\n");
