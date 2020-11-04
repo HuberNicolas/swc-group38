@@ -1,5 +1,5 @@
 /**
- * Description:             
+ * Description:
  * @Authors:                Robin Wassink, Louis Huber and Nicolas Huber
  *
  */
@@ -12,4 +12,6 @@ import java.lang.*;
 
 public class Main {
 
+
+    System.out.println("Hello World");
 }
