@@ -20,6 +20,10 @@ public class Main {
 
         SectionChief sC = new SectionChief("Zürich");
         MainChief mC = new MainChief();
+        System.out.println(Utils.generateID());
+        System.out.println(Utils.generateID());
+        System.out.println(Utils.generateIBAN());
+        Utils.generateID();
 
     }
 }
