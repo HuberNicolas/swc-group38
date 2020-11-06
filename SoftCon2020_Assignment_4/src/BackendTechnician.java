@@ -5,6 +5,8 @@ public class BackendTechnician extends Technician{
     }
 
     void fixBackend(BackendTechnician b) {
+
+        //if (there is a BackenTechnician.ID = Parameterinput)-> then print "fixed"
         System.out.println("fixed!");
     }
 }
