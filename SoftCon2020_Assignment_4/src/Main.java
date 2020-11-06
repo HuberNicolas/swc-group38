@@ -15,7 +15,7 @@ public class Main {
     public static void main(String [] args) {
         System.out.println("Hello Word");
 
-        Customer Nicolas = new Customer("Nicolas","Huber",23,1, 1000);
+        Customer Nicolas = new Customer("Nicolas","Huber",5000,23, 1000);
         ArrayList<String> cars = new ArrayList<String>(); // Create an ArrayList object
 
         SectionChief sC = new SectionChief("Zürich");
@@ -24,6 +24,7 @@ public class Main {
         System.out.println(Utils.generateID());
         System.out.println(Utils.generateIBAN());
         Utils.generateID();
+        Utils.printCustomer(Nicolas);
 
     }
 }
