@@ -1,4 +1,6 @@
-
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 public class Customer extends Person{
     private int Age;
     private int Money;
@@ -7,9 +9,9 @@ public class Customer extends Person{
     private int Limit; // defines type
     //private String Type;
 
-    public Customer(String surname, String name, int limit, int age, int money){
-        this.Surname = surname;
+    public Customer(String name, String surname, int limit, int age, int money){
         this.Name = name;
+        this.Surname = surname;
         this.ID = Utils.generateID();
         this.Limit = limit;
         this.Age = age;
@@ -22,7 +24,8 @@ public class Customer extends Person{
         return c.Card;
     }
 
-    static int getLimit(Customer c) {
+    void setLimit(Customer c, int limit) {c.Limit = limit;}
+    int getLimit(Customer c) {
         return c.Limit;
     } // getter & setter static???
     static int getAge(Customer c) {
@@ -43,16 +46,19 @@ public class Customer extends Person{
     void deposit(Customer c, int value) {
         c.setMoney(c, c.getMoney(c)+value);
     }
+
     int withdraw(Customer c, int value) {
         try {
             if (value > c.Limit)throw new IllegalArgumentException("Your limit is not big enough. No Money was returned.");
             if (value > c.getMoney(c)) throw new IllegalArgumentException("There is not enough money on you bank account. No Money was returned.");
             else {
                 c.setMoney(c, c.getMoney(c)-value);
+                System.out.println("You successfully withdraw " + value + " CHF from your bank account.");
                 return value;
             }
         } catch(IllegalArgumentException e) {
             System.out.println(e.getMessage());
+            //System.out.println("You did not withdraw any money CHF from your bank account.");
             return 0;
         }
     }
@@ -60,7 +66,7 @@ public class Customer extends Person{
     // Prolly change that just IBAN is needed -> Raphael fragen
     void bankTransfer(Customer sender, Customer receiver,  int value) {
         try {
-            if (value > sender.getMoney(sender)) throw new IllegalArgumentException("There is not enough money on you bank account. No Money was sent.");
+            if (value > sender.getMoney(sender)) throw new IllegalArgumentException("There is not enough money on you bank account. No Money was transferred.");
             else {
                 sender.setMoney(sender, sender.getMoney(sender)-value);
                 receiver.setMoney(receiver, receiver.getMoney(receiver)+value);
@@ -72,9 +78,12 @@ public class Customer extends Person{
     }
 
     void payWithCard(Customer c, int value) {
+        // generating todays date
+        Clock cl = Clock.systemUTC();
+        LocalDate today= LocalDate.now(cl);
         try {
-            //if (c.Card.)
-            if (value > c.Limit)throw new IllegalArgumentException("Your current limit " + c.getLimit(c) + " is not big enough. This payment would overcharge your Creditcard.");
+            if (c.getCard(c).getExpDate(c.getCard(c)).compareTo(today) < 0) throw new IllegalArgumentException("Your creditcard experienced at " + c.getCard(c).getExpDate(c.getCard(c)).format(DateTimeFormatter.ofPattern("dd-MM-yy")) + " No transaction was made.");
+            if (value > c.Limit) throw new IllegalArgumentException("Your current limit " + c.getLimit(c) + " is not big enough. This payment would overcharge your creditcard. No transaction was made.");
             else {
                 System.out.println("Successfully payed " + value + " CHF by Card");
             }

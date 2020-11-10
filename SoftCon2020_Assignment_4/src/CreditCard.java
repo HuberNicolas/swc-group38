@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CreditCard {
@@ -9,18 +10,30 @@ public class CreditCard {
     //private int Limit;
     private String Type;
 
-
     public CreditCard(int limit){
-        switch (limit) {
-            case 2000:
-                this.Type = "regular";
-                break;
-            case 5000:
-                this.Type = "gold";
-                break;
-            case 10000:
-                this.Type = "platinum";
-                break;
+        ArrayList<Integer> validLimit = new ArrayList<Integer>();
+        validLimit.add(2000);
+        validLimit.add(5000);
+        validLimit.add(10000);
+
+        try{
+            if (!validLimit.contains(limit)) throw new IllegalArgumentException("The entered limit is not valid.");
+            else {
+                switch (limit) {
+                    case 2000:
+                        this.Type = "regular";
+                        break;
+                    case 5000:
+                        this.Type = "gold";
+                        break;
+                    case 10000:
+                        this.Type = "platinum";
+                        break;
+                }
+            }
+        }
+        catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
         this.SerialNumber = Utils.generateSerialNumber();
         this.SecurityCode = Utils.generateSecurityCode();

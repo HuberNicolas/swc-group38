@@ -1,5 +1,5 @@
 /**
- * Description:             A 2dim Version of the BATTLESHIP GAME
+ * Description:             Banksimulation
  * @Authors:                Robin Wassink, Louis Huber and Nicolas Huber
  *
  */
@@ -17,20 +17,26 @@ import java.lang.*;
 public class Main {
 
     public static void main(String [] args) {
-        System.out.println("Hello Word");
+        // INIT
+        Customer Nicolas = new Customer("Huber","Nicolas",2000,23, 3000);
+        Customer Louis = new Customer("Huber","Louis",5000,21, 5000);
+        SectionChief sC = new SectionChief("Fish", "John", "Zürich");
+        MainChief mC = new MainChief("McAllister", "Edward");
+        Employee e = new Employee("Thomson", "Allie");
+        // global Customer List
+        ArrayList<Customer> globalCustomerList = new ArrayList<>();
+        globalCustomerList.add(Nicolas);
+        globalCustomerList.add(Louis);
 
-        Customer Nicolas = new Customer("Nicolas","Huber",5000,23, 3000);
-        Customer Louis = new Customer("Louis","Huber",5000,21, 5000);
-        ArrayList<String> cars = new ArrayList<String>(); // Create an ArrayList object
 
-        SectionChief sC = new SectionChief("Zürich");
-        MainChief mC = new MainChief();
-        System.out.println(Utils.generateID());
-        System.out.println(Utils.generateID());
-        System.out.println(Utils.generateIBAN());
-        Utils.generateID();
+        // CUSTOMERS
+        System.out.println("######### CUSTOMERS #########");
+        //System.out.println(Utils.generateID());
+        //System.out.println(Utils.generateID());
+        //System.out.println(Utils.generateIBAN());
         Utils.printCustomer(Nicolas);
-        System.out.println(Nicolas.withdraw(Nicolas,4000));
+        Nicolas.withdraw(Nicolas,4000);
+        Nicolas.withdraw(Nicolas,250);
         Utils.printCustomer(Nicolas);
         Nicolas.deposit(Nicolas, 1000);
         Utils.printCustomer(Nicolas);
@@ -39,6 +45,23 @@ public class Main {
         Utils.printCustomer(Nicolas);
         Utils.printCustomer(Louis);
         Utils.printCustomersCard(Nicolas);
+        Nicolas.payWithCard(Nicolas,1000);
+
+        // EMPLOYEES
+        System.out.println("######### EMPLOYEES #########");
+        sC.addCustomer(Nicolas);
+        sC.addCustomer(Louis);
+        sC.printCustomerList(sC);
+        mC.addCustomer(Nicolas);
+        mC.addCustomer(Louis);
+        mC.printCustomerList(mC);
+        e.addCustomer(Nicolas);
+        e.addCustomer(Louis);
+        e.printCustomerList(e);
+
+        System.out.println("######### EMPLOYEES2 #########");
+        sC.upgradeRegToGold(Nicolas.ID);
+        Utils.printCustomer(Nicolas);
     }
 
 }

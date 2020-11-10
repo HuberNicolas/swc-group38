@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class Utils {
 
     static LocalDate generateExpDate() {
         Random ran = new Random();
-        int minDay = (int) LocalDate.of(2020, 11, 13).toEpochDay();
+        int minDay = (int) LocalDate.of(2000, 1, 1).toEpochDay();
         int maxDay = (int) LocalDate.of(2025, 12, 31).toEpochDay();
         long randomDay = minDay + ran.nextInt(maxDay - minDay);
         LocalDate expDate = LocalDate.ofEpochDay(randomDay);
@@ -67,26 +68,27 @@ public class Utils {
      * Simple printer
      */
     static void printCustomer(Customer c) {
-        System.out.println("Surname: "+c.Surname);
         System.out.println("Name: "+c.Name);
+        System.out.println("Surname: "+c.Surname);
+        System.out.println("Age : "+c.getAge(c));
+        System.out.println("IBAN : "+c.getIBAN(c));
+        System.out.println("Money : "+ c.getMoney(c));
         System.out.println("ID : "+c.ID);
         System.out.println("Limit : "+ c.getLimit(c));
-        System.out.println("Age : "+c.getAge(c));
-        System.out.println("Money : "+ c.getMoney(c));
-        System.out.println("IBAN : "+c.getIBAN(c));
     }
 
     static void printCustomersCard(Customer c) {
-        System.out.println("Owner of the card: " + c.Surname);
+        System.out.println("Owner of the card: " + c.Surname + " " + c.Name);
         System.out.println("Type of the card: " + c.getCard(c).getType(c.getCard(c)));
         System.out.println("Serial Number of the card: " + c.getCard(c).getSerialNumber(c.getCard(c)));
         System.out.println("Security Code of the card: " + c.getCard(c).getSecurityCode(c.getCard(c)));
-        System.out.println("Experience date of the card: " + c.getCard(c).getExpDate(c.getCard(c)));
+        System.out.println("Experience date of the card: " + c.getCard(c).getExpDate(c.getCard(c)).format(DateTimeFormatter.ofPattern("dd-MM-yy")));
     }
 
-    static void printCrediCard(CreditCard c) {
-        System.out.println("Surname: "+c.getType(c));
-        System.out.println("Name: "+c.getSerialNumber(c));
-        System.out.println("ID : "+c.getSecurityCode(c));
+    static void printEmployee(Employee e) {
+        System.out.println("Name: "+e.Name);
+        System.out.println("Surname: "+e.Surname);
+        System.out.println("ID : "+e.ID);
     }
+
 }
