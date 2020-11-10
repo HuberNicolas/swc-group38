@@ -45,6 +45,11 @@ public class Customer extends Person{
 
 
     void deposit(Customer c, int value) {
+        try {
+            if(value < 0) throw new IllegalArgumentException("You cannot deposit less than 0 CHF. No Money was deposited.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
         c.setMoney(c, c.getMoney(c)+value);
     }
 
@@ -57,7 +62,7 @@ public class Customer extends Person{
                 System.out.println("You successfully withdraw " + value + " CHF from your bank account.");
                 return value;
             }
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             //System.out.println("You did not withdraw any money CHF from your bank account.");
             return 0;

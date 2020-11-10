@@ -20,6 +20,9 @@ public class Main {
         // INIT
         Customer Nicolas = new Customer("Huber","Nicolas",2000,23, 3000);
         Customer Louis = new Customer("Huber","Louis",5000,21, 5000);
+        Customer Alfredo = new Customer("Ramponelli","Alfredo",5000,65, 5000);
+        Customer Mirko = new Customer("Bjelic","Mirko",10000,45, 5000);
+        Customer Edgar = new Customer("Meier","Edgar",2000,26, 5000);
         SectionChief sC = new SectionChief("Fish", "John", "Zürich");
         MainChief mC = new MainChief("McAllister", "Edward");
         Employee e = new Employee("Thomson", "Allie");
@@ -29,6 +32,11 @@ public class Main {
         ArrayList<Customer> globalCustomerList = new ArrayList<>();
         globalCustomerList.add(Nicolas);
         globalCustomerList.add(Louis);
+        globalCustomerList.add(Alfredo);
+        globalCustomerList.add(Mirko);
+        globalCustomerList.add(Edgar);
+
+
 
 
         // CUSTOMERS
@@ -86,5 +94,8 @@ public class Main {
         w.fixWebsite();
         b.ID = 145;
         b.fixBackend(b,146);
+
+
+        Nicolas.deposit(Nicolas,-100);
     }
 }

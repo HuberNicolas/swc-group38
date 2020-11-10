@@ -1,9 +1,11 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CustomerTest {
-
+    Customer Nicolas = new Customer("Huber","Nicolas",5000,23, 3000);
+    
+    
     @Test
     void getCard() {
     }
@@ -34,11 +36,8 @@ class CustomerTest {
 
     @Test
     void withdraw() {
-        Customer Nicolas = new Customer("Nicolas","Huber",5000,23, 3000);
-        //assertEquals(2, myClass.add(x,y));
-        //Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> foo.doStuff());
-        //assertEquals("expected messages", exception.getMessage());
-        assertEquals(Nicolas.Surname, "Huber");
+        
+        assertEquals(Nicolas.Surname, "Nicolas");
     }
 
 
