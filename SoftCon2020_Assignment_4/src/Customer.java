@@ -18,6 +18,7 @@ public class Customer extends Person{
         this.Money = money;
         this.IBAN = Utils.generateIBAN(); // generate in utils
         this.Card = new CreditCard(limit);
+
     }
 
     static CreditCard getCard(Customer c) {

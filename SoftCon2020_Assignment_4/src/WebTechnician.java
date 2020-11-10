@@ -1,11 +1,12 @@
 public class WebTechnician extends Technician{
 
-    public WebTechnician() {
-
+    public WebTechnician(String name, String surname) {
+        super(name,surname);
     }
-    void fixWebsite(){
+
+    void fixWebsite(){ // CHANGE milli
         try {
-            Thread.sleep(30000);
+            Thread.sleep(5000);
         } catch(InterruptedException e) {
             System.out.println("could not do reparations");
         }

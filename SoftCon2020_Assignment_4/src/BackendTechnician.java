@@ -1,12 +1,17 @@
-public class BackendTechnician extends Technician{
+public class BackendTechnician extends Technician {
 
-    public BackendTechnician() {
-
+    public BackendTechnician(String name, String surname) {
+        super(name, surname);
     }
 
-    void fixBackend(BackendTechnician b) {
-
-        //if (there is a BackenTechnician.ID = Parameterinput)-> then print "fixed"
-        System.out.println("fixed!");
+    void fixBackend(BackendTechnician b, int ID) {
+        try {
+            if (b.ID != ID)throw new IllegalArgumentException("This ID does not match to the backend technicians ID.");
+            else {
+                System.out.println("fixed!");
+            }
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

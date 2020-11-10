@@ -23,6 +23,8 @@ public class Main {
         SectionChief sC = new SectionChief("Fish", "John", "Zürich");
         MainChief mC = new MainChief("McAllister", "Edward");
         Employee e = new Employee("Thomson", "Allie");
+        WebTechnician w = new WebTechnician("Jet", "Lee");
+        BackendTechnician b = new BackendTechnician("Moser", "Peter");
         // global Customer List
         ArrayList<Customer> globalCustomerList = new ArrayList<>();
         globalCustomerList.add(Nicolas);
@@ -60,8 +62,29 @@ public class Main {
         e.printCustomerList(e);
 
         System.out.println("######### EMPLOYEES2 #########");
-        sC.upgradeRegToGold(Nicolas.ID);
+        Nicolas.ID = 123;
+        sC.upgradeRegToGold(123,globalCustomerList);
         Utils.printCustomer(Nicolas);
-    }
+        sC.downgradeGoldToReg(123,globalCustomerList);
+        Utils.printCustomer(Nicolas);
+        sC.upgradeGoldToPlat(123,globalCustomerList);
+        Utils.printCustomer(Nicolas);
+        sC.upgradeRegToGold(123,globalCustomerList);
+        Utils.printCustomer(Nicolas);
+        sC.upgradeGoldToPlat(123,globalCustomerList);
+        Utils.printCustomer(Nicolas);
+        mC.downgradeToState(123,globalCustomerList,"regular");
+        Utils.printCustomer(Nicolas);
+        mC.upgradeRegToGold(123,globalCustomerList);
+        mC.upgradeGoldToPlat(123,globalCustomerList);
+        Utils.printCustomer(Nicolas);
+        mC.downgradeToState(123,globalCustomerList,"goldd");
+        mC.downgradeToState(123,globalCustomerList,"gold");
 
+        // TECHNICIAN
+        System.out.println("######### TECHNICIAN #########");
+        w.fixWebsite();
+        b.ID = 145;
+        b.fixBackend(b,146);
+    }
 }

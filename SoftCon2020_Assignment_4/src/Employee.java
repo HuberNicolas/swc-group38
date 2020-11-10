@@ -17,27 +17,29 @@ public class Employee extends Person{
     }
 
     void upgradeRegToGold(int ID, ArrayList<Customer> cList) {
-        int id = -1;
         try {
-            for (Customer customer: cList) {
-                if (customer.ID == ID) 
+            boolean found = false;
+            // search
+            for (Customer c: cList) {
+                // found
+                if (c.ID == ID) {
+                    found = true;
+                    try {
+                        if (c.getLimit(c) == 10000) throw new IllegalArgumentException("You must not downgrade a platin card to gold card. Insufficient authorization.");
+                        if (c.getLimit(c) == 5000) throw new IllegalArgumentException("The customers credit card is already a gold card.");
+                        c.setLimit(c, 5000);
+                        System.out.println("Customer " + c.Surname + " " + c.Name + " has now a gold credit card with a new limit of 5000 CHF.");
+                    }
+                    catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
             }
-
-        }
-        catch () {
-
-        }
-
-        try {
-            if (c.getLimit(c) == 10000) throw new IllegalArgumentException("You must not downgrade a platin card to gold card. Insufficient authorization.");
-            if (c.getLimit(c) == 5000) throw new IllegalArgumentException("The customers credit card is already a gold card.");
-            c.setLimit(c, 5000);
-            System.out.println("Customer " + c.Surname + " " + c.Name + " has now a gold credit card with a new limit of 5000 CHF.");
+            if (!found) throw new IllegalArgumentException("This ID does not exist.");
         }
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     void addCustomer(Customer c) {
