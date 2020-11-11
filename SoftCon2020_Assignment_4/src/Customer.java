@@ -13,11 +13,12 @@ public class Customer extends Person{
         this.Name = name;
         this.Surname = surname;
         this.ID = Utils.generateID();
-        this.Limit = limit;
+
         this.Age = age;
         this.Money = money;
         this.IBAN = Utils.generateIBAN(); // generate in utils
-        this.Card = new CreditCard(limit);
+        this.Card = new CreditCard(limit); // try catch
+        this.Limit = limit;
 
     }
 
@@ -72,6 +73,12 @@ public class Customer extends Person{
     // Prolly change that just IBAN is needed -> Raphael fragen
     void bankTransfer(Customer sender, Customer receiver,  int value) {
         try {
+            if (value < 0) {
+                // DO NOT DELETE THIS; WAS TO UNDERSTAND HOW FAIL WORKS!
+                //String abc = "A";
+                //System.out.println(abc.charAt(value));
+                throw new IllegalArgumentException("You can not send a negative amount of money. No Money was transferred.");
+            }
             if (value > sender.getMoney(sender)) throw new IllegalArgumentException("There is not enough money on you bank account. No Money was transferred.");
             else {
                 sender.setMoney(sender, sender.getMoney(sender)-value);

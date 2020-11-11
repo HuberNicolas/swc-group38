@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
@@ -33,15 +34,21 @@ class JUnitTests {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    void depositLessThan0(){
+    void depositNegAmountOfMoney(){
         try {
             Nicolas.deposit(Nicolas,-10);
-            fail("Should throw an exception if one or more of given numbers are negative");
         } catch (Exception e) {
-            assertEquals(e,IllegalArgumentException.class);
-            
+            fail("Should thrown an exception if value is negative");
         }
+    }
 
+    @Test
+    void sendNegAmountOfMoney(){
+        try {
+            Nicolas.bankTransfer(Nicolas,Louis, -10);
+        } catch (Exception e) {
+            fail("Should thrown an exception if value is negative.");
+        }
     }
 
     @Test
@@ -54,6 +61,30 @@ class JUnitTests {
         assertEquals(Nicolas.withdraw(Nicolas,1000),1000);
     }
 
+
+
+    @Test
+    void customerCreationInvalidLimit() {
+
+    }
+    @Test
+    void customerCreationInvalidAge() {
+
+    }
+    @Test
+    void customerCreationInvalidMoney() {
+
+    }
+
+    @Test
+    void customerValid() {
+
+    }
+
+    @After
+    public void tearDown() {
+        globalCustomerList = null;
+    }
 
 
 }

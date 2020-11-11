@@ -12,7 +12,6 @@ public class Utils {
     static ArrayList<Integer> IDList = new ArrayList<Integer>();
     static ArrayList<Integer> IBANList = new ArrayList<Integer>();
 
-
     // 3 numbers eg. 128
     static int generateID(){
          int ID = ThreadLocalRandom.current().nextInt(1, 999);

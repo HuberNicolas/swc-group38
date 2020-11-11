@@ -96,6 +96,7 @@ public class Main {
         b.fixBackend(b,146);
 
 
-        Nicolas.deposit(Nicolas,-100);
+        Customer Francesco = new Customer("Huber","Louis",4999,21, 5000);
+        System.out.println(Francesco.getLimit(Francesco));
     }
 }
