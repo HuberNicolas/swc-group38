@@ -44,6 +44,16 @@ class JUnitTests {
 
     }
 
+    @Test
+    void withdrawToMuchMoney() {
+        assertEquals(Nicolas.withdraw(Nicolas,4000),0);
+    }
+
+    @Test
+    void withdrawCorrectMoney() {
+        assertEquals(Nicolas.withdraw(Nicolas,1000),1000);
+    }
+
 
 
 }
