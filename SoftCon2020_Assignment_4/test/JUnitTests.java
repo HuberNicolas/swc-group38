@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class JUnitTests {
     //create test customers
+    Bank Bank = new Bank();
     Customer Nicolas = new Customer("Huber","Nicolas",2000,23, 3000);
     Customer Louis = new Customer("Huber","Louis",5000,21, 0);
     Customer Alfredo = new Customer("Ramponelli","Alfredo",5000,65, 5000);
@@ -22,33 +23,29 @@ class JUnitTests {
     Customer Fabio = new Customer("Regulare","Fabio",2000,28, 0);
     Customer Antonio = new Customer("Oro","Antonio",5000,28, 0);
     Customer Ricardo = new Customer("Platinum","Ricardo",10000,28, 0);
-    ArrayList<Customer> globalCustomerList = new ArrayList<>();
-
-
-
-
-
-    @Before
-    void setUp() {
-        globalCustomerList.add(Nicolas);
-        globalCustomerList.add(Louis);
-        globalCustomerList.add(Alfredo);
-        globalCustomerList.add(Mirko);
-        globalCustomerList.add(Edgar);
-        globalCustomerList.add(Carlo);
-        globalCustomerList.add(Fabio);
-        globalCustomerList.add(Antonio);
-        globalCustomerList.add(Ricardo);
-    }
     //create test employees:
     Employee Luciano = new Employee("Rossi","Luciano");
     SectionChief Roberto = new SectionChief("Carlos", "Roberto", "Napoli");
     MainChief Dante = new MainChief("Fiero", "Dane");
-
     //create test Technicians
     WebTechnician Alonso = new WebTechnician("Rossini", "Alonso");
     BackendTechnician Fernando = new BackendTechnician("Bianci", "Fernando");
 
+    @Before
+    void setUp() {
+        Bank.add_Customer(Nicolas);
+        Bank.add_Customer(Louis);
+        Bank.add_Customer(Alfredo);
+        Bank.add_Customer(Mirko);
+        Bank.add_Customer(Edgar);
+        Bank.add_Customer(Carlo);
+        Bank.add_Customer(Fabio);
+        Bank.add_Customer(Antonio);
+        Bank.add_Customer(Ricardo);
+        Bank.add_Employee(Luciano, Bank.getEmployees());
+        Bank.add_Employee(Roberto, Bank.getEmployees());
+        Bank.add_Employee(Dante, Bank.getEmployees());
+    }
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -158,9 +155,20 @@ class JUnitTests {
     }
 
 
-    //test Bank emplyees
+    //test Bank employees
+    //no second SectionChief for same City can be added
+    @Test
+    void noSecondSectionChief() {
+        Employee Sandro = null;
+        try {
+            Sandro = new SectionChief("sandro", "nussbaumer", "Zürich");
+        } catch (Exception e) {
+            fail("There is already a SectionChief working in " + ((SectionChief) Sandro).getCity());
+        }
+    }
     //regular employee Luciano cannot upgrade Fabio (not his customer)
     @Test
+
     void Regularemployee_notCustomerupgradeRegToGold() {
         try {
             int custID = Fabio.ID;
@@ -329,7 +337,6 @@ class JUnitTests {
     //get rid of customers
     @After
     public void tearDown() {
-        globalCustomerList = null;
     }
 
 

@@ -18,6 +18,7 @@ public class Main {
 
     public static void main(String [] args) {
         // INIT
+        Bank Bank = new Bank();
         Customer Nicolas = new Customer("Huber","Nicolas",2000,23, 3000);
         Customer Louis = new Customer("Huber","Louis",5000,21, 5000);
         Customer Alfredo = new Customer("Ramponelli","Alfredo",5000,65, 5000);
@@ -28,15 +29,18 @@ public class Main {
         Employee e = new Employee("Thomson", "Allie");
         WebTechnician w = new WebTechnician("Jet", "Lee");
         BackendTechnician b = new BackendTechnician("Moser", "Peter");
+        SectionChief sC2 = new SectionChief("Meier","Hans", "Zürich");
         // global Customer List
-        ArrayList<Customer> globalCustomerList = new ArrayList<>();
-        globalCustomerList.add(Nicolas);
-        globalCustomerList.add(Louis);
-        globalCustomerList.add(Alfredo);
-        globalCustomerList.add(Mirko);
-        globalCustomerList.add(Edgar);
+        Bank.add_Customer(Nicolas);
+        Bank.add_Customer(Louis);
+        Bank.add_Customer(Alfredo);
+        Bank.add_Customer(Mirko);
+        Bank.add_Customer(Edgar);
 
-
+        //global Employee List
+        Bank.add_Employee(sC, Bank.getEmployees());
+        Bank.add_Employee(mC, Bank.getEmployees());
+        Bank.add_Employee(e, Bank.getEmployees());
 
 
         // CUSTOMERS
@@ -59,6 +63,7 @@ public class Main {
 
         // EMPLOYEES
         System.out.println("######### EMPLOYEES #########");
+        Bank.add_Employee(sC2, Bank.getEmployees());
         sC.addCustomer(Nicolas);
         sC.addCustomer(Louis);
         sC.printCustomerList(sC);
@@ -71,23 +76,23 @@ public class Main {
 
         System.out.println("######### EMPLOYEES2 #########");
         Nicolas.ID = 123;
-        sC.upgradeRegToGold(123,globalCustomerList);
+        sC.upgradeRegToGold(123,Bank.getCustomers());
         Utils.printCustomer(Nicolas);
-        sC.downgradeGoldToReg(123,globalCustomerList);
+        sC.downgradeGoldToReg(123,Bank.getCustomers());
         Utils.printCustomer(Nicolas);
-        sC.upgradeGoldToPlat(123,globalCustomerList);
+        sC.upgradeGoldToPlat(123,Bank.getCustomers());
         Utils.printCustomer(Nicolas);
-        sC.upgradeRegToGold(123,globalCustomerList);
+        sC.upgradeRegToGold(123,Bank.getCustomers());
         Utils.printCustomer(Nicolas);
-        sC.upgradeGoldToPlat(123,globalCustomerList);
+        sC.upgradeGoldToPlat(123,Bank.getCustomers());
         Utils.printCustomer(Nicolas);
-        mC.downgradeToState(123,globalCustomerList,"regular");
+        mC.downgradeToState(123,Bank.getCustomers(),"regular");
         Utils.printCustomer(Nicolas);
-        mC.upgradeRegToGold(123,globalCustomerList);
-        mC.upgradeGoldToPlat(123,globalCustomerList);
+        mC.upgradeRegToGold(123,Bank.getCustomers());
+        mC.upgradeGoldToPlat(123,Bank.getCustomers());
         Utils.printCustomer(Nicolas);
-        mC.downgradeToState(123,globalCustomerList,"goldd");
-        mC.downgradeToState(123,globalCustomerList,"gold");
+        mC.downgradeToState(123,Bank.getCustomers(),"goldd");
+        mC.downgradeToState(123,Bank.getCustomers(),"gold");
 
         // TECHNICIAN
         System.out.println("######### TECHNICIAN #########");
@@ -100,12 +105,12 @@ public class Main {
         Customer Francesco = new Customer("Balonetto","Francesco",4999,56, 6969);
         System.out.println(Francesco.getLimit(Francesco));
         Francesco.ID = 134;
-        globalCustomerList.add(Francesco); // can u upgrade any or just the one in your list?
-        mC.upgradeGoldToPlat(134,globalCustomerList);
+        Bank.getCustomers().add(Francesco); // can u upgrade any or just the one in your list?
+        mC.upgradeGoldToPlat(134,Bank.getCustomers());
         System.out.println(Francesco.getLimit(Francesco));
-        mC.upgradeRegToGold(134,globalCustomerList);
+        mC.upgradeRegToGold(134,Bank.getCustomers());
         System.out.println(Francesco.getLimit(Francesco));
-        mC.upgradeRegToGold(134,globalCustomerList);
+        mC.upgradeRegToGold(134,Bank.getCustomers());
         System.out.println(Francesco.getLimit(Francesco));
 
     }

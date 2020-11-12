@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class SectionChief extends Employee{
     private String City;
 
+    public String getCity() {
+        return City;
+    }
+
     public SectionChief(String name, String surname, String city) {
         super(name, surname);
         this.City = city;
