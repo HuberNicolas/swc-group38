@@ -54,7 +54,7 @@ public class Utils{
 
     static LocalDate generateExpDate() {
         Random ran = new Random();
-        int minDay = (int) LocalDate.of(2000, 1, 1).toEpochDay();
+        int minDay = (int) LocalDate.of(2022, 11, 1).toEpochDay();
         int maxDay = (int) LocalDate.of(2025, 12, 31).toEpochDay();
         long randomDay = minDay + ran.nextInt(maxDay - minDay);
         LocalDate expDate = LocalDate.ofEpochDay(randomDay);

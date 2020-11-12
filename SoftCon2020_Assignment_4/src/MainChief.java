@@ -43,6 +43,31 @@ public class MainChief extends Employee{
             System.out.println(e.getMessage());
         }
     }
+    void downgradePlatToGold(int ID, ArrayList<Customer> cList) {
+        try {
+            boolean found = false;
+            // search
+            for (Customer c: cList) {
+                // found
+                if (c.ID == ID) {
+                    found = true;
+                    try {
+                        if (c.getLimit(c) == 5000) throw new IllegalArgumentException("You already got a gold Card");
+                        if (c.getLimit(c) == 2000) throw new IllegalArgumentException("The customers credit card is already just a regular  card.");
+                        c.setLimit(c, 5000);
+                        System.out.println("Customer " + c.Surname + " " + c.Name + " has now a gold credit card with a new limit of 5000 CHF.");
+                    }
+                    catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+            if (!found) throw new IllegalArgumentException("This ID does not exist.");
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     void upgradeGoldToPlat(int ID, ArrayList<Customer> cList) {
         try {
