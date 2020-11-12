@@ -8,7 +8,7 @@ import java.util.List;
 /*
 generate ID and generate IBAN create int, which are only made once
 */
-public class Utils {
+public class Utils{
     static ArrayList<Integer> IDList = new ArrayList<Integer>();
     static ArrayList<Integer> IBANList = new ArrayList<Integer>();
 

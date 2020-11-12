@@ -91,12 +91,22 @@ public class Main {
 
         // TECHNICIAN
         System.out.println("######### TECHNICIAN #########");
-        w.fixWebsite();
+        //w.fixWebsite();
         b.ID = 145;
         b.fixBackend(b,146);
+        b.fixBackend(b,145);
 
 
-        Customer Francesco = new Customer("Huber","Louis",4999,21, 5000);
+        Customer Francesco = new Customer("Balonetto","Francesco",4999,56, 6969);
         System.out.println(Francesco.getLimit(Francesco));
+        Francesco.ID = 134;
+        globalCustomerList.add(Francesco); // can u upgrade any or just the one in your list?
+        mC.upgradeGoldToPlat(134,globalCustomerList);
+        System.out.println(Francesco.getLimit(Francesco));
+        mC.upgradeRegToGold(134,globalCustomerList);
+        System.out.println(Francesco.getLimit(Francesco));
+        mC.upgradeRegToGold(134,globalCustomerList);
+        System.out.println(Francesco.getLimit(Francesco));
+
     }
 }

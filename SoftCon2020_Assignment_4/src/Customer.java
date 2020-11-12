@@ -1,6 +1,8 @@
 import java.time.Clock;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
 public class Customer extends Person{
     private int Age;
     private int Money;
@@ -17,9 +19,21 @@ public class Customer extends Person{
         this.Age = age;
         this.Money = money;
         this.IBAN = Utils.generateIBAN(); // generate in utils
-        this.Card = new CreditCard(limit); // try catch
-        this.Limit = limit;
 
+        // Check Limit
+        ArrayList<Integer> validLimit = new ArrayList<Integer>();
+        validLimit.add(2000);
+        validLimit.add(5000);
+        validLimit.add(10000);
+        if (!validLimit.contains(limit)) {
+            System.out.println("Invalid limit entered! Set to default limit of 2000 CHF.");
+            this.Card = new CreditCard(2000); // try catch
+            this.Limit = 2000;
+        }
+        else {
+            this.Card = new CreditCard(limit); // try catch
+            this.Limit = limit;
+        }
     }
 
     static CreditCard getCard(Customer c) {
