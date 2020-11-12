@@ -81,6 +81,11 @@ class JUnitTests {
 
     }
 
+    @Test
+    void jUnitTest() {
+        // test for Louis
+    }
+
     @After
     public void tearDown() {
         globalCustomerList = null;
