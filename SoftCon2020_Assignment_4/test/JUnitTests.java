@@ -27,7 +27,7 @@ class JUnitTests {
     Customer Ricardo = new Customer("Platinum","Ricardo",10000,28, 0);
     //create test employees:
     Employee Luciano = new Employee("Rossi","Luciano");
-    SectionChief Roberto = new SectionChief("Carlos", "Roberto", "Napoli");
+    SectionChief Roberto = new SectionChief("Carlos", "Roberto", "Zürich");
     MainChief Dante = new MainChief("Fiero", "Dane");
     //create test Technicians
     WebTechnician Alonso = new WebTechnician("Rossini", "Alonso");
@@ -216,7 +216,9 @@ class JUnitTests {
     void noSecondSectionChief() {
         Employee Sandro = null;
         try {
+            setUp();
             Sandro = new SectionChief("sandro", "nussbaumer", "Zürich");
+            Bank.add_Employee(Sandro, Bank.getEmployees());
         } catch (Exception e) {
             fail("There is already a SectionChief working in " + ((SectionChief) Sandro).getCity());
         }
