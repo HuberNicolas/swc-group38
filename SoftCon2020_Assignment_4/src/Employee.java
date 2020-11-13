@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Employee extends Person{
     public ArrayList<Customer> CustomerList;

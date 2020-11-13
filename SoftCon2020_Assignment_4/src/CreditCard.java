@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class CreditCard {
     //private Customer Owner; prolly is not needed
@@ -16,7 +16,7 @@ public class CreditCard {
         validLimit.add(5000);
         validLimit.add(10000);
 
-        try{
+        try {
             if (!validLimit.contains(limit)) throw new IllegalArgumentException("The entered limit is not valid.");
             else {
                 switch (limit) {
