@@ -27,14 +27,17 @@ public class Bank {
         if (em instanceof SectionChief){
             try {
                 for(Employee employee : list ){
-                    if (((SectionChief) employee).getCity().equals(((SectionChief) em).getCity())){
-                        throw new IllegalArgumentException("There is already a SectionChief working in "+((SectionChief) em).getCity());
+                    if (employee instanceof SectionChief){
+                        if (((SectionChief) employee).getCity().equals(((SectionChief) em).getCity())){
+                            throw new IllegalArgumentException("There is already a SectionChief working in "+((SectionChief) em).getCity());
+                        }
                     }
                 }
+                this.Employees.add(em);
 
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
         }}
-        this.Employees.add(em);
+        else{ this.Employees.add(em);}
     }
 }
