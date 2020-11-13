@@ -17,11 +17,26 @@ public class Customer extends Person {
 
     // Constructor
     public Customer(String name, String surname, int limit, int age, int money) {
+        // Sanity checks
+        try {
+            if (age <= 0) {
+                this.Age = 18;
+                throw new IllegalArgumentException("An age <= 0 is not valid. Set age to default value of 18.");
+            }
+            if (age > 0) this.Age = age;
+            if (money < 0) {
+                this.Money = 0;
+                throw new IllegalArgumentException("Your bank account must contain at least 0 CHF. Set default value of saving to 0.");
+            }
+            if (money >= 0) this.Money = money;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         this.Name = name;                           // eg. Ragoletti
         this.Surname = surname;                     // eg. Luciano
         this.ID = Utils.generateID();               // eg. 123
-        this.Age = age;                             // eg. 63
-        this.Money = money;                         // eg. 1000000000
+        //this.Age = age;                             // eg. 63
+        //this.Money = money;                         // eg. 1000000000
         this.IBAN = Utils.generateIBAN();           // eg. 171839
 
         // check limit
@@ -47,19 +62,13 @@ public class Customer extends Person {
     static CreditCard getCard(Customer c) { return c.Card; }
 
     // Getter
-    int getLimit(Customer c) {
-        return c.Limit;
-    }
+    int getLimit(Customer c) { return c.Limit; }
 
     // Getter
-    static int getAge(Customer c) {
-        return c.Age;
-    }
+    static int getAge(Customer c) { return c.Age; }
 
     // Getter
-    static int getIBAN(Customer c) {
-        return c.IBAN;
-    }
+    static int getIBAN(Customer c) { return c.IBAN; }
 
     // Getter
     int getMoney(Customer c) { return c.Money; }

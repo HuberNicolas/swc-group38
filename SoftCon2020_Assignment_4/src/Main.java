@@ -112,6 +112,10 @@ public class Main {
         System.out.println(Francesco.getLimit(Francesco));
         mC.upgradeRegToGold(134,Bank.getCustomers());
         System.out.println(Francesco.getLimit(Francesco));
+        System.out.println(Francesco.withdraw(Francesco,-1000));
 
+        Customer Anthony = new Customer("Rodrigo","Anthony",4999,-56, -6969);
+        System.out.println(Nicolas.getMoney(Nicolas));
+        System.out.println(Nicolas.getAge(Nicolas));
     }
 }

@@ -17,7 +17,7 @@ public class WebTechnician extends Technician{
      */
     void fixWebsite(){
         try {
-            Thread.sleep(30000);
+            Thread.sleep(10);
         } catch(InterruptedException e) {
             System.out.println("could not do reparations");
         }
