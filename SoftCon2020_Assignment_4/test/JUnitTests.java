@@ -422,10 +422,13 @@ class JUnitTests {
         }catch (Exception e) {
             fail("Invalid limit entered! Set to default limit of 2000 CHF.");
         }
-
+        /**
+         * @param: name, surname,  limit, wrong age,money
+         * @result: new customer, age = 18
+         * @throws: print "An age <= 0 is not valid. Set age to default value of 18."
+         */
     }
     @Test
-    //has to be fixed
     void customerCreationInvalidAge() {
         try {
             Customer Pietro = new Customer("Lombardi","Pietro",2000,-1, 3000);
@@ -434,8 +437,12 @@ class JUnitTests {
         }
 
     }
+    /**
+     * @param: name, surname,  limit, age,wrong money
+     * @result: new customer, money = 0
+     * @throws: print "Your bank account must contain at least 0 CHF. Set default value of saving to 0."
+     */
     @Test
-        //has to be fixed
 
     void customerCreationInvalidMoney() {
         try {
