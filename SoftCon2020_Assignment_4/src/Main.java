@@ -77,23 +77,23 @@ public class Main {
 
         System.out.println("######### EMPLOYEES2 #########");
         Nicolas.ID = 123;
-        sC.upgradeRegToGold(123,Bank.getCustomers());
+        sC.upgradeRegToGold(123, sC.CustomerList);
         Utils.printCustomer(Nicolas);
-        sC.downgradeGoldToReg(123,Bank.getCustomers());
+        sC.downgradeGoldToReg(123,sC.CustomerList);
         Utils.printCustomer(Nicolas);
-        sC.upgradeGoldToPlat(123,Bank.getCustomers());
+        sC.upgradeGoldToPlat(123,sC.CustomerList);
         Utils.printCustomer(Nicolas);
-        sC.upgradeRegToGold(123,Bank.getCustomers());
+        sC.upgradeRegToGold(123,sC.CustomerList);
         Utils.printCustomer(Nicolas);
-        sC.upgradeGoldToPlat(123,Bank.getCustomers());
+        sC.upgradeGoldToPlat(123,sC.CustomerList);
         Utils.printCustomer(Nicolas);
-        mC.downgradeToState(123,Bank.getCustomers(),"regular");
+        mC.downgradeToState(123,mC.CustomerList,"regular");
         Utils.printCustomer(Nicolas);
-        mC.upgradeRegToGold(123,Bank.getCustomers());
-        mC.upgradeGoldToPlat(123,Bank.getCustomers());
+        mC.upgradeRegToGold(123,mC.CustomerList);
+        mC.upgradeGoldToPlat(123,mC.CustomerList);
         Utils.printCustomer(Nicolas);
-        mC.downgradeToState(123,Bank.getCustomers(),"goldd");
-        mC.downgradeToState(123,Bank.getCustomers(),"gold");
+        mC.downgradeToState(123,mC.CustomerList,"goldd");
+        mC.downgradeToState(123,mC.CustomerList,"gold");
 
         // TECHNICIAN
         System.out.println("######### TECHNICIAN #########");
@@ -107,11 +107,11 @@ public class Main {
         System.out.println(Francesco.getLimit(Francesco));
         Francesco.ID = 134;
         Bank.getCustomers().add(Francesco);
-        mC.upgradeGoldToPlat(134,Bank.getCustomers());
+        mC.upgradeGoldToPlat(134, mC.CustomerList);
         System.out.println(Francesco.getLimit(Francesco));
-        mC.upgradeRegToGold(134,Bank.getCustomers());
+        mC.upgradeRegToGold(134,mC.CustomerList);
         System.out.println(Francesco.getLimit(Francesco));
-        mC.upgradeRegToGold(134,Bank.getCustomers());
+        mC.upgradeRegToGold(134,mC.CustomerList);
         System.out.println(Francesco.getLimit(Francesco));
         System.out.println(Francesco.withdraw(Francesco,-1000));
 

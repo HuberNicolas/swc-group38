@@ -33,7 +33,7 @@ public class Employee extends Person{
     /**
      * @param ID                        id of a customer, whose credit card should be upgraded from regular status
      *                                  to gold status
-     * @param cList                     global list all possible customers
+     * @param cList                     list of customers assigned to the employee
      * description                      if a customer with the specific id exists and there is a valid option
      *                                  to upgrade the card of this customer
      *                                  then upgrade his/her card to gold status

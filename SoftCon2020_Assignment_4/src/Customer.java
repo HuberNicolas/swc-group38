@@ -99,14 +99,16 @@ public class Customer extends Person {
     void deposit(Customer c, int value) {
         // is value >= 0
         try {
-            if (value < 0)
-                throw new IllegalArgumentException("You cannot deposit less than 0 CHF. No Money was deposited.");
+            if (value < 0) throw new IllegalArgumentException("You cannot deposit less than 0 CHF. No Money was deposited.");
+            else {
+                // add value to current savings
+                c.setMoney(c, c.getMoney(c) + value);
+                System.out.println("You successfully deposited " + value + " CHF to your bank account.");
+            }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-        // add value to current savings
-        c.setMoney(c, c.getMoney(c) + value);
-        System.out.println("You successfully deposited " + value + " CHF to your bank account.");
+
     }
 
     /**
@@ -151,7 +153,7 @@ public class Customer extends Person {
             boolean found = false;
             // search
             for (Customer c : cList) {
-                System.out.println(c.Name+""+c.IBAN);
+                //System.out.println(c.Name+""+c.IBAN); DEBUG
                 if (c.getIBAN(c) == IBAN) {
                     // did find the customer
                     found = true;

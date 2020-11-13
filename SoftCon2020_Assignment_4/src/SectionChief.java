@@ -26,7 +26,7 @@ public class SectionChief extends Employee{
 
     /**
      * @param ID                        id of a customer, whose credit card should be upgraded to gold status
-     * @param cList                     global list all possible customers
+     * @param cList                     list of customers assigned to the employee
      * description                      if a customer with the specific id exists and there is a valid option
      *                                  to upgrade the card of this customer
      *                                  then upgrade his/her card to gold status
@@ -60,7 +60,7 @@ public class SectionChief extends Employee{
     /**
      * @param ID                        id of a customer, whose credit card should be downgraded from gold status
      *                                  to regular status
-     * @param cList                     global list all possible customers
+     * @param cList                     list of customers assigned to the employee
      * description                      if a customer with the specific id exists and there is a valid option
      *                                  to downgrade the card of this customer
      *                                  then downgrade his/her card to regular status
@@ -102,7 +102,7 @@ public class SectionChief extends Employee{
     /**
      * @param ID                        id of a customer, whose credit card should be upgraded from gold status
      *                                  to platin status
-     * @param cList                     global list all possible customers
+     * @param cList                     list of customers assigned to the employee
      * description                      if a customer with the specific id exists and there is a valid option
      *                                  to upgrade the card of this customer
      *                                  then upgrade his/her card to platin status
