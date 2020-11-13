@@ -17,11 +17,26 @@ public class Customer extends Person {
 
     // Constructor
     public Customer(String name, String surname, int limit, int age, int money) {
+        // Sanity checks
+        try {
+            if (age <= 0) {
+                this.Age = 18;
+                throw new IllegalArgumentException("An age <= 0 is not valid. Set age to default value of 18.");
+            }
+            if (age > 0) this.Age = age;
+            if (money < 0) {
+                this.Money = 0;
+                throw new IllegalArgumentException("Your bank account must contain at least 0 CHF. Set default value of saving to 0.");
+            }
+            if (money >= 0) this.Money = money;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         this.Name = name;                           // eg. Ragoletti
         this.Surname = surname;                     // eg. Luciano
         this.ID = Utils.generateID();               // eg. 123
-        this.Age = age;                             // eg. 63
-        this.Money = money;                         // eg. 1000000000
+        //this.Age = age;                             // eg. 63
+        //this.Money = money;                         // eg. 1000000000
         this.IBAN = Utils.generateIBAN();           // eg. 171839
 
         // check limit
@@ -47,19 +62,13 @@ public class Customer extends Person {
     static CreditCard getCard(Customer c) { return c.Card; }
 
     // Getter
-    int getLimit(Customer c) {
-        return c.Limit;
-    }
+    int getLimit(Customer c) { return c.Limit; }
 
     // Getter
-    static int getAge(Customer c) {
-        return c.Age;
-    }
+    static int getAge(Customer c) { return c.Age; }
 
     // Getter
-    static int getIBAN(Customer c) {
-        return c.IBAN;
-    }
+    static int getIBAN(Customer c) { return c.IBAN; }
 
     // Getter
     int getMoney(Customer c) { return c.Money; }
@@ -70,12 +79,13 @@ public class Customer extends Person {
     // Setter
     void setMoney(Customer c, int m) { c.Money = m; }
 
-    /* The following methods are the base methods.
+    /*
+     * The following methods are the base methods.
      * Any type of customer can do this, as long
-    /* as we have correct parameters.
+     * as we have correct parameters.
+     */
 
     /**
-     *
      * @param c                         customer that wants to deposit an amount of money
      * @param value                     amount of money that should be deposited
      * description                      depositing money simply adds the sum of money deposited to the customer's
@@ -95,11 +105,11 @@ public class Customer extends Person {
     }
 
     /**
-     * @param c     customer that wants to withdraw an amount of money
-     * @param value amount of money that should be withdrawn
-     * @return amount of withdrawn money from customers bank account
+     * @param c                         customer that wants to withdraw an amount of money
+     * @param value                     amount of money that should be withdrawn
+     * @return                          amount of withdrawn money from customers bank account
      * description                      if entered a correct value (value >= 0 && value < customers saving)
-     * then return the amount of value from the bank account
+     *                                  then return the amount of value from the bank account
      */
     int withdraw(Customer c, int value) {
         // is value >= 0 && is there enough money on customes bank account?
@@ -126,7 +136,7 @@ public class Customer extends Person {
      * @param sender   customer that is sending money
      * @param receiver customer that is receiving money
      * @param value    amount of money that should be sent
-     *                 description                      if entered a correct value (value >= 0 && value < customers saving)
+     * description                      if entered a correct value (value >= 0 && value < customers saving)
      *                 then return the amount of value from the bank account
      */
     void bankTransfer(Customer sender, Customer receiver, int value) {
@@ -150,24 +160,26 @@ public class Customer extends Person {
     }
 
     /**
-     * @param c     customer that wants to withdraw an amount of money
-     * @param value amount of money that should be paid by card
-     *              description                      if entered a correct value (value >= 0 && value < customers limit)
-     *              and if customers card is not expired
-     *              then make a transaction by card
+     * @param c                         customer that wants to withdraw an amount of money
+     * @param value                     amount of money that should be paid by card
+     * description                      if entered a correct value (value >= 0 && value < customers limit)
+     *                                  and if customers card is not expired
+     *                                  then make a transaction by card
      */
     void payWithCard(Customer c, int value) {
-        // generating todays date
+        // generating today's date
         Clock cl = Clock.systemUTC();
         LocalDate today = LocalDate.now(cl);
+        // sanity check
         try {
-            if (value < 0)
+            if (value < 0) // invalid value
                 throw new IllegalArgumentException("You cannot pay less than 0 CHF. No transaction was made.");
-            if (c.getCard(c).getExpDate(c.getCard(c)).compareTo(today) < 0)
+            if (c.getCard(c).getExpDate(c.getCard(c)).compareTo(today) < 0) // invalid date
                 throw new IllegalArgumentException("Your credit card experienced at " + c.getCard(c).getExpDate(c.getCard(c)).format(DateTimeFormatter.ofPattern("dd-MM-yy")) + " No transaction was made.");
-            if (value > c.Limit)
+            if (value > c.Limit) // invalid limit
                 throw new IllegalArgumentException("Your current limit " + c.getLimit(c) + " is not big enough. This payment would overcharge your credit card. No transaction was made.");
             else {
+                // valid card
                 System.out.println("Successfully payed " + value + " CHF by card");
             }
         } catch (IllegalArgumentException e) {
