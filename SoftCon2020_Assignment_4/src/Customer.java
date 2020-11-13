@@ -1,3 +1,5 @@
+import org.junit.platform.engine.support.descriptor.FileSystemSource;
+
 import java.time.Clock;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -68,7 +70,7 @@ public class Customer extends Person {
     static int getAge(Customer c) { return c.Age; }
 
     // Getter
-    static int getIBAN(Customer c) { return c.IBAN; }
+    int getIBAN(Customer c) { return c.IBAN; }
 
     // Getter
     int getMoney(Customer c) { return c.Money; }
@@ -136,26 +138,21 @@ public class Customer extends Person {
     }
 
     /**
-     * @param sender   customer that is sending money
-     * @param receiver customer that is receiving money
-     * @param value    amount of money that should be sent
-     * description                      if entered a correct value (value >= 0 && value < customers saving)
-     *                 then return the amount of value from the bank account
-     */
-
-    /**
      *
-     * @param sender
-     * @param IBAN
-     * @param value
-     * @param cList
+     * @param sender                    customer that is sending money
+     * @param IBAN                      IBAN of the customer who is receiving money
+     * @param value                     amount of money that should be sent
+     * @param cList                     list of all customers
+     * description                      if entered a correct value (value >= 0 && value < customers saving)
+     *                                  then return the amount of value from the bank account
      */
     void bankTransfer(Customer sender, int IBAN, int value, ArrayList<Customer> cList) {
         try {
             boolean found = false;
             // search
             for (Customer c : cList) {
-                if (c.IBAN == IBAN) {
+                System.out.println(c.Name+""+c.IBAN);
+                if (c.getIBAN(c) == IBAN) {
                     // did find the customer
                     found = true;
                     try {

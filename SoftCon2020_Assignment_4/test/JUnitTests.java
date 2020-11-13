@@ -49,6 +49,7 @@ class JUnitTests {
         Bank.add_Employee(Luciano, Bank.getEmployees());
         Bank.add_Employee(Roberto, Bank.getEmployees());
         Bank.add_Employee(Dante, Bank.getEmployees());
+
     }
 
     @Rule
@@ -56,7 +57,7 @@ class JUnitTests {
 
 
     /**
-     * @throws acount will be persisted without any errors,
+     * @throws account will be persisted without any errors,
      *         and Account.getId() will no longer be <code>null</code>
      */
     @Test
@@ -68,12 +69,13 @@ class JUnitTests {
         }
     }
     /**
-     * @throws exceptions, as you should not send negative money
+     * @throws exception, as you should not send negative money
      */
     @Test
     void sendNegAmountOfMoney(){
+        Louis.setIBAN(Louis,171839);
         try {
-            Nicolas.bankTransfer(Nicolas,Louis, -10);
+            Nicolas.bankTransfer(Nicolas,171839,-10, Bank.getCustomers());
         } catch (Exception e) {
             fail("Should thrown an exception if value is negative.");
         }
@@ -130,9 +132,13 @@ class JUnitTests {
      */
         @Test
     void banktransferCorrectMoney() {
-    Nicolas.bankTransfer(Nicolas,Carlo,1000);
-    //now Carlo will have 1000 on his account
-        {assertEquals(Carlo.getMoney(Carlo),1000);}
+            Bank.add_Customer(Carlo);
+            Nicolas.deposit(Nicolas,100000);
+            System.out.println(Carlo.getIBAN(Carlo));
+
+            Nicolas.bankTransfer(Nicolas,Carlo.getIBAN(Carlo),1000, Bank.getCustomers());
+            //now Carlo will have 1000 on his account
+        {assertEquals(1000,Carlo.getMoney(Carlo));}
     }
     /**
      * @param: The sender and receiver of the money, amount of money
@@ -140,8 +146,9 @@ class JUnitTests {
      */
     @Test
     void banktransferIncorrectMoney() {
+        Carlo.setIBAN(Carlo,171839);
         try {
-            Nicolas.bankTransfer(Nicolas,Carlo,-1000);
+            Nicolas.bankTransfer(Nicolas,171839,-1000, Bank.getCustomers());
         } catch (Exception e) {
             fail("You can not send a negative amount of money. No Money was transferred.");
         }
@@ -251,7 +258,7 @@ class JUnitTests {
             fail("This ID does not exist.");
         }
     }
-    //but he cannot upgrade Antoio which is a gold customer
+    //but he cannot upgrade Antonio which is a gold customer
     /**
      * @param: custID from gold person
      * @throws exception: print "The customers credit card is already a gold card."

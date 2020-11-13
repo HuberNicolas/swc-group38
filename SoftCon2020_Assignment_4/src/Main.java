@@ -116,7 +116,14 @@ public class Main {
         System.out.println(Francesco.withdraw(Francesco,-1000));
 
         Customer Anthony = new Customer("Rodrigo","Anthony",4999,-56, -6969);
+        Bank.add_Customer(Anthony);
         System.out.println(Nicolas.getMoney(Nicolas));
         System.out.println(Nicolas.getAge(Nicolas));
+
+        for (Customer c: Bank.getCustomers()) {
+            System.out.println(c.getIBAN(c));
+        }
+
+        Nicolas.bankTransfer(Nicolas,Anthony.getIBAN(Anthony),1000,Bank.getCustomers());
     }
 }
