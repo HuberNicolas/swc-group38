@@ -50,11 +50,6 @@ class JUnitTests {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-
-    /**
-     * @result Account will be persisted without any errors,
-     *         and Account.getId() will no longer be <code>null</code>
-     */
     @Test
     void depositNegAmountOfMoney(){
         try {

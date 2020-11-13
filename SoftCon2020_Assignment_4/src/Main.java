@@ -105,7 +105,7 @@ public class Main {
         Customer Francesco = new Customer("Balonetto","Francesco",4999,56, 6969);
         System.out.println(Francesco.getLimit(Francesco));
         Francesco.ID = 134;
-        Bank.getCustomers().add(Francesco); // can u upgrade any or just the one in your list?
+        Bank.getCustomers().add(Francesco);
         mC.upgradeGoldToPlat(134,Bank.getCustomers());
         System.out.println(Francesco.getLimit(Francesco));
         mC.upgradeRegToGold(134,Bank.getCustomers());
