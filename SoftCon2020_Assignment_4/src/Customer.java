@@ -79,6 +79,9 @@ public class Customer extends Person {
     // Setter
     void setMoney(Customer c, int m) { c.Money = m; }
 
+    // Setter
+    void setIBAN(Customer c, int i) { c.IBAN = i; }
+
     /*
      * The following methods are the base methods.
      * Any type of customer can do this, as long
@@ -139,24 +142,48 @@ public class Customer extends Person {
      * description                      if entered a correct value (value >= 0 && value < customers saving)
      *                 then return the amount of value from the bank account
      */
-    void bankTransfer(Customer sender, Customer receiver, int value) {
+
+    /**
+     *
+     * @param sender
+     * @param IBAN
+     * @param value
+     * @param cList
+     */
+    void bankTransfer(Customer sender, int IBAN, int value, ArrayList<Customer> cList) {
         try {
-            if (value < 0) {
-                // DO NOT DELETE THIS; WAS TO UNDERSTAND HOW fail() WORKS!
-                //String abc = "A";
-                //System.out.println(abc.charAt(value));
-                throw new IllegalArgumentException("You can not send a negative amount of money. No Money was transferred.");
+            boolean found = false;
+            // search
+            for (Customer c : cList) {
+                if (c.IBAN == IBAN) {
+                    // did find the customer
+                    found = true;
+                    try {
+                        if (value < 0) {
+                            // DO NOT DELETE THIS; WAS TO UNDERSTAND HOW fail() WORKS!
+                            //String abc = "A";
+                            //System.out.println(abc.charAt(value));
+                            throw new IllegalArgumentException("You can not send a negative amount of money. No Money was transferred.");
+                        }
+                        if (value > sender.getMoney(sender))
+                            throw new IllegalArgumentException("There is not enough money on you bank account. No Money was transferred.");
+                        else {
+                            sender.setMoney(sender, sender.getMoney(sender) - value);
+                            c.setMoney(c, c.getMoney(c) + value);
+                            System.out.println("Successfully transferred " + value + " CHF from " + sender.IBAN + " to " + c.IBAN);
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
             }
-            if (value > sender.getMoney(sender))
-                throw new IllegalArgumentException("There is not enough money on you bank account. No Money was transferred.");
-            else {
-                sender.setMoney(sender, sender.getMoney(sender) - value);
-                receiver.setMoney(receiver, receiver.getMoney(receiver) + value);
-                System.out.println("Successfully transferred " + value + " CHF from " + sender.IBAN + " to " + receiver.IBAN);
-            }
-        } catch (IllegalArgumentException e) {
+            // did not find the customer
+            if (!found) throw new IllegalArgumentException("This IBAN does not exist.");
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+
     }
 
     /**

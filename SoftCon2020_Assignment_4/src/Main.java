@@ -55,7 +55,8 @@ public class Main {
         Nicolas.deposit(Nicolas, 1000);
         Utils.printCustomer(Nicolas);
         Utils.printCustomer(Louis);
-        Nicolas.bankTransfer(Nicolas,Louis,22);
+        Louis.setIBAN(Louis,171839);
+        Nicolas.bankTransfer(Nicolas,171839,450, Bank.getCustomers());
         Utils.printCustomer(Nicolas);
         Utils.printCustomer(Louis);
         Utils.printCustomersCard(Nicolas);
