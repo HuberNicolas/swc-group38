@@ -50,6 +50,11 @@ class JUnitTests {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
+
+    /**
+     * @result Account will be persisted without any errors,
+     *         and Account.getId() will no longer be <code>null</code>
+     */
     @Test
     void depositNegAmountOfMoney(){
         try {
@@ -96,7 +101,7 @@ class JUnitTests {
         assertEquals(Nicolas.withdraw(Nicolas,1000),1000);
     }
 //test banktransfer
-    @Test
+        @Test
     void banktransferCorrectMoney() {
     Nicolas.bankTransfer(Nicolas,Carlo,1000);
     //now Carlo will have 1000 on his account
