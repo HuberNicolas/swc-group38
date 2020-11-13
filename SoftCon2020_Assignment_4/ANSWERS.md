@@ -9,8 +9,19 @@ Those actors all share the three attributes name, surname and ID (considering al
 - Employee: The third class that inherits from the abstract class Person is the Employee. Every Employee has their corresponding Customer List and some methods. Special employees (as the Mainchief and Sectionchief) have even more possibilities and therefore inherit the employee class. Their corresponding responsibilities and attributes are added to their specific class. 
 
 This lead to the following structure of the system: 
-![Class Diagram Bank](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_4/UML/Class_Diagram.png "Class Diagram Battleship")
+![Class Diagram Bank](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_4/UML/Class_Diagram.png "Class Diagram Bank mangement System")
 
 ## Exercise 2:
 
 To prove the system has no failure or defect, we created test cases. Their specific purpose has been commented inside the code.
+
+To test the system, we created a default cases:
+- a new bank
+- customers, which have different money, age, limits, etc.
+- each type of employee (Employee, SectionChief, MainChief)
+- both technicians (Web and Backend)
+
+With does created objects, we ran a variety of different test cases and possible errors like: What happens if a person tries to withdraw more money than he has, or to pay something by card but the limit is to low to pay.
+
+All tests are commented and in the folder "test" and the file is named "JUnitTests". [JUnitTests](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_4/test/JUnitTests.java)
+
