@@ -11,7 +11,7 @@ Those actors all share the three attributes name, surname and ID (considering al
 We also added some default cases, (eg. creating a customer with less than 0 money will lead to an exception and assign the default value savings = 0).
 
 This lead to the following structure of the system: 
-![Class Diagram Bank](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_4/UML/Class_Diagram_Final.png "Class Diagram Bank mangement System")
+![Class Diagram Bank](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_4/UML/Class_Diagram_FINAL.png "Class Diagram Bank mangement System")
 
 ## Exercise 2:
 
