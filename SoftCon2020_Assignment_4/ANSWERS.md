@@ -8,8 +8,10 @@ Those actors all share the three attributes name, surname and ID (considering al
 - Technician: A technician has no further attributes than the abstract class Person, but as the bank might want to add other technicians with another area of responsibility, we created another abstract class Technician. The Backend-technician and Web-technician inherit that class and add their specific methods.
 - Employee: The third class that inherits from the abstract class Person is the Employee. Every Employee has their corresponding Customer List and some methods. Special employees (as the Mainchief and Sectionchief) have even more possibilities and therefore inherit the employee class. Their corresponding responsibilities and attributes are added to their specific class. 
 
+We also added some default cases, (eg. creating a customer with less than 0 money will lead to an exception and assign the default value savings = 0).
+
 This lead to the following structure of the system: 
-![Class Diagram Bank](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_4/UML/Class_Diagram.png "Class Diagram Bank mangement System")
+![Class Diagram Bank](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_4/UML/Class_Diagram_Final.png "Class Diagram Bank mangement System")
 
 ## Exercise 2:
 
