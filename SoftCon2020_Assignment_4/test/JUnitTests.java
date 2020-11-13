@@ -12,7 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 //create test
 
 class JUnitTests {
-    //create test customers
+    /**
+     * We used this Customers, employees and Technicians to Test the cases
+     */
     Bank Bank = new Bank();
     Customer Nicolas = new Customer("Huber","Nicolas",2000,23, 3000);
     Customer Louis = new Customer("Huber","Louis",5000,21, 0);
@@ -30,7 +32,9 @@ class JUnitTests {
     //create test Technicians
     WebTechnician Alonso = new WebTechnician("Rossini", "Alonso");
     BackendTechnician Fernando = new BackendTechnician("Bianci", "Fernando");
-
+    /**
+     * Now the are added in Before to the Bank
+     */
     @Before
     void setUp() {
         Bank.add_Customer(Nicolas);
@@ -52,7 +56,7 @@ class JUnitTests {
 
 
     /**
-     * @result Account will be persisted without any errors,
+     * @throws acount will be persisted without any errors,
      *         and Account.getId() will no longer be <code>null</code>
      */
     @Test
@@ -63,7 +67,9 @@ class JUnitTests {
             fail("Should thrown an exception if value is negative");
         }
     }
-
+    /**
+     * @throws exceptions, as you should not send negative money
+     */
     @Test
     void sendNegAmountOfMoney(){
         try {
@@ -72,6 +78,10 @@ class JUnitTests {
             fail("Should thrown an exception if value is negative.");
         }
     }
+    /**
+     * @result: print "You successfully deposited 1000 CHF to your bank account."
+     * now Louis should have 1000 in the account
+     */
 
     @Test
     //deposit 1000 so now Louis should have 1000 in the account
@@ -81,8 +91,15 @@ class JUnitTests {
             assertEquals(Louis.getMoney(Louis),1000);
         }
     }
+
+
+    /**
+     * @throw: Exception "You cannot deposit less than 0 CHF. No Money was deposited."
+     */
+
+
     @Test
-        //deposit -1000 so now an error should appear
+        //Error : "You successfully deposited -1000 CHF to your bank account."
     void depositnegativeMoney() {
         try {
             Louis.deposit(Louis,-1000);
@@ -90,24 +107,37 @@ class JUnitTests {
             fail("You cannot deposit less than 0 CHF. No Money was deposited.");
         }
     }
-//test withdrawing money
+    /**
+     * @throw: Exception "There is not enough money on you bank account. No Money was withdrawn."
+     */
+
     @Test
     void withdrawToMuchMoney() {
         assertEquals(Nicolas.withdraw(Nicolas,4000),0);
     }
-
+    /**
+     * @result: print "You successfully withdraw 1000 CHF from your bank account."
+     * now Nicolas has correctly withdrawn the money
+     */
     @Test
     void withdrawCorrectMoney() {
         assertEquals(Nicolas.withdraw(Nicolas,1000),1000);
     }
 //test banktransfer
+    /**
+     * @param: The sender and receiver of the money, amount of money
+     * @result: print "Successfully transferred 1000 CHF from ID.sender to ID.receiver"
+     */
         @Test
     void banktransferCorrectMoney() {
     Nicolas.bankTransfer(Nicolas,Carlo,1000);
     //now Carlo will have 1000 on his account
         {assertEquals(Carlo.getMoney(Carlo),1000);}
     }
-
+    /**
+     * @param: The sender and receiver of the money, amount of money
+     * @throws  exception: print "You can not send a negative amount of money. No Money was transferred."
+     */
     @Test
     void banktransferIncorrectMoney() {
         try {
@@ -118,10 +148,16 @@ class JUnitTests {
     }
     //test creditcard systems:
     //Fabio (regular customer has 0 money but should still pay up to 2000 with his card
+    /**
+     * @result: print "Successfully payed 2000 CHF by card"
+     */
     @Test
     void Regularcustomerpayswithcardcorrectlimit() {
     Fabio.payWithCard(Fabio,2000);
     }
+    /**
+     * @throws  exception: print "Your current limit 2000 is not big enough. This payment would overcharge your credit card. No transaction was made."
+     */
     @Test
     void RegularcustomerpayswithcardtoMuchlimit() {
         try {
@@ -132,10 +168,16 @@ class JUnitTests {
     }
     //test creditcard systems golden:
     //Antonio (golden customer has 0 money but should still pay up to 5000 with his card
+    /**
+     * @result: print "Successfully payed 5000 CHF by card"
+     */
     @Test
     void Goldencustomerpayswithcardcorrectlimit() {
         Antonio.payWithCard(Antonio,5000);
     }
+    /**
+     * @throws  exception: print "Your current limit 5000 is not big enough. This payment would overcharge your credit card. No transaction was made."
+     */
     @Test
     void GoldencustomerpayswithcardtoMuchlimit() {
         try {
@@ -144,12 +186,20 @@ class JUnitTests {
             fail("Your current limit " + Antonio.getLimit(Antonio) + " is not big enough. This payment would overcharge your creditcard. No transaction was made.");
         }
     }
+
     //test creditcard systems platinum:
     //Ricardo (platinum customer has 0 money but should still pay up to 10000 with his card
+    /**
+     * @result: print "Successfully payed 10000 CHF by card"
+     */
     @Test
     void Platinumcustomerpayswithcardcorrectlimit() {
         Ricardo.payWithCard(Ricardo,10000);
     }
+
+    /**
+     * @throws  exception: print "Your current limit 10000 is not big enough. This payment would overcharge your credit card. No transaction was made."
+     */
     @Test
     void PlatinumcustomerpayswithcardtoMuchlimit() {
         try {
@@ -172,6 +222,11 @@ class JUnitTests {
         }
     }
     //regular employee Luciano cannot upgrade Fabio (not his customer)
+    /**
+     * @param: custID from wrong person
+     * @throws  exception: print "This ID does not exist."
+     */
+
     @Test
 
     void Regularemployee_notCustomerupgradeRegToGold() {
@@ -182,6 +237,10 @@ class JUnitTests {
             fail("This ID does not exist.");
         }
     }
+    /**
+     * @param: custID from correct person
+     * @result: print "Customer Fabio Regulare has now a gold credit card with a new limit of 5000 CHF."
+     */
     @Test
     void Regularemployee_isCustomerupgradeRegToGold() {
         try {
@@ -193,6 +252,10 @@ class JUnitTests {
         }
     }
     //but he cannot upgrade Antoio which is a gold customer
+    /**
+     * @param: custID from gold person
+     * @throws exception: print "The customers credit card is already a gold card."
+     */
     @Test
     void Regularemployee_isCustomer_upgradeRegToGold_but_CustomerisalreadyGold() {
         try {
@@ -205,6 +268,10 @@ class JUnitTests {
     }
 
     // section Chief Roberto
+    /**
+     * @param: custID from gold person
+     * @result: print "Customer Fabio Regulare has now a platin credit card with a new limit of 10000 CHF."
+     */
     @Test
     //differently from a regular employee, a section chief can upgrade a customer level
     //from Golden to Platinum
@@ -215,6 +282,10 @@ class JUnitTests {
         Roberto.upgradeGoldToPlat(custID, Roberto.CustomerList);
     }
     //Test downgrade from gold to Reg
+    /**
+     * @param: custID from gold person
+     * @result: print "Customer Louis Huber has now a regular credit card with a new limit of 2000 CHF."
+     */
     @Test
     void SectionChiefdowngradeGoldtoReg() {
         int custID = Louis.ID;
@@ -224,6 +295,10 @@ class JUnitTests {
     //but cannot downgrade vom Platinum to Gold
 
     //Test Main Chief: Can everything a Section Chief can but can also downgrade vom Platinum go Gold
+    /**
+     * @param: custID from platiunum person
+     * @result: print "Customer Ricardo Platinum has now a gold credit card with a new limit of 5000 CHF."
+     */
     @Test
     void MainChiefdowngradePlattoGold() {
         int custID = Ricardo.ID;
@@ -231,6 +306,10 @@ class JUnitTests {
         Dante.downgradePlatToGold(custID, Dante.CustomerList);
     }
 
+    /**
+     * @param: custID from wrong person
+     * @throws  exception: print "This ID does not exist."
+     */
     @Test
     void MainChief_notCustomerupgradeRegToGold() {
         try {
@@ -240,6 +319,10 @@ class JUnitTests {
             fail("This ID does not exist.");
         }
     }
+    /**
+     * @param: custID from correct person
+     * @result: print "Customer Fabio Regulare has now a gold credit card with a new limit of 5000 CHF."
+     */
     @Test
     void MainChief_isCustomerupgradeRegToGold() {
         try {
@@ -250,7 +333,10 @@ class JUnitTests {
             fail("This ID does not exist.");
         }
     }
-
+    /**
+     * @param: custID from gold person
+     * @throws exception: print "The customers credit card is already a gold card."
+     */
     @Test
     void MainChief_isCustomer_upgradeRegToGold_but_CustomerisalreadyGold() {
         try {
@@ -262,7 +348,10 @@ class JUnitTests {
         }
     }
 
-
+    /**
+     * @param: custID from correct person
+     * @result: print "Customer Fabio Regulare has now a gold credit card with a new limit of 5000 CHF." and "Customer Fabio Regulare has now a platin credit card with a new limit of 10000 CHF."
+     */
     @Test
     void MainChiefupgrade_fromRegtoGoldtoPlat() {
         int custID = Fabio.ID;
@@ -271,6 +360,10 @@ class JUnitTests {
         Dante.upgradeGoldToPlat(custID, Dante.CustomerList);
     }
     //Test downgrade from gold to Reg
+    /**
+     * @param: custID from gold person
+     * @result: print "Customer Louis Huber has now a regular credit card with a new limit of 2000 CHF."
+     */
     @Test
     void MainChiefdowngradeGoldtoReg() {
         int custID = Louis.ID;
@@ -280,14 +373,25 @@ class JUnitTests {
 
 
     //Test Technicians
+    /**
+     * @result: first sleep then print "reparations complete"
+     */
     @Test
     void Webtechnician() {
         Alonso.fixWebsite();
     }
+    /**
+     * @param: correct ID from BackendTechnician
+     * @result: first sleep then print "reparations complete"
+     */
     @Test
     void BackendTecnician_correctID() {
         Fernando.fixBackend(Fernando,Fernando.ID);
     }
+    /**
+     * @param: correct ID from BackendTechnician
+     * @throws exception: print "This ID does not match to the backend technicians ID."
+     */
     @Test
     void BackendTecnician_wrongID() {
         try {
@@ -296,7 +400,11 @@ class JUnitTests {
             fail("This ID does not match to the backend technicians ID.\n");
         }
     }
-
+    /**
+     * @param: name, surname, incorrect limit, age,money
+     * @result: new customer, limit = 2000 (regular)
+     * @throws: print "TInvalid limit entered! Set to default limit of 2000 CHF."
+     */
     //general Tests regarding Customers
     @Test
     void customerCreationInvalidLimit() {
@@ -328,16 +436,7 @@ class JUnitTests {
         }
 
     }
-// dont know what to do???
-    @Test
-    void customerValid() {
 
-    }
-
-    @Test
-    void jUnitTest() {
-        // test for Louis
-    }
 
     //get rid of customers
     @After
