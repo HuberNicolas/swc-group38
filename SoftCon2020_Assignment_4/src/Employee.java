@@ -1,16 +1,26 @@
 import java.util.ArrayList;
 
+/**
+ * CLASS EMPLOYEE
+ * base class for all entities of type EMPLOYEE
+ * models an human entity of a employee
+ */
 public class Employee extends Person{
     public ArrayList<Customer> CustomerList;
 
+    // Constructor
     public Employee(String name, String surname) {
-        // regular Employee
-        this.Surname = surname;
-        this.Name = name;
-        this.ID = Utils.generateID();
-        this.CustomerList = setCustomerList();
+        // regular employee
+        this.Surname = surname;                     // eg. Fish
+        this.Name = name;                           // eg. John
+        this.ID = Utils.generateID();               // eg. 183
+        this.CustomerList = setCustomerList();      // empty list with customers in it
     }
 
+
+    // Getter and Setter
+
+    // Setter
     ArrayList<Customer> setCustomerList() {
         return new ArrayList<Customer>();
     }
@@ -50,10 +60,7 @@ public class Employee extends Person{
         for (Customer c: e.CustomerList) {
             System.out.println("ID: " + c.ID + " : " + c.Surname + " " + c.Name);
         }
-
     }
-
-
 }
 
 

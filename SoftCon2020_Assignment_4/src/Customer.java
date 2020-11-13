@@ -8,8 +8,6 @@ import java.util.ArrayList;
  * base class for all entities of type CUSTOMER
  * models an human entity of a Customer
  */
-
-
 public class Customer extends Person {
     private int Age;            // eg. 25
     private int Money;          // eg. 10000
@@ -26,20 +24,20 @@ public class Customer extends Person {
         this.Money = money;                         // eg. 1000000000
         this.IBAN = Utils.generateIBAN();           // eg. 171839
 
-        // check Limit
+        // check limit
         ArrayList<Integer> validLimit = new ArrayList<Integer>();
-        validLimit.add(2000);
-        validLimit.add(5000);
-        validLimit.add(10000);
+        validLimit.add(2000);   // regular customer
+        validLimit.add(5000);   // golden customer
+        validLimit.add(10000);  // platinum customer
         if (!validLimit.contains(limit)) {
             // entered limit is not valid. automatically set to a default limit = 2000
             System.out.println("Invalid limit entered! Set to default limit of 2000 CHF.");
             this.Card = new CreditCard(2000);
-            this.Limit = 2000;                      // eg. 2000
+            this.Limit = 2000;      // eg. 2000
         } else {
             // entered limit is valid (either 2000, 5000 or 10000)
             this.Card = new CreditCard(limit);
-            this.Limit = limit;                     // eg. 5000
+            this.Limit = limit;     // eg. 5000
         }
     }
 
@@ -108,7 +106,6 @@ public class Customer extends Person {
         try {
             if (value < 0)
                 throw new IllegalArgumentException("You cannot withdraw less than 0 CHF. No Money was withdrawn.");
-            //if (value > c.Limit) throw new IllegalArgumentException("Your limit is not big enough. No Money was returned.");
             if (value > c.getMoney(c))
                 throw new IllegalArgumentException("There is not enough money on you bank account. No Money was withdrawn.");
             else {
