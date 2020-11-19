@@ -1,2 +1,3 @@
-public class NoralBakery {
+public class NormalBakery extends SuperBakery {
+
 }

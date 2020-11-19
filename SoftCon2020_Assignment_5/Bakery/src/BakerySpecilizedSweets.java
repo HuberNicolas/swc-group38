@@ -1,2 +1,2 @@
-public class BakerySpecilizedSweets {
+public class BakerySpecilizedSweets extends SuperBakery {
 }
