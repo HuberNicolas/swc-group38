@@ -13,7 +13,7 @@ class Main {
         NormalBakery  NB4 = new NormalBakery("Example4","Firsttreet",00,90000,"Valencia");
 
         System.out.println(c1.CityOfficeNameComplete);
-        System.out.println(c1.ListOfBakeries);
+        c1.printAllBakeriesNames();
 
 
 
