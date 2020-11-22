@@ -1,6 +1,8 @@
 class Main {
     public static void main(String[] args) {
         //System.out.println("Hello World!"); // Display the string.
+        CentralOffice CetrO = new CentralOffice();
+
         CityOffice c1= new CityOffice("Roma");
         CityOffice c2= new CityOffice("Napoli");
         CityOffice c3= new CityOffice("Valencia");
@@ -14,7 +16,7 @@ class Main {
 
         System.out.println(c1.CityOfficeNameComplete);
         c1.printAllBakeriesNames();
-
+        CetrO.printAllOffices();
 
 
     }
