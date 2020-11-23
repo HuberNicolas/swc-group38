@@ -45,6 +45,8 @@ class Main {
         SandwichDecor.add("tuna");
         NB3.sellItems("Sandwich",SandwichDecor);
 
+        NB1.sellItems("Cake",CakeDecor);
+        NB1.sellItems("Sandwich", SandwichDecor);
 
     }
 
