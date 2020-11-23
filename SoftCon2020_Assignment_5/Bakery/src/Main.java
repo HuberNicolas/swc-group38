@@ -18,6 +18,17 @@ class Main {
         //c1.printAllBakeriesNames();
         CetrO.printAllOffices();
 
+        //FoodItems
+        FoodItem Cake = new Cake();
+        Cake = new StrawberriesDecorator(Cake);
+        Cake = new StrawberriesDecorator(Cake);
+        System.out.println(Cake.price());
+
+        FoodItem Sandwich = new Sandwich();
+        Sandwich = new HamDecorator(Sandwich);
+        Sandwich = new HamDecorator(Sandwich);
+        System.out.println(Sandwich.price());
+
 
     }
 
