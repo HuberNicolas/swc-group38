@@ -2,34 +2,44 @@ import java.util.ArrayList;
 
 class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello World!"); // Display the string.
+
+        //initiate some test objects:
+        //initiate CentralOffice
         CentralOffice CetrO = new CentralOffice();
 
+        //initiate CityOffices
         CityOffice c1= new CityOffice("Roma");
         CityOffice c2= new CityOffice("Napoli");
         CityOffice c3= new CityOffice("Valencia");
 
-        System.out.println(CentralOffice.AllCityOffices);
+        //initiate some bakeries
         NormalBakery  NB1 = new NormalBakery("Bakery Roma","Firsttreet",00,90000,"Roma");
         NormalBakery  NB2 = new NormalBakery("Bakery Rossi (in Roma)","Firsttreet",00,90000,"Roma");
 
         BakerySpecializedBread  NB3 = new BakerySpecializedBread("Bakery Napoli","Firsttreet",00,90000,"Napoli");
         BakerySpecilizedSweets  NB4 = new BakerySpecilizedSweets("Bakery Valencia","Firsttreet",00,90000,"Valencia");
 
-        System.out.println(c1.CityOfficeNameComplete);
-        //c1.printAllBakeriesNames();
+        //with printName() a bakery prints its name
+        NB1.printName();
+
+        //with printAllOffices(); you can now see the list of city offices and their bakeries
         CetrO.printAllOffices();
 
-        //FoodItems
+        //FoodItems examples:
+        //you can make a cake and add strawberries and print its price:
         FoodItem Cake = new Cake();
         Cake = new StrawberriesDecorator(Cake);
         Cake = new StrawberriesDecorator(Cake);
-        //System.out.println(Cake.price());
+        System.out.println(Cake.price());
 
+        //you can make a sandwich and add double ham and print its price:
         FoodItem Sandwich = new Sandwich();
         Sandwich = new HamDecorator(Sandwich);
         Sandwich = new HamDecorator(Sandwich);
-        //System.out.println(Sandwich.price());
+        System.out.println(Sandwich.price());
+
+        //you can also use sellsItems to let it be sold by a bakery
+        //But not every bakery sells every product!
         ArrayList CakeDecor = new ArrayList();
         CakeDecor.add("strawberries");
         CakeDecor.add("cream");
