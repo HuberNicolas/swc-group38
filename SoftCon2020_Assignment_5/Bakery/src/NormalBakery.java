@@ -43,4 +43,9 @@ public class NormalBakery extends SuperBakery {
             throw new IllegalArgumentException("There is no CityOffice in this particular City!");
         }
     }
+
+    @Override
+    public void sellItems(String Item, ArrayList Decorators) {
+
+    }
 }

@@ -43,5 +43,42 @@ public class BakerySpecializedBread extends SuperBakery {
             throw new IllegalArgumentException("There is no CityOffice in this particular City!");
         }
     }
+    @Override
+    public void sellItems(String Item, ArrayList Decorators) {
+        if (Item =="Sandwich"){
+            FoodItem Sandwich = new Sandwich();
+            ArrayList PossibleDecorators = new ArrayList<>();
+            PossibleDecorators.add("ham");
+            PossibleDecorators.add("tomatoes");
+            PossibleDecorators.add("cheese");
+            PossibleDecorators.add("tuna");
+            //System.out.println(Cake.price());
+            for (int i = 0; i < Decorators.size(); i++){
+
+                if (PossibleDecorators.contains(Decorators.get(i))){
+                    if(Decorators.get(i)=="ham"){
+                        Sandwich = new HamDecorator(Sandwich);
+                    }
+                    if(Decorators.get(i)=="tomatoes"){
+                        Sandwich = new TomatoesDecorator(Sandwich);
+                    }
+                    if(Decorators.get(i)=="cheese"){
+                        Sandwich = new CheeseDecorator(Sandwich);
+                    }
+                    if(Decorators.get(i)=="tuna"){
+                        Sandwich = new TunaDecorator(Sandwich);
+                    }
+                }
+                else{
+                    throw new IllegalArgumentException("This Bakery does not sell this Decoration!");
+                }
+            }
+            System.out.print(Sandwich.price());
+            System.out.println("Fr. is the price of your Item");
+        }
+        else{
+            throw new IllegalArgumentException("This Bakery does not sell the Item!");
+        }
+    }
 }
 

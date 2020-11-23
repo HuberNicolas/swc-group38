@@ -18,5 +18,12 @@ public abstract class SuperBakery {
         System.out.println(BakeryName);
     }
 
+    /**
+     *
+     * @param Item: The Item you want to buy eg. Cake
+     * @param Decorators: The list of Decoratros you want eg. Cream
+     * @prints the price of the item
+     */
+    public abstract void sellItems(String Item, ArrayList Decorators);
 
 }
