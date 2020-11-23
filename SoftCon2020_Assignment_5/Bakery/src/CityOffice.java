@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
-
+/**
+ * their is only one cityoffice per city. each city of has a list of all associated bakeries
+ * can print this bakeries with printAllBakeriesNames()
+ */
 public class CityOffice {
     static ArrayList<String> CityOffice = new ArrayList<String>();
     String CityOfficeName;
@@ -16,6 +19,9 @@ public class CityOffice {
         CentralOffice.CityOfficesListToSearch.add(this);
     }
 
+    /**
+     * @prints all bakeries associated
+     */
     public void printAllBakeriesNames(){
 
         for (int i = 0; i < ListOfBakeries.size(); i++){

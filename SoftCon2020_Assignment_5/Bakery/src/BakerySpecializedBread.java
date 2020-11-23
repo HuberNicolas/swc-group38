@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.lang.reflect.*;
 
+/**
+ * class BakerySpecializedBread is a type of bakery which can only sell sandwiches
+ */
 public class BakerySpecializedBread extends SuperBakery {
 
     //Constructor of NormalBakery
@@ -43,6 +46,12 @@ public class BakerySpecializedBread extends SuperBakery {
             throw new IllegalArgumentException("There is no CityOffice in this particular City!");
         }
     }
+
+    /**
+     *
+     * @param Item: The Item you want to buy eg. Cake
+     * @param Decorators: The list of Decoratros you want eg. Cream
+     */
     @Override
     public void sellItems(String Item, ArrayList Decorators) {
         if (Item =="Sandwich"){

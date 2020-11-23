@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.lang.reflect.*;
 
+/**
+ * a type of bakery which sells sandwiches and cakes
+ */
 public class NormalBakery extends SuperBakery {
 
     //Constructor of NormalBakery
@@ -44,6 +47,11 @@ public class NormalBakery extends SuperBakery {
         }
     }
 
+    /**
+     *
+     * @param Item: The Item you want to buy eg. Cake
+     * @param Decorators: The list of Decoratros you want eg. Cream
+     */
     @Override
     public void sellItems(String Item, ArrayList Decorators) {
         if (Item =="Cake"){

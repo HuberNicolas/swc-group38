@@ -1,4 +1,7 @@
 import java.math.BigDecimal;
+/**
+ * is a Decorator for a sandwich
+ */
 
 public class TunaDecorator extends FoodDecorator {
     FoodItem FoodItem;

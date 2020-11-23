@@ -1,4 +1,8 @@
 import java.util.ArrayList;
+
+/**
+ * abstract class which defines how a bakery shoudld be
+ */
 public abstract class SuperBakery {
 
     String BakeryName;  //eg. Crunchy Bakery , has to be unique

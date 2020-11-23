@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-//Singleton design pattern is used here
+
+/**
+ * The central office can only be initianted once. It can print all offices and their bakeries
+ * Singleton design pattern is used here
+ */
 
 public class CentralOffice {
     static ArrayList<String> AllCityOffices = new ArrayList<String>();
@@ -12,11 +16,11 @@ public class CentralOffice {
         }
         return uniqueInstance;
     }
-    //The central office has a method "printAllOffices" that prints the name of each city office and
-    //the names of all bakeries associated to the specific city office in the following way:
-    //[name of city office 1], [name of bakery 1 belonging to city office 1], [name of bakery 2
-    //belonging to city office 1], …, [name of city office 2], [name of bakery 1 belonging to city
-    //office 2],
+
+
+    /**
+     * @output: prints the name of each city office and names of all bakeries associated to the specific city office
+     */
     public void printAllOffices(){
 
         for (int i = 0; i < CentralOffice.AllCityOffices.size(); i++){

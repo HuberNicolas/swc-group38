@@ -1,5 +1,7 @@
 import java.math.BigDecimal;
-
+/**
+ * is a Decorator for a cake
+ */
 public class ChocolateDecorator extends FoodDecorator {
     FoodItem FoodItem;
     public ChocolateDecorator(FoodItem CaketoDocorate){
