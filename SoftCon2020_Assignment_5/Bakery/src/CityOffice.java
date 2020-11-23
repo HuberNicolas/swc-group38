@@ -17,6 +17,10 @@ public class CityOffice {
     }
 
     public void printAllBakeriesNames(){
-        System.out.println(ListOfBakeries);
+
+        for (int i = 0; i < ListOfBakeries.size(); i++){
+            System.out.print(ListOfBakeries.get(i));
+            System.out.print(", ");
+        }
     }
 }

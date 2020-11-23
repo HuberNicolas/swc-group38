@@ -22,7 +22,11 @@ public class CentralOffice {
         for (int i = 0; i < CentralOffice.AllCityOffices.size(); i++){
             System.out.print(CentralOffice.CityOfficesListToSearch.get(i).CityOfficeNameComplete);
             System.out.print(", ");
-            System.out.print(CentralOffice.CityOfficesListToSearch.get(i).ListOfBakeries);
+            for (int j = 0; j < CentralOffice.CityOfficesListToSearch.get(i).ListOfBakeries.size(); j++){
+                System.out.print(CentralOffice.CityOfficesListToSearch.get(i).ListOfBakeries.get(j));
+                System.out.print(", ");
+            }
+            //System.out.print(CentralOffice.CityOfficesListToSearch.get(i).ListOfBakeries);
         }
 
     }
