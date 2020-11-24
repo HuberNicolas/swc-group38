@@ -13,14 +13,14 @@ class Main {
         CityOffice c3= new CityOffice("Valencia");
 
         //initiate some bakeries
-        NormalBakery  NB1 = new NormalBakery("Bakery Roma","Firsttreet",00,90000,"Roma");
-        NormalBakery  NB2 = new NormalBakery("Bakery Rossi (in Roma)","Firsttreet",00,90000,"Roma");
+        NormalBakery  NormalBakeryRoma = new NormalBakery("Bakery Roma","Firsttreet",00,90000,"Roma");
+        NormalBakery  NormalBakeryRomaRossi = new NormalBakery("Bakery Rossi (in Roma)","Firsttreet",00,90000,"Roma");
 
-        BakerySpecializedBread  NB3 = new BakerySpecializedBread("Bakery Napoli","Firsttreet",00,90000,"Napoli");
-        BakerySpecilizedSweets  NB4 = new BakerySpecilizedSweets("Bakery Valencia","Firsttreet",00,90000,"Valencia");
+        BakerySpecializedBread  BakerySpecializedBreadNapoli = new BakerySpecializedBread("Bakery Napoli","Firsttreet",00,90000,"Napoli");
+        BakerySpecilizedSweets  BakerySpecilizedSweetsValencia = new BakerySpecilizedSweets("Bakery Valencia","Firsttreet",00,90000,"Valencia");
 
         //with printName() a bakery prints its name
-        NB1.printName();
+        NormalBakeryRoma.printName();
 
         //with printAllOffices(); you can now see the list of city offices and their bakeries
         CetrO.printAllOffices();
@@ -46,17 +46,17 @@ class Main {
         CakeDecor.add("cream");
         CakeDecor.add("chocolate");
 
-        NB4.sellItems("Cake",CakeDecor);
+        BakerySpecilizedSweetsValencia.sellItems("Cake",CakeDecor);
 
         ArrayList SandwichDecor = new ArrayList();
         SandwichDecor.add("ham");
         SandwichDecor.add("tomatoes");
         SandwichDecor.add("cheese");
         SandwichDecor.add("tuna");
-        NB3.sellItems("Sandwich",SandwichDecor);
+        BakerySpecializedBreadNapoli.sellItems("Sandwich",SandwichDecor);
 
-        NB1.sellItems("Cake",CakeDecor);
-        NB1.sellItems("Sandwich", SandwichDecor);
+        NormalBakeryRoma.sellItems("Cake",CakeDecor);
+        NormalBakeryRoma.sellItems("Sandwich", SandwichDecor);
 
     }
 
