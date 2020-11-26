@@ -61,6 +61,18 @@ class MainTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+    @Test
+    public void NullPointerException(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Customer Steve = null;
+        Steve.ride();
+
+
+
+
+    }
 
     @After
     void tearDown() {
