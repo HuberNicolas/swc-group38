@@ -13,6 +13,10 @@ class MainTest {
     void setUp() {
     }
 
+    /**
+     * @param: date = "12.03.2020"
+     * In this Test we create a which rides the MicroCar
+     */
     @Test
     public void MicroCarTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -25,6 +29,10 @@ class MainTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+    /**
+     * @param: date = "12.04,2020"
+     * In this Test we create a which rides the Bus
+     */
     @Test
     public void BusTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -37,6 +45,10 @@ class MainTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+    /**
+     * @param: date = "12.05,2020"
+     * In this Test we create a which rides the SuperCar
+     */
     @Test
     public void SupercarTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -49,6 +61,10 @@ class MainTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+    /**
+     * @param: date = "12.06,2020"
+     * In this Test we create a which rides the FamiliyCar
+     */
     @Test
     public void FamilyCarTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -61,6 +77,10 @@ class MainTest {
 
         assertEquals(expectedOutput, outContent.toString());
     }
+    /**
+     * @param: date = "121212" but is not relevant, vehicle = null (which is not valid)
+     * In this Test we check, if the system raises a NullPointerException if the vehicle=null
+     */
     @Test
     public void NullPointerException(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
