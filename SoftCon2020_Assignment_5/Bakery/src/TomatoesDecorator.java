@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 
 public class TomatoesDecorator extends FoodDecorator {
     FoodItem FoodItem;
-    public TomatoesDecorator(FoodItem SandwhichToDocorate){
-        FoodItem = SandwhichToDocorate;
+    public TomatoesDecorator(FoodItem SandwichToDoctorate){
+        FoodItem = SandwichToDoctorate;
     }
 
     /**

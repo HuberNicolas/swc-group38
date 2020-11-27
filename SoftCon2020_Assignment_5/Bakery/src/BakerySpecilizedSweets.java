@@ -37,9 +37,6 @@ public class BakerySpecilizedSweets extends SuperBakery {
                     CentralOffice.CityOfficesListToSearch.get(Index).ListOfBakeries.add(BakeryName);
                 }
             }
-
-
-
         }
         else {
             //No cityOffice

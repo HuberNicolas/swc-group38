@@ -24,7 +24,6 @@ public class CityOffice {
      * @prints all bakeries associated
      */
     public void printAllBakeriesNames(){
-
         for (int i = 0; i < ListOfBakeries.size(); i++){
             System.out.print(ListOfBakeries.get(i));
             System.out.print(", ");

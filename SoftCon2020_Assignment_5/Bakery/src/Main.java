@@ -59,6 +59,4 @@ class Main {
         NormalBakeryRoma.sellItems("Sandwich", SandwichDecor);
 
     }
-
-
 }
