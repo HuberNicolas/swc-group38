@@ -17,3 +17,7 @@ The **composite patter** we did encounter allows us to compose objects into tree
 Implementing of the Decorator Pattern:
 The structure is similar to the coffee example from the lecture. Both of the classes Sandwich and Cake have several options to add condiments. The new behavior is not acquired by inheritance but by composing objects together. Using the **decorator pattern**, we can mix and match decorators (for instance 
 "chocolate" for a Cake object or "tuna" for a sandwich object) for in any way. In other words, we can attach additional responsibilities to an object dynamically, thus extending the functionality of an object of the classes Cake or Sandwich.
+
+By and large, all these patters guarantee, that the system can easily extended:
+- extending the super class SuperBakery allows to build new specialised bakerys, for instance vegan bakeries.
+- adding new decorators allows to extend the ingredients in each type of bakery
