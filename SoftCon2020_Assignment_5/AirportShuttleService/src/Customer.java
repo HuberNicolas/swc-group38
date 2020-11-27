@@ -5,11 +5,15 @@ public class Customer {
     private Vehicle vehicle;
 
     public Customer(String date, Vehicle vehicle) {
-        this.date = Objects.requireNonNull(date, "Nullpoint Error!");
-        this.vehicle = Objects.requireNonNull(vehicle, "Nullpoint Error!");
+        this.date = date;
+        this.vehicle = vehicle;
     }
 
     public void ride(){
-                this.vehicle.printRide();
+        try{
+            this.vehicle.printRide();
+    } catch (NullPointerException e) {
+            System.out.print("Customer can't ride, there is no vehicle chosen");
+        }
     }
 }

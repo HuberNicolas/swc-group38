@@ -9,5 +9,7 @@ class Main {
         Felix.ride();
         Customer George = new Customer("12.06,2020", new FamilyCar());
         George.ride();
+        Customer Frank = new Customer("12.06,2020", null);
+        Frank.ride();
     }
 }

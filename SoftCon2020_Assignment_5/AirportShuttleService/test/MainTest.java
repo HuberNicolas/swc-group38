@@ -66,12 +66,16 @@ class MainTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        Customer Steve = null;
-        Steve.ride();
+        Customer Steve = new Customer("121212", null);
+        try {
+            Steve.ride();
+        }
+        catch(NullPointerException e) {
+            //expected exception
+        }
+        String expectedOutput  = "Customer can't ride, there is no vehicle chosen";
 
-
-
-
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @After
