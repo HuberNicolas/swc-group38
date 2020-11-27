@@ -10,7 +10,8 @@ public class CityOffice {
     ArrayList<String> ListOfBakeries = new ArrayList<String>();
     String CityOfficeNameComplete; //eg "city office of Roma"
     String FirstBakery;
-    //constructor
+
+    //Constructor
     public CityOffice(String CityOfficeName){
         String prefix ="city office of ";
         this.CityOfficeName = CityOfficeName;

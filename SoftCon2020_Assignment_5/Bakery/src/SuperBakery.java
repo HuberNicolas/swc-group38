@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * abstract class which defines how a bakery shoudld be
+ * abstract class which defines how a bakery should be
  */
 public abstract class SuperBakery {
 
@@ -25,9 +25,8 @@ public abstract class SuperBakery {
     /**
      *
      * @param Item: The Item you want to buy eg. Cake
-     * @param Decorators: The list of Decoratros you want eg. Cream
+     * @param Decorators: The list of Decorators you want eg. Cream
      * @prints the price of the item
      */
     public abstract void sellItems(String Item, ArrayList Decorators);
-
 }

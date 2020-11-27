@@ -62,7 +62,6 @@ public class BakerySpecilizedSweets extends SuperBakery {
             PossibleDecorators.add("chocolate");
             //System.out.println(Cake.price());
             for (int i = 0; i < Decorators.size(); i++){
-
                 if (PossibleDecorators.contains(Decorators.get(i))){
                     if(Decorators.get(i)=="strawberries"){
                         Cake = new StrawberriesDecorator(Cake);

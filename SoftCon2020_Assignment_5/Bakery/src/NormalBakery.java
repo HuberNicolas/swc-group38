@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.lang.reflect.*;
 
 /**
- * a type of bakery which sells sandwiches and cakes
+ * a type of bakery which can sell sandwiches and cakes
  */
 public class NormalBakery extends SuperBakery {
 
@@ -37,9 +37,6 @@ public class NormalBakery extends SuperBakery {
                     CentralOffice.CityOfficesListToSearch.get(Index).ListOfBakeries.add(BakeryName);
                 }
             }
-
-
-
         }
         else {
             //No cityOffice
@@ -50,19 +47,21 @@ public class NormalBakery extends SuperBakery {
     /**
      *
      * @param Item: The Item you want to buy eg. Cake
-     * @param Decorators: The list of Decoratros you want eg. Cream
+     * @param Decorators: The list of Decorators you want eg. Cream
      */
     @Override
     public void sellItems(String Item, ArrayList Decorators) {
+        // Distinguish between cake and sandwich item
+        // is Cake?
         if (Item =="Cake"){
+            // generate item and possible decorators
             FoodItem Cake = new Cake();
             ArrayList PossibleDecorators = new ArrayList<>();
             PossibleDecorators.add("strawberries");
             PossibleDecorators.add("cream");
             PossibleDecorators.add("chocolate");
-            //System.out.println(Cake.price());
+            //System.out.println(Cake.price()); // DEBUG
             for (int i = 0; i < Decorators.size(); i++){
-
                 if (PossibleDecorators.contains(Decorators.get(i))){
                     if(Decorators.get(i)=="strawberries"){
                         Cake = new StrawberriesDecorator(Cake);
@@ -81,7 +80,9 @@ public class NormalBakery extends SuperBakery {
             System.out.print(Cake.price());
             System.out.println("Fr. is the price of your Item");
         }
+        // is Sandwich?
         else if (Item =="Sandwich"){
+            // generate item and possible decorators // DEBUG
             FoodItem Sandwich = new Sandwich();
             ArrayList PossibleDecorators = new ArrayList<>();
             PossibleDecorators.add("ham");
@@ -90,8 +91,8 @@ public class NormalBakery extends SuperBakery {
             PossibleDecorators.add("tuna");
             //System.out.println(Cake.price());
             for (int i = 0; i < Decorators.size(); i++){
-
                 if (PossibleDecorators.contains(Decorators.get(i))){
+                    // find decorator
                     if(Decorators.get(i)=="ham"){
                         Sandwich = new HamDecorator(Sandwich);
                     }
@@ -106,16 +107,17 @@ public class NormalBakery extends SuperBakery {
                     }
                 }
                 else{
+                    // did not find the decorator
                     throw new IllegalArgumentException("This Bakery does not sell this Decoration!");
                 }
             }
             System.out.print(Sandwich.price());
             System.out.println("Fr. is the price of your Item");
         }
+        // it is neither sandwich nor cake
+        // bakery does not sell this item
         else{
             throw new IllegalArgumentException("This Bakery does not sell the Item!");
         }
-
-
     }
 }

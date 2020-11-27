@@ -1,6 +1,6 @@
 import java.math.BigDecimal;
 /**
- * is a Decorator for a cake
+ * is a strawberry Decorator for a cake
  */
 
 public class StrawberriesDecorator extends FoodDecorator {
@@ -9,8 +9,11 @@ public class StrawberriesDecorator extends FoodDecorator {
         FoodItem = CaketoDocorate;
     }
 
+    /**
+     *
+     * @return the new price of the food item cake, inclusive the food decorator
+     * strawberry
+     */
     @Override public BigDecimal price() {
         return FoodItem.price().add(new BigDecimal("1.00")); }
-
-
 }
