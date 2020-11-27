@@ -1,7 +1,11 @@
+/**
+ * interface for the fuel behaviour
+ */
 public interface FuelBehavior {
     public void printFuelBehavior();
 }
 
+// encapsulated fuel behaviour
 class gasoline implements FuelBehavior {
     @Override
     public void printFuelBehavior() {

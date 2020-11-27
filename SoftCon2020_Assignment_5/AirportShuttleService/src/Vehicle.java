@@ -3,18 +3,19 @@
  */
 
 public abstract class Vehicle {
-    String name;
-    int cost;
-    CostBehavior costB;
-    BagBehavior bagB;
-    SpeedBehavior speedB;
-    FuelBehavior fuelB;
+    String name; // e.g.
+    int cost; // e.g.
+    CostBehavior costB; // e.g.
+    BagBehavior bagB; // e.g.
+    SpeedBehavior speedB; // e.g.
+    FuelBehavior fuelB; // e.g.
 
     // setters
 
     /**
      *
-     * @param name
+     * @param name name of the vehicle
+     * description: setter method for the name attribute of a vehicle
      */
     public void setName(String name) {
         this.name = name;
@@ -22,7 +23,8 @@ public abstract class Vehicle {
 
     /**
      *
-     * @param cost
+     * @param cost cost of the vehicle
+     * description: setter method for the cost attribute of a vehicle
      */
     public void setCost(int cost) {
         this.cost = cost;
@@ -33,7 +35,8 @@ public abstract class Vehicle {
 
     /**
      *
-     * @param costB
+     * @param costB cost behaviour of the vehicle
+     * description: setter method for the cost behaviour of a vehicle
      */
     public void setCostBehavior(CostBehavior costB){
         this.costB = costB;
@@ -41,7 +44,8 @@ public abstract class Vehicle {
 
     /**
      *
-     * @param bagB
+     * @param bagB bag behaviour of the vehicle
+     * description: setter method for the bag behaviour of a vehicle
      */
     public void setBagBehavior(BagBehavior bagB){
         this.bagB = bagB;
@@ -49,7 +53,8 @@ public abstract class Vehicle {
 
     /**
      *
-     * @param speedB
+     * @param speedB cost behaviour of the vehicle
+     * description: setter method for the speed behaviour of a vehicle
      */
     public void setSpeedBehavior(SpeedBehavior speedB){
         this.speedB = speedB;
@@ -57,44 +62,49 @@ public abstract class Vehicle {
 
     /**
      *
-     * @param fuelB
+     * @param fuelB cost behaviour of the vehicle
+     * description: setter method for the fuel behaviour of a vehicle
      */
     public void setFuelBehavior(FuelBehavior fuelB){
         this.fuelB = fuelB;
     }
 
-    // printer
+    // helper methods: printer
 
     /**
-     *
+     * description: prints the cost behaviour of a vehicle
      */
     public void printCostBehavior(){
         costB.printCostBehavior();
     }
 
     /**
-     *
+     * description: prints the bag behaviour of a vehicle
      */
     public void printBagBehavior(){
         bagB.printBagBehavior();
     }
 
     /**
-     *
+     * description: prints the speed behaviour of a vehicle
      */
     public void printSpeedBehavior(){
         speedB.printSpeedBehavior();
     }
 
     /**
-     *
+     * description: prints the fuel behaviour of a vehicle
      */
     public void printFuelBehavior(){
         fuelB.printFuelBehavior();
     }
 
     /**
-     *
+     * description: prints the specific ride function for a
+     *              vehicle entity, depending on the
+     *              dynamically set behaviour
+     *              for instance:
+     *              "Micro car; 1 bag; normal speed; 12 CHF/h"
      */
     public void printRide() {
         System.out.print(this.name + "; ");

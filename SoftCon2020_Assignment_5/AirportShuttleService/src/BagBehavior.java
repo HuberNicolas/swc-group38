@@ -1,7 +1,11 @@
+/**
+ * interface for the bag behaviour
+ */
 public interface BagBehavior {
     public void printBagBehavior();
 }
 
+// encapsulated bag behaviour
 class smallBag implements BagBehavior{
     @Override
     public void printBagBehavior() {

@@ -1,7 +1,11 @@
+/**
+ * interface for the speed behaviour
+ */
 public interface SpeedBehavior {
     public void printSpeedBehavior();
 }
 
+// encapsulated speed behaviour
 class slowSpeed implements SpeedBehavior{
     @Override
     public void printSpeedBehavior() {
