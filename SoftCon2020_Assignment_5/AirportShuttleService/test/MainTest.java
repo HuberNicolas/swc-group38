@@ -14,8 +14,12 @@ class MainTest {
     }
 
     /**
-     * @param: date = "12.03.2020"
-     * In this Test we create a which rides the MicroCar
+     * @param:
+     * date = "12.03.2020"
+     * vehicle = new MicroCar()
+     *
+     * @description:
+     * In this test we create a customer which rides the MicroCar
      */
     @Test
     public void MicroCarTest(){
@@ -30,8 +34,12 @@ class MainTest {
         assertEquals(expectedOutput, outContent.toString());
     }
     /**
-     * @param: date = "12.04,2020"
-     * In this Test we create a which rides the Bus
+     * @param:
+     * date = "12.04.2020"
+     * vehicle = new Bus()
+     *
+     * @description:
+     * In this test we create a customer which rides the Bus
      */
     @Test
     public void BusTest(){
@@ -46,8 +54,12 @@ class MainTest {
         assertEquals(expectedOutput, outContent.toString());
     }
     /**
-     * @param: date = "12.05,2020"
-     * In this Test we create a which rides the SuperCar
+     * @param:
+     * date = "12.05.2020"
+     * vehicle = new Supercar()
+     *
+     * @description:
+     * In this test we create a customer which rides the Supercar
      */
     @Test
     public void SupercarTest(){
@@ -62,8 +74,12 @@ class MainTest {
         assertEquals(expectedOutput, outContent.toString());
     }
     /**
-     * @param: date = "12.06,2020"
-     * In this Test we create a which rides the FamiliyCar
+     * @param:
+     * date = "12.06.2020"
+     * vehicle = new FamilyCar()
+     *
+     * @description:
+     * In this test we create a customer which rides the Familycar
      */
     @Test
     public void FamilyCarTest(){
@@ -78,15 +94,19 @@ class MainTest {
         assertEquals(expectedOutput, outContent.toString());
     }
     /**
-     * @param: date = "121212" but is not relevant, vehicle = null (which is not valid)
-     * In this Test we check, if the system raises a NullPointerException if the vehicle=null
+     * @param:
+     * date = "12.07.2020"
+     * vehicle = null
+     *
+     * @description:
+     * In this test we check, if the system raises a NullPointerException if the vehicle=null
      */
     @Test
     public void NullPointerException(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        Customer Steve = new Customer("121212", null);
+        Customer Steve = new Customer("12.07.20", null);
         try {
             Steve.ride();
         }
