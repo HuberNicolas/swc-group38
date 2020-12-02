@@ -2,12 +2,13 @@ public class Controller {
     private Employee model;
     private View view;
 
+    //initialisation of the controller
     public Controller(Employee model, View view) {
         this.model = model;
         this.view = view;
     }
 
-    // setter
+    // setter for employee
 
     public void setEmployeeName(String name) {
         model.setName(name);

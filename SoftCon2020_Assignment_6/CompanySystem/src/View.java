@@ -1,4 +1,8 @@
 public class View {
+    /**
+     *
+     * @param e = employee
+     */
     public void printEmpolyeeDetails(Employee e) {
         printName(e.getName());
         printSurname(e.getSurname());
@@ -7,6 +11,7 @@ public class View {
         printId(e.getId());
     }
 
+    //methods to print out
     public void printName(String name) {
         System.out.println(name);
     }
@@ -22,6 +27,5 @@ public class View {
     public void printId(int id) {
         System.out.println(id);
     }
-
 
 }
