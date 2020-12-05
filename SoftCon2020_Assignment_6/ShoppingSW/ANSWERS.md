@@ -12,9 +12,9 @@ As in the documentation described, we model the following main classes:
 
 All of them can be interpreted as real physical item with a clear hierarchy, except the search bar. However, it makes sense to create a conceptual model of the search bar, because bundles several functions. We will take a look at each of the classes:
 
-*** Main Classes ***
+## Main Classes
 
-** User **
+### User
 The main user class has 3 subclasses: Normal customer, gold customer and platinum customer. These subclasses define, how many items a user can sell at the same time (1, 5 or 10), however, these attributes are specified in each subclass. The main user class implements the following methods, which every user is able to perform, regardless of his/her level:
  - setPrice(Product p, int Price)
  - logIn()
@@ -28,14 +28,14 @@ The main user class has 3 subclasses: Normal customer, gold customer and platinu
  - setFilterCategory(Product p)
  - setFilterTypeOfClothes(Clothes c)
 
-** Product **
+### Product
 The main product class has 2 subclasses: Clothes and Boots. Each product has the following attributes:
   - String name
   - String color
   - int size
   - int prize
 
-** Cart **
+### Cart
 The cart class has no subclasses. It models a cart, that contains items. The following attributes and methods would be implemented:
     Attribute
   - ArrayList<Product> cartList = new ArrayList<Product>()
@@ -45,7 +45,7 @@ The cart class has no subclasses. It models a cart, that contains items. The fol
   - addProduct(Product p)
   - removeProduct(Product p)
 
-** Search bar **
+### Search bar
 Also the search bar has no subclasses. Using this class, the user is able to search and filter the online shopping platform:
     Attribute
   - ArrayList<Product> globalListOfAllItems = new ArrayList<Product>()
@@ -54,15 +54,16 @@ Also the search bar has no subclasses. Using this class, the user is able to sea
   - setFilterCategory(Product p)
   - setFilterTypeOfClothes(Clothes c)
 
-*** Subclasses ***
-** normal customer, gold customer and platinum customer **
+## Subclasses
+
+### normal customer, gold customer and platinum customer
 Each customer class has a different defined attribute numberOfMaxProductSelling, namely:
   - normal Customer : 1
   - golden Customer : 5
   - platinum Customer : 10
 
-** dress, trousers, shirt **
+### dress, trousers, shirt
 Each of these subclasses can generate entities. Having said that, can create a dress object, a trousers object and a shirt object, all of them will inherit the attributes of the main class clothes.
 
-** boots, sneakers **
+### boots, sneakers
 Each of these subclasses can generate entities. Having said that, can create a boots object and a sneakers object, both of them will inherit the attributes of the main class shoes.
