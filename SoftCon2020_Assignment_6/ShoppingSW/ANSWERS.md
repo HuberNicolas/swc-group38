@@ -1,27 +1,68 @@
-# Assignment 5:
+# Assignment 6:
 ## Description:
 
 
+Regarding the Responsibilty Driven Design pattern, we would implement the ShoppingSW online shopping platform as follows:
 
-To create this specific airport shuttle service, the system needs to handle two actors: the customer and the vehicle. 
-The customer is pretty simple: it takes the date and the car it wants do drive. Depending on what car he chose, the drive method prints the corresponding attributes.
-As all the cars have the same variables that need to be declared, an abstract class Vehicle was created. It has the following "simple" attributes:
-- name: the name of the car
-- cost: the price
-and the following "behavior" attributes that where implemented with a "strategy" pattern as learned in class:
-- costB: the cost behavior (can be implemented as: flat-rate, CHF/h, ...)
-- bagB: the bag behavior (how many of which bags can be transported)
-- speedB: the speed of the car (can be implemented as: slow, middle, fast, ...)
-- fuelB: what fuel does it need (can be implemented as: gasoline, diesel, electric, ...)
-This makes it easy to change/add/delete specific vehicles and their corresponding behaviors.
+As in the documentation described, we model the following main classes:
+  * User
+  * Product
+  * Cart
+  * Search bar
 
-Each subclass of the Vehicle (Micro car, family car, supercar, bus, ...) sets their specific behavior at the construction(e.g. sets speedBehavior to normalSpeed that inherits from the SpeedBehavior-interface).
-They also all inherit the printRide() method that prints their values that have been set (which is called when the customer wants to "ride"). 
+All of them can be interpreted as real physical item with a clear hierarchy, except the search bar. However, it makes sense to create a conceptual model of the search bar, because bundles several functions. We will take a look at each of the classes:
 
-Regarding the **strategy** design pattern, the implementation of the airport shuttle service guarantees, that the system can be extended easily:
-- Extending the abstract class Vehicle allows creating new classes for vehicle entities for instance a new class named MegaCar.
-- Taking use of the strategy design pattern, the behaviour of a specific entity can set dynamically. Adding more interfaces for new behaviours e.g. comfortLevelBehaviour is possible at any time.
-  Implementing these new interfaces allows setting new behaviours for instance a cosyComfortLevel implements comfortLevelBehaviour.
+*** Main Classes ***
 
+** User **
+The main user class has 3 subclasses: Normal customer, gold customer and platinum customer. These subclasses define, how many items a user can sell at the same time (1, 5 or 10), however, these attributes are specified in each subclass. The main user class implements the following methods, which every user is able to perform, regardless of his/her level:
+ - setPrice(Product p, int Price)
+ - logIn()
+ - sell(Product p)
+ - buy(Product p)
+ - checkCart()
+ - removeFromCart(Product p)
+ - buyFromAnotherUser(User u, Product p, int Price)
+ - checkout(String paymentMethod)
+ - search(Product p)
+ - setFilterCategory(Product p)
+ - setFilterTypeOfClothes(Clothes c)
 
+** Product **
+The main product class has 2 subclasses: Clothes and Boots. Each product has the following attributes:
+  - String name
+  - String color
+  - int size
+  - int prize
 
+** Cart **
+The cart class has no subclasses. It models a cart, that contains items. The following attributes and methods would be implemented:
+    Attribute
+  - ArrayList<Product> cartList = new ArrayList<Product>()
+
+    Methods
+  - checkCart()
+  - addProduct(Product p)
+  - removeProduct(Product p)
+
+** Search bar **
+Also the search bar has no subclasses. Using this class, the user is able to search and filter the online shopping platform:
+    Attribute
+  - ArrayList<Product> globalListOfAllItems = new ArrayList<Product>()
+
+    Methods
+  - setFilterCategory(Product p)
+  - setFilterTypeOfClothes(Clothes c)
+
+*** Subclasses ***
+** normal customer, gold customer and platinum customer **
+Each customer class has a different defined attribute numberOfMaxProductSelling, namely:
+  - normal Customer : 1
+  - golden Customer : 5
+  - platinum Customer : 10
+
+** dress, trousers, shirt **
+Each of these subclasses can generate entities. Having said that, can create a dress object, a trousers object and a shirt object, all of them will inherit the attributes of the main class clothes.
+
+** boots, sneakers **
+Each of these subclasses can generate entities. Having said that, can create a boots object and a sneakers object, both of them will inherit the attributes of the main class shoes.
