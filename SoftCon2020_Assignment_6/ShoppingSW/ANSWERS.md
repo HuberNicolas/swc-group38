@@ -4,7 +4,21 @@
 
 Regarding the Responsibility Driven Design pattern, we would implement the ShoppingSW online shopping platform as follows:
 
-As in the documentation described, we model the following main classes:
+## Workflow
+
+First, we extracted the *key points* from the assignment:
+![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/ClassSelection.png)
+
+Secondly, we used the techniques we've learnt in class regarding RD-Design:
+![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/RDDesign.png)
+
+After creating CRC-Cards, we could finally create a Class Diagram.
+
+
+## Class Diagram
+![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/ClassDiagram.png)
+
+As in the class diagram described, we model the following main classes:
   * Shopping Platform
   * User
   * Product
