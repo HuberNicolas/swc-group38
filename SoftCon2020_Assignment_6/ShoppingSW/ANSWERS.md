@@ -7,7 +7,7 @@ Regarding the Responsibility Driven Design pattern, we would implement the Shopp
 ## Workflow
 
 First, we extracted the *key points* from the assignment:
-![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/ClassSelection.png)
+![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/ClassSelection.PNG)
 
 Secondly, we used the techniques we've learnt in class regarding RD-Design:
 ![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/RDDesign.png)
