@@ -2,9 +2,10 @@
 ## Description:
 
 
-Regarding the Responsibilty Driven Design pattern, we would implement the ShoppingSW online shopping platform as follows:
+Regarding the Responsibility Driven Design pattern, we would implement the ShoppingSW online shopping platform as follows:
 
 As in the documentation described, we model the following main classes:
+  * Shopping Platform
   * User
   * Product
   * Cart
@@ -13,6 +14,17 @@ As in the documentation described, we model the following main classes:
 All of them can be interpreted as real physical item with a clear hierarchy, except the search bar. However, it makes sense to create a conceptual model of the search bar, because bundles several functions. We will take a look at each of the classes:
 
 ## Main Classes
+
+### Shopping Platform
+This entity models the platform where all the transactions are made. It has no subclasses. We would implement this with this Singleton design pattern, since there can only exist one shopping platform. The following methods could be useful:
+    Attribute
+  - ArrayList<Users> userList = new ArrayList<User>()
+  - SearchBar s = new SearchBar
+
+    Methods
+  - createUser(String name, String type)
+  - listAllUsers()
+  - deleteUser(String name)
 
 ### User
 The main user class has 3 subclasses: Normal customer, gold customer and platinum customer. These subclasses define, how many items a user can sell at the same time (1, 5 or 10), however, these attributes are specified in each subclass. The main user class implements the following methods, which every user is able to perform, regardless of his/her level:
