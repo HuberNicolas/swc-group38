@@ -14,12 +14,8 @@ The Utils class has the purpose to provide the funcion generateID(). This functi
 
 The class View can print out the details of a created employee. It can either print specific data like printName or the whole details with printEmpolyeeDetails(Employee e).
 
-The Controllerclass gets initialized. It has the ability to set the specific details for the employee like setEmployeeSurname. It can also directly print out the updated data by using updateView() which uses printEmpolyeeDetails from the View class. 
+The Controllerclass gets initialized. It has the ability to set the specific details for the employee like setEmployeeSurname. It can also directly print out the updated data by using updateView() which uses printEmpolyeeDetails from the View class.
 
 ## UML
 This is the UML.
-![Class Diagram Company](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/CompanySystem/UML/UML.png "Class Diagram Company System")
-
-
-
-
+![Class Diagram Company](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/CompanySystem/UML/UML_2.png "Class Diagram Company System")
