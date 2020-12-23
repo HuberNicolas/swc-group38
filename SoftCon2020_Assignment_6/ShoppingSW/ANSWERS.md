@@ -93,3 +93,8 @@ Each of these subclasses can generate entities. Having said that, can create a d
 
 ### boots, sneakers
 Each of these subclasses can generate entities. Having said that, can create a boots object and a sneakers object, both of them will inherit the attributes of the main class shoes.
+
+
+## Final UML Diagram
+This lead to the final uml class diagram:
+![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/UML_Diagram.PNG)
