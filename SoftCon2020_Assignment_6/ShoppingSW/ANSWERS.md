@@ -97,4 +97,4 @@ Each of these subclasses can generate entities. Having said that, can create a b
 
 ## Final UML Diagram
 This lead to the final uml class diagram:
-![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/UML_Diagram.PNG)
+![alt text](https://github.com/HuberNicolas/swc-group38/blob/master/SoftCon2020_Assignment_6/ShoppingSW/UML_Diagram.png)
